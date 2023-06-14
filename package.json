@@ -1,0 +1,24 @@
+{
+  "name": "docskit-landing",
+  "version": "1.0.0",
+  "description": "DocsKit documentation site",
+  "main": "index.js",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build --prefix-paths"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Platform-OS/docskit-landing.git"
+  },
+  "author": "platformOS",
+  "license": "ISC",
+  "homepage": "https://github.com/Platform-OS/docskit-landing#readme",
+  "dependencies": {
+    "@platformos/gatsby-theme-platformos-docskit": "^1.0.1",
+    "gatsby": "^5.10.0",
+    "gatsby-plugin-manifest": "^5.10.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
