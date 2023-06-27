@@ -1,0 +1,8 @@
+.c-card--gradient {
+  background-size: 200% auto;
+  background-image: linear-gradient(to right, var(--gradient1-from) 0%, var(--gradient1-to) 51%, var(--gradient1-from) 100%);
+  transition: .5s;
+}
+.c-card--gradient:hover {
+  background-position: right center;
+}

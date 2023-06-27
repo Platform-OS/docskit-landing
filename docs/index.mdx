@@ -3,4 +3,36 @@ title: DocsKit
 description: DocsKit
 ---
 
+import bgImage1 from './illustration1.svg';
+import bgImage2 from './illustration2.svg';
+
 <Hero />
+
+<Grid>
+  <Card variant="gradient" hoverable shadow bgImage={bgImage1}>
+
+        ### Learn more about DocsKit 
+        Discover the full potential of DocsKit! Explore our detailed specifications and descriptions to gain deeper insights into our features.
+        
+        <Button href="#">Discover DocsKit</Button>
+  </Card>
+  <Card variant="highlighted" hoverable shadow bgImage={bgImage2}>
+
+        ### Closely examine DocsKit
+        Access our GitHub repository to examine the source code and learn more about the technical implementation of our features. 
+
+        <Button href="#">Access source code</Button>
+  </Card>
+</Grid>
+
+## What’s included
+
+* Open-source Docs as Code documentation solution leveraging platformOS, a git workflow, and a static site generator
+* Fully customizable theme 
+* Editorial workflow 
+* Templates for your 
+  * documentation style guide
+  * contributor guide
+  * most-used content types 
+* Comprehensive how-to documentation for using the DocsKit
+
