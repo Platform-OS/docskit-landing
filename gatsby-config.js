@@ -7,7 +7,12 @@ module.exports = {
     author: 'platformOS'
   },
     plugins: [
-      '@platformos/gatsby-theme-platformos-docskit',
+      {
+        resolve: '@platformos/gatsby-theme-platformos-docskit',
+        options: {
+          showFullNavigation: true
+        }
+      },
       {
         resolve: 'gatsby-plugin-manifest',
         options: {

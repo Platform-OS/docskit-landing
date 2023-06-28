@@ -19,7 +19,7 @@ const Hero = () => (
         <img src={docskitSvg} alt="PlatformOS DocsKit" className="w-48 h-auto" />
         <div className="area" aria-hidden="true">
           <ul className="triangles">
-            <li>▶</li><li>▶</li><li>▶</li><li>▶</li><li>▶</li>
+            <li>▶</li><li>▶</li><li>▶</li><li>▶</li><li>▶</li><li>▶</li>
           </ul>
         </div>
       </div>

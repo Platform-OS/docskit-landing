@@ -1,8 +1,9 @@
 import React from 'react';
+import './heading.css';
 
 const Heading = ({ level = 1, children, ...rest }) => {
-  let classes = 'text-prominent relative mb-0';
-  let wrapperClasses = 'pb-4';
+  let classes = 'text-prominent relative m-0 p-2';
+  let wrapperClasses = 'pb-4 mt-8';
   let Tag = 'h1';
   switch (level) {
     case '1':
@@ -21,19 +22,18 @@ const Heading = ({ level = 1, children, ...rest }) => {
       Tag = 'h4';
       classes += ' text-xl font-bold';
       break;
-    case '5':
+    default:
       Tag = 'h5';
       classes += ' text-xl';
       break;
   }
   return (
-    <div className={wrapperClasses}>
-      <Tag className={classes} {...rest}>
-        {children}
-      </Tag>
-      {level === '2' ?
-        (<span className="flex-1 border-b mb-1 ms-2"></span>) :
-        ''}
+    <div className={`headline-${level} ${wrapperClasses}`}>
+      <div className={`headline-${level}__bg`}>
+        <Tag className={`headline-${level}__text ${classes}`} {...rest}>
+          {children}
+        </Tag>
+      </div>
     </div>);
 };
 

@@ -1868,10 +1868,10 @@
     "chrome-trace-event" "^1.0.2"
     "nullthrows" "^1.1.1"
 
-"@platformos/gatsby-theme-platformos-docskit@^1.0.1":
-  "integrity" "sha512-x3TdN3TETi0aFIGdVsRC6qsk99f8Sj/DmdhR+frwVYgefPH9s3vv9fnPi7BxU5RHm9UBwkulFrK1+x306LXQYA=="
-  "resolved" "https://registry.npmjs.org/@platformos/gatsby-theme-platformos-docskit/-/gatsby-theme-platformos-docskit-1.0.1.tgz"
-  "version" "1.0.1"
+"@platformos/gatsby-theme-platformos-docskit@^1.1.0":
+  "integrity" "sha512-re9fyFb1Qq+rdoZZFVdYzGgl0IubFhS3aFmaySS0nMK5i8jJyWMeYFt+UPzO6AN5nDVlaz1vSt6lhfW2ogC7qQ=="
+  "resolved" "https://registry.npmjs.org/@platformos/gatsby-theme-platformos-docskit/-/gatsby-theme-platformos-docskit-1.1.0.tgz"
+  "version" "1.1.0"
   dependencies:
     "@fontsource-variable/mulish" "^5.0.1"
     "@mdx-js/react" "^2.3.0"
