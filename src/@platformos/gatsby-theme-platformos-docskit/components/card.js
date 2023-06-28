@@ -20,6 +20,10 @@ const Card = ({
     base += ' hover:shadow-large';
   }
 
+  if (bgImage) {
+    base += ' c-card--image';
+  }
+
   const classes = {
     default: `bg-panel ${base}`,
     highlighted: `text-inverted prose-headings:text-inverted prose-a:text-inverted bg-gradient-to-r from-gradient2-from to-gradient2-to ${base}`,
@@ -27,8 +31,8 @@ const Card = ({
   };
 
   return (
-    <div className={`${classes[variant]} c-card--${variant} ${className}`} style={bgImage ? {paddingRight: '30%'} : {}}>
-      {bgImage && <img src={bgImage} alt="" className={`absolute -z-10 ${imageClasses}`} />}
+    <div className={`${classes[variant]} c-card--${variant} ${className}`}>
+      {bgImage && <img src={bgImage} alt="" className={`c-card__image absolute -z-10 ${imageClasses}`} />}
       {children}
     </div>
   );
