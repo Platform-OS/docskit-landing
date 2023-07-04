@@ -1,4 +1,6 @@
-
+.headline {
+  margin-top: 18px;
+}
 .headline-1,
 .headline-2 {
   display: inline-block;

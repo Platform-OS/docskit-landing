@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'Gotham';
+  src: url(../fonts/Gotham-Book.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src: url(../fonts/Gotham-Medium.woff2) format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+main a {
+  color: rgb(var(--interactive-text));
+}
+main a:hover {
+  color: rgb(var(--interactive-hover));
+  text-decoration: underline;
+}
+
+.styled-list ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+.styled-list ul li {
+  position: relative;
+	padding-left: 40px;
+	margin-bottom: 0.5em;
+}
+
+.styled-list ul li::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 3px;
+	width: 1.5em;
+	height: 1.5em;
+  background-size: contain;
+	background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='33' viewBox='0 0 32 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 12.3304L13.392 18.4784C13.7584 18.9914 14.3419 19.3056 14.9719 19.329C15.6018 19.3525 16.2071 19.0827 16.6107 18.5984L31 1.3291' stroke='%230F7B0A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M29 14.332V27.332C29 29.5412 27.2091 31.332 25 31.332H5C2.79086 31.332 1 29.5412 1 27.332V7.33203C1 5.12289 2.79086 3.33203 5 3.33203H22' stroke='%230F7B0A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+}

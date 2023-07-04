@@ -6,3 +6,19 @@
 .c-card--gradient:hover {
   background-position: right center;
 }
+.c-card__image {
+  opacity: .2;
+}
+@media (min-width: 1024px) {
+  .c-card--image {
+    padding-right: 50%;
+  }
+  .c-card__image {
+    opacity: 1;
+  }
+}
+@media (min-width: 1280px) {
+  .c-card--image {
+    padding-right: 40%;
+  }
+}
