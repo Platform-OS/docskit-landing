@@ -1,0 +1,63 @@
+---
+title: Navigation
+slug: user-guide/navigation
+---
+
+# Navigation 
+
+## Basics
+
+To get started, think of your documentation as a collection of individual pages. Each page represents a topic or section of your documentation. 
+When creating a new page, you'll need to provide a unique identifier called a "slug" in the markdown frontmatter. 
+This slug will determine the URL of the page and its place in the navigation structure.
+
+Additionally, it's important to provide a meaningful title for each page in the frontmatter. 
+This title will be used as the name of the corresponding menu item in the navigation.
+
+While the slug and title properties are essential for creating a robust navigation structure, we also support a fallback system based on folders and filenames. 
+If you don't provide a slug for a page, the system will generate one based on the folder structure. In this case make sure that every topic folder contains an `index.mdx` file that serves as a topic content page.
+However, we encourage content writers to provide a slug in the frontmatter to have more control over the URL and navigation structure.
+
+This is how the frontmatter of the current page looks like:  
+```frontmatter
+---
+title: Navigation
+slug: /user-guide/navigation
+---
+```
+
+## Main menu and sidebar navigation
+
+The navigation structure is automatically generated based on the pages you create. 
+The main menu will display the top-level topics, with each topic represented by a specific page. 
+This ensures that every menu item corresponds to a page, providing a seamless and intuitive browsing experience for your users.
+
+The the sidebar menu focuses on the current topic, showing the relevant pages within that branch.
+
+If you want to fine-tune the navigation display, you have the option to disable the branch-based filtering. This will show all the pages across all topics in the sidebar menu, with the current page highlighted.  
+Your development team can disable the branch-based filtering for sidebar navigation by adding `showFullNavigation: true` to the DocsKit theme options.
+
+To enhance navigation within each page, a table of contents (ToC) is automatically generated based on the headings you use. 
+By structuring your content with headings like "Section 1" and "Subsection A," the ToC will be generated accordingly.
+
+## Customization
+
+We understand that flexibility is important, so you have the option to customize the appearance of your pages. 
+You can choose to turn off the sidebar menu and/or the table of contents for specific pages, allowing you to focus solely on the content.
+You can do this by addign `hideNavigation: true` or `hideToc: true` to the page frontmatter:
+```frontmatter
+---
+title: My full-width page
+slug: /full-width-page
+hideNavigation: true
+hideToc: true
+```
+
+## Summary
+
+By providing slugs and titles for your pages, you can create a clear and intuitive navigation structure.
+Users will easily find the information they need, with each menu item corresponding to a dedicated page. 
+Additionally, the generated table of contents enhances navigation within each page, further improving the user experience.
+
+Start creating your well-structured documentation site, ensuring that each topic has its own dedicated page with a unique slug and meaningful title. 
+This will enable your users to navigate seamlessly through your valuable content, enhancing their learning and discovery process.

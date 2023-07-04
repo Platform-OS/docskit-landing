@@ -1,0 +1,7 @@
+main a {
+  color: rgb(var(--interactive-text));
+}
+main a:hover {
+  color: rgb(var(--interactive-hover));
+  text-decoration: underline;
+}
