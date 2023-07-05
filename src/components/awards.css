@@ -1,0 +1,10 @@
+.awards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.awards img {
+  max-height: 6rem;
+}
