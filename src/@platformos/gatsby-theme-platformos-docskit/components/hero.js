@@ -1,5 +1,5 @@
 import React from 'react'
-import docskitSvg from '../../../images/docskit.svg';
+import { StaticImage } from 'gatsby-plugin-image';
 import './hero.css';
 
 const Hero = () => (
@@ -16,7 +16,7 @@ const Hero = () => (
           </h2>
       </div>
       <div className="hidden lg:block">
-        <img src={docskitSvg} alt="PlatformOS DocsKit" className="w-48 h-auto" />
+        <StaticImage src="../../../images/docskit.png" width={350} quality={100} alt="PlatformOS DocsKit" placeholder='#fff' className="h-auto" />
         <div className="area" aria-hidden="true">
           <ul className="triangles">
             <li>▶</li><li>▶</li><li>▶</li><li>▶</li><li>▶</li><li>▶</li>
