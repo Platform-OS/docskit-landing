@@ -1,0 +1,46 @@
+---
+title: [VERBing a(n)/the NOUN(s)]
+slug: [the end part of the URL after the backslash that identifies the page]
+description: [Short description of the topic, can reuse first sentence, max 300 characters]
+---
+
+This guide will help you [describe what the user will achieve by the end of the guide]. [Explain goal, domain-related background information, any information that helps understand the purpose or terminology of the tutorial.]
+
+## Requirements
+
+[List of requirements with links (internal or external) and explanations where needed.]
+
+- [Requirement 1: explanation if applicable]
+- [Requirement 2: explanation if applicable]
+- [Requirement 3: explanation if applicable]
+
+## Steps
+
+[optional: purpose of the tutorial/title] is a [number of large steps, e.g. two]-step process:
+
+[list of links to individual steps - can be auto-generated]
+
+### Step 1: [VERB the/a(n)/your NOUN]
+
+[Full description of step with additional content, like code snippet, screenshot, etc.]
+
+### Step 2: [VERB the/a(n)/your NOUN]
+
+### Step 3: [VERB the/a(n)/your NOUN]
+
+## Live example and source code
+[optional: link to live site or source code]
+
+## Troubleshooting
+[optional: information on fixing issues related to this topic]
+
+## Additional resources
+[optional: bulleted list to additional external resources]
+
+## Next steps
+
+Congratulations! You have [what the user has achieved].
+[Describe what the user can/has to do next.]
+
+- [Link to next tutorial]()
+- [Other link to next tutorial - if applicable]()
