@@ -6,13 +6,16 @@
 .search__input {
   width: 100%;
   max-width: 480px;
-  padding: 8px 16px;
+  padding: 8px 32px 8px 16px;
   border: 1px solid rgb(var(--input-border));
   border-radius: var(--radius-input);
   background-color: rgb(var(--input));
   color: rgb(var(--input-foreground));
   font-size: 16px;
   outline: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewBox='0 0 21 21' fill='none'%3E%3Cpath fillrule='evenodd' cliprule='evenodd' d='M12.1169 15.6707C15.5292 14.2205 17.1198 10.2787 15.6696 6.86635C14.2194 3.45406 10.2776 1.86346 6.86528 3.31365C3.45298 4.76384 1.86238 8.70567 3.31257 12.118C4.76276 15.5303 8.70459 17.1209 12.1169 15.6707Z' stroke='%231D4ED8' strokewidth='%7B1.25%7D' strokelinecap='round' strokelinejoin='round' /%3E%3Cpath d='M14.2378 14.2383L19.4445 19.4457' stroke='%231D4ED8' strokewidth='%7B1.25%7D' strokelinecap='round' strokelinejoin='round' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center right 10px;
 }
 .search__input:focus {
   box-shadow: 0 0 1px 2px rgb(var(--interactive-graphic));

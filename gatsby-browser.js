@@ -5,4 +5,5 @@
  */
 
 import './src/styles/global.css';
+import './src/styles/pricing-table.css';
 
