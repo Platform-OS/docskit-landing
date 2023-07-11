@@ -35,13 +35,16 @@ const Search = () => {
 
   return (
     <div className="search" ref={searchRef}>
-      <input
-        aria-label="Search"
-        className="search__input"
-        type="search"
-        onFocus={handleQueryChange}
-        onChange={handleQueryChange}
-        placeholder="Search..." />
+      <form method="get" action="/search/">
+        <input
+          name="q"
+          aria-label="Search"
+          className="search__input"
+          type="search"
+          onFocus={handleQueryChange}
+          onChange={handleQueryChange}
+          placeholder="Search..." />
+      </form>
 
       {query.length > 0 && (<span className="search__results-count">{results.length} results</span>)}
       {results.length > 0 && query.length > 0 && (

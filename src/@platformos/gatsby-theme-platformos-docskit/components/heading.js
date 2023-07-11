@@ -3,7 +3,7 @@ import './heading.css';
 
 const Heading = ({ level = 1, children, ...rest }) => {
   let classes = 'text-prominent relative m-0 p-2';
-  let wrapperClasses = 'pb-4';
+  let wrapperClasses = '';
   let Tag = 'h1';
   switch (level) {
     case '1':

@@ -1,0 +1,9 @@
+.footer__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.footer__content > * {
+  margin-right: 1rem;
+  padding-right: 1rem;
+}
