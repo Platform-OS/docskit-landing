@@ -14,7 +14,7 @@ const Hero = () => (
           <h2 className="max-w-3xl mb-6 font-light text-prominent lg:mb-8 md:text-lg lg:text-xl">
           Deploy a best practice and fully customizable documentation site quickly!
           Inspired by our multi-award winning documentation site, our documentation package will provide everything
-          you need to build best practice documentation sites for your projects
+          you need to build best practice documentation sites for your projects.
           </h2>
         </div>
 
