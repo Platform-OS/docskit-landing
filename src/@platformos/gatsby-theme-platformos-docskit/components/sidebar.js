@@ -42,8 +42,8 @@ const Sidebar = ({ branch, treeData = [], isMobileNavOpen = false, sidebarEnable
       <div className="lg:sticky top-[4.5rem] -ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-4">
         <nav className="w-56">
           <p className="pb-6 text-supplementary">Search documentation</p>
-          <form method="get" action="/search/" style={{ marginBottom: '1.5rem' }}>
-            <input name="q" aria-label="Search" className="search__input" type="search" placeholder="Search..." />
+          <form method="get" action="/search/" style={{ marginBottom: '1.5rem' }} autoComplete="off">
+            <input name="q" aria-label="Search" className="search__input" type="search" placeholder="Search..." aria-autocomplete="none" autoComplete="off" />
           </form>
           <ul className="text-normal">
             {tree.map(item => item && (<NavItem key={item.slug} {...item} />))}

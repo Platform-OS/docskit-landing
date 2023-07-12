@@ -35,7 +35,7 @@ const Search = () => {
 
   return (
     <div className="search" ref={searchRef}>
-      <form method="get" action="/search/">
+      <form method="get" action="/search/" autoComplete="off">
         <input
           name="q"
           aria-label="Search"
@@ -43,7 +43,10 @@ const Search = () => {
           type="search"
           onFocus={handleQueryChange}
           onChange={handleQueryChange}
-          placeholder="Search..." />
+          placeholder="Search..."
+          aria-autocomplete="none"
+          autoComplete="off"
+        />
       </form>
 
       {query.length > 0 && (<span className="search__results-count">{results.length} results</span>)}

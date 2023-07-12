@@ -49,12 +49,9 @@ This gives you absolute control over the look and feel of your custom DocsKit do
 ## Custom theme for your brand
 
 Our expert team can help you create your custom documentation experience built on top of DocsKit! Schedule a personalized demo to see how DocsKit can enhance your documentation process.
+<br />
 
-import myCustomImage from '../illustration1.svg';
+import calendarIcon from '../calendar-icon.svg';
+import CtaCard from '../../src/components/cta-card.js';
 
-<Card variant="gradient" bgImage={myCustomImage}>
- Contact us to book a demo and experience the power of DocsKit for your documentation needs.  
-
- <Button href="/contact">Book a demo</Button>
-</Card>
-
+<CtaCard iconSrc={calendarIcon} ctaText="Book a demo" ctaLink="/contact/">Contact us to **book a demo** and experience the power of DocsKit for your documentation needs.</CtaCard>
