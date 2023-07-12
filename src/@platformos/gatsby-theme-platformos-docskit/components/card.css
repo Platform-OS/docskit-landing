@@ -8,6 +8,7 @@
 }
 .c-card__image {
   opacity: .2;
+  padding: 2rem;
 }
 @media (min-width: 1024px) {
   .c-card--image {

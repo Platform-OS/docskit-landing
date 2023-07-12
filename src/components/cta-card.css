@@ -1,0 +1,13 @@
+.c-card--cta {
+  display: flex;
+  align-items: center;
+}
+.c-card--cta__content {
+  flex: 1;
+  padding: 0 1rem;
+}
+.c-card--cta__content a,
+.c-card--cta__content a:hover {
+  color: rgb(var(--inverted));
+  text-decoration: underline;
+}

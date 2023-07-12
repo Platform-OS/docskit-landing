@@ -26,7 +26,8 @@ export default function SearchPage({ location }) {
   return (
     <Layout location={location} currentSlug="search" sidebarEnabled tocEnabled={false}>
       <div>
-        <h1 className="text-3xl font-bold pb-8">Search results for "{query}"</h1>
+        <h1 className="text-3xl font-bold pb-8">Search results</h1>
+        <h2 className="text-2xl font-bold pb-4">{query ? `for "${query}"` : ''}</h2>
         <div className="mb-8 text-supplementary">{results.length} results</div>
         <ul className="">
           {results.map((item) => (
