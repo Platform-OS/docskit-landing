@@ -1,0 +1,25 @@
+.pricing {
+  background: rgb(var(--base));
+  margin-bottom: 3rem;
+}
+.pricing .headline {
+  margin: 0;
+}
+.pricing td {
+  padding: 1rem;
+  vertical-align: middle;
+  text-align: left;
+}
+.pricing td:last-of-type {
+  text-align: right;
+}
+
+.pricing .highlighted {
+  background-image: linear-gradient(to right, var(--gradient2-from) 0%, var(--gradient2-to) 100%);
+  color: rgb(var(--inverted)) !important;
+}
+
+.pricing h3 {
+  font-size: 24px;
+  color: inherit;
+}

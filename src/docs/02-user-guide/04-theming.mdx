@@ -1,0 +1,57 @@
+---
+title: Theming and Customization
+slug: user-guide/theming
+description: "DocsKit's default theme is fully customizable: you can provide your own color scheme and custom components"
+---
+
+# Theming and Customization
+
+## Default theme
+
+Docskit comes with a fully customizable, accessible responsive theme.  
+
+Main Features:
+- SEO-ready
+- Accessible 
+- Responsive
+- Optimized images 
+- Pre-designed components  
+- Automatically generated navigation, table of contents, breadcrumbs
+
+
+## Custom color scheme 
+
+The DocsKit theme uses Gatsby's [Shadowing API](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/).  
+This means that you can provide your own color scheme by implementing the `src/@platformos/gatsby-theme-platformos-docskit/theme/colors.js` file in your DocsKit application's source code.
+The color scheme configuration file is a javascript object that defines the theme colors in RGB format:
+```javascript
+module.exports = {
+  "prominent": "0, 0, 0",
+  "normal": "55, 65, 81",
+  "supplementary": "107, 114, 128",
+  ...
+}
+```
+The naming and the format comes from platformOS's public design system: [The platformOS DesignKit](https://documentation.platformos.com/kits/ui/platformos-design-kit)
+
+
+
+## Custom components
+
+You can use the Shadowing API to extend or override the built-in DocsKit Components.
+If you want to create a different version of the <Button>Button</Button> component or you need a new variant, you can copy the original component file from the *node_modules* folder to `src/@platformos/gatsby-theme-platformos-docskit/components/button.js` and add your customizations.  
+
+Gatsby will use your custom button everywhere in the application after you restart the development server or build the application.  
+
+This gives you absolute control over the look and feel of your custom DocsKit documentation site.  
+
+
+## Custom theme for your brand
+
+Our expert team can help you create your custom documentation experience built on top of DocsKit! Schedule a personalized demo to see how DocsKit can enhance your documentation process.
+<br />
+
+import calendarIcon from '../calendar-icon.svg';
+import CtaCard from '../../src/components/cta-card.js';
+
+<CtaCard iconSrc={calendarIcon} ctaText="Book a demo" ctaLink="/contact/">Contact us to **book a demo** and experience the power of DocsKit for your documentation needs.</CtaCard>

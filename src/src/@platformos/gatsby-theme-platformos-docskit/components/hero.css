@@ -1,0 +1,78 @@
+.hero .area {
+  position: absolute;
+  z-index: -1;
+  width: 500px;
+  height: 450px;
+  top: 0;
+  right: 0;
+  font-family: "Segoe UI Symbol", "Arial", sans-serif;
+}
+
+.hero .triangles{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero .triangles li{
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  font-size: 30px;
+  animation: hero-triangles 25s linear infinite;
+  bottom: 0;
+  color: #194f90;
+  left: 20%;
+}
+
+.hero .triangles li:nth-child(1){
+  left: 55%;
+  animation-delay: 5s;
+  font-size: 40px;
+  color: #3a8dde;
+}
+
+.hero .triangles li:nth-child(2){
+  left: 30%;
+  animation-delay: 3s;
+  animation-duration: 12s;
+  font-size: 50px;
+  color: #e81f76;
+}
+
+.hero .triangles li:nth-child(3){
+  left: 60%;
+  font-size: 30px;
+  animation-delay: 10s;
+  color: #3a8dde;
+}
+.hero .triangles li:nth-child(4){
+  left: 50%;
+  font-size: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+  color: #45a041;
+}
+
+.hero .triangles li:nth-child(5){
+  left: 70%;
+  font-size: 80px;
+  animation-delay: 7s;
+  color: #194f90;
+}
+
+@keyframes hero-triangles {
+  0%{
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+  }
+  100%{
+      transform: translateY(-500px) rotate(360deg);
+      opacity: 0;
+  }
+}

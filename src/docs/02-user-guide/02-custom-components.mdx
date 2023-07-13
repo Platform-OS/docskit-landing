@@ -1,0 +1,173 @@
+---
+title: Custom components
+slug: user-guide/components
+description: The DocsKit package includes a collection of pre-designed custom components that you can readily utilize in your MDX documentation pages. 
+---
+
+# DocsKit components
+
+The DocsKit package includes a collection of pre-designed custom components that you can readily utilize in your MDX documentation pages. 
+
+## Message component 
+
+Display notifications or info bars in your pages.  
+
+Error message example:
+
+<Message variant="error">
+This is an error message
+</Message>
+
+How to add it to your page:
+```JSX
+<Message variant="error">
+  This is an error message
+</Message>
+```
+---------
+
+Info message example:
+
+<Message filled>
+This is a filled info message: the `filled` attribute adds a colorful background
+</Message>
+
+How to add it to your page:
+```JSX
+<Message variant="warning" filled>
+  This is a filled warning message: the `filled` attribute adds a colorful background
+</Message>
+```
+
+Variant:
+- info (default)
+- success
+- warning
+- error
+
+## Card component 
+
+Create content teasers or highlighted content blocks in your Markdown pages.
+
+<Card shadow hoverable>
+ *Card example*  
+ You can add Markdown to the card content
+</Card>
+
+```markdown
+<Card shadow hoverable>
+ *Card example*  
+ You can add Markdown to the card content
+</Card>
+```
+------
+
+<Card variant="highlighted" hoverable>
+ *Highlighted card*  
+ You can add Markdown to the card content
+</Card>
+
+```markdown
+<Card variant="highlighted" hoverable>
+ *Highlighted card*  
+ You can add Markdown to the card content
+</Card>
+```
+------
+
+<Card variant="gradient">
+ *Gradient card*  
+ You can add Markdown to the card content
+</Card>
+
+```markdown
+<Card variant="gradient">
+ *Gradient card*  
+ You can add Markdown to the card content
+</Card>
+```
+------
+import myCustomImage from '../illustration1.svg';
+
+<Card variant="gradient" bgImage={myCustomImage}>
+ *Card with background image*  
+ You can add Markdown to the card content
+</Card>
+
+```markdown
+import myCustomImage from '../illustration1.svg';
+
+<Card variant="gradient" bgImage={myCustomImage}>
+ *Card with background image*  
+ You can add Markdown to the card content
+</Card>
+```
+
+## Button component
+
+Add styled CTA buttons using the `<Button>` component:
+
+<Button href="#">Primary button</Button>
+
+
+```JSX
+<Button href="#">Primary button</Button>
+```
+------
+<Button href="#" variant="secondary">Secondary button</Button>
+
+
+```JSX
+<Button href="#" variant="secondary">Secondary button</Button>
+```
+
+## Grid component
+
+Use the `<Grid>` component to create multi-column layouts.  
+The layout will automatically fall back to a single-column layout on mobile devices with smaller screens.
+
+<Grid>
+  <Card variant="highlighted" hoverable>
+  Column 1
+  </Card>
+  <Card variant="highlighted" hoverable>
+  Column 2
+  </Card>
+</Grid>
+
+```JSX
+<Grid>
+  <Card variant="highlighted" hoverable>
+  Column 1
+  </Card>
+  <Card variant="highlighted" hoverable>
+  Column 2
+  </Card>
+</Grid>
+```
+------
+<Grid cols="3">
+  <Card variant="highlighted" hoverable>
+  Column 1
+  </Card>
+  <Card variant="highlighted" hoverable>
+  Column 2
+  </Card>
+  <Card variant="highlighted" hoverable>
+  Column 3
+  </Card>
+</Grid>
+
+```JSX
+<Grid cols="3">
+  <Card variant="highlighted" hoverable>
+  Column 1
+  </Card>
+  <Card variant="highlighted" hoverable>
+  Column 2
+  </Card>
+  <Card variant="highlighted" hoverable>
+  Column 3
+  </Card>
+</Grid>
+```
