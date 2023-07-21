@@ -32,14 +32,14 @@ const Sidebar = ({ branch, treeData = [], isMobileNavOpen = false, sidebarEnable
   const shouldUseNavigationBranch = branch && branch !== '/' && !isMobileNavOpen;
   const navigationTreeBranch = shouldUseNavigationBranch ? new Array(1).fill(treeData.find(item => item.slug === branch)) : treeData;
   const tree = navigationTreeBranch.length > 0 ? navigationTreeBranch : treeData;
-  let classes = !sidebarEnabled ? 'lg:hidden' : '';
-  classes += ' fixed top-16 md:top-0 right-0 z-10 w-[calc(100vw-2.5rem)] shadow-md lg:shadow-none px-8 lg:p-0 lg:w-auto h-screen';
-  classes += ' lg:h-auto bg-panel lg:relative lg:block lg:flex-none transition-transform duration-300 transform lg:transform-none lg:transition-none ';
+  let classes = !sidebarEnabled ? 'md:hidden' : '';
+  classes += ' fixed top-16 md:top-0 right-0 z-10 w-[calc(100vw-2.5rem)] shadow-md md:shadow-none px-8 md:p-0 md:w-auto h-screen';
+  classes += ' md:h-auto bg-panel md:relative md:block lg:flex-none transition-transform duration-300 transform md:transform-none md:transition-none ';
   classes += mobileClasses;
 
   return (
     <div className={classes}>
-      <div className="lg:sticky top-[4.5rem] -ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-4">
+      <div className="md:sticky top-[4.5rem] -ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-4">
         <nav className="w-56">
           <p className="pb-6 text-supplementary">Search documentation</p>
           <form method="get" action="/search/" style={{ marginBottom: '1.5rem' }} autoComplete="off">

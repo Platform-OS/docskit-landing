@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "develop": "gatsby develop",
+    "prebuild": "gatsby clean",
     "build": "gatsby build --prefix-paths",
     "postbuild": "cp -R .posify/* ../"
   },
@@ -16,8 +17,8 @@
   "license": "ISC",
   "homepage": "https://github.com/Platform-OS/docskit-landing#readme",
   "dependencies": {
-    "@platformos/gatsby-plugin-posify": "^0.0.1",
-    "@platformos/gatsby-theme-platformos-docskit": "^1.1.1",
+    "@platformos/gatsby-plugin-posify": "^0.0.2",
+    "@platformos/gatsby-theme-platformos-docskit": "^1.1.4",
     "gatsby": "^5.10.0",
     "gatsby-plugin-local-search": "^2.0.1",
     "gatsby-plugin-manifest": "^5.10.0",
