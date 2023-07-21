@@ -21,7 +21,7 @@ const Hero = () => (
         <Search />
 
       </div>
-      <div className="hidden lg:block">
+      <div className="hero__illustration">
         <StaticImage src="../../../images/docskit.png" width={350} quality={100} alt="PlatformOS DocsKit" placeholder='#fff' className="h-auto" />
         <div className="area" aria-hidden="true">
           <ul className="triangles">
