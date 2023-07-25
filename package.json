@@ -1,10 +1,10 @@
 {
   "name": "docskit-landing",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "<h1 align=\"center\">   platformOS DocsKit </h1>",
   "main": "index.js",
   "scripts": {
-    "install:docskit": "npm ci --prefix src",
+    "install:docskit": "npm ci --prefix src --legacy-peer-deps",
     "build": "npm run build --prefix src"
   },
   "repository": {
