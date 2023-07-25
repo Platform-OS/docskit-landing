@@ -1,12 +1,8 @@
 {
   "name": "docskit-landing",
   "version": "1.0.0",
-  "description": "<h1 align=\"center\">   platformOS DocsKit </h1>",
+  "description": "",
   "main": "index.js",
-  "scripts": {
-    "install:docskit": "npm ci --prefix src --legacy-peer-deps",
-    "build": "npm run build --prefix src"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Platform-OS/docskit-landing.git"
