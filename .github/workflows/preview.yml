@@ -18,14 +18,10 @@ jobs:
       MPKIT_TOKEN: ${{ secrets.MPKIT_TOKEN }}
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          fetch-depth: 0
-          submodules: true
-
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 19
+          node-version: 18
 
       - name: Install Dependencies
         run: npm run install:docskit
@@ -53,4 +49,3 @@ jobs:
             :---:
 
             :rocket: Deployed preview to ${{ secrets.MPKIT_PREVIEW_URL }}"
-
