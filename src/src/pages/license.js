@@ -4,9 +4,18 @@ import Layout from '@components/layout';
 import Seo from '@components/seo';
 import License from '@partials/license.mdx';
 
-export default function LicensePage({ location }) {
+export default function LicensePage({ location, pageContext }) {
+  const { navigationTree, metaData } = pageContext;
+
   return (
-    <Layout location={location} currentSlug="license" sidebarEnabled tocEnabled={false}>
+    <Layout
+      location={location}
+      currentSlug="license"
+      sidebarEnabled
+      tocEnabled={false}
+      treeData={navigationTree}
+      metaData={metaData}
+    >
       <div className="prose max-w-none prose-a:text-interactive-text">
         <License />
       </div>
@@ -14,10 +23,11 @@ export default function LicensePage({ location }) {
   );
 }
 
-export const Head = ({ data }) => {
+export const Head = ({ pageContext }) => {
+  const { metaData } = pageContext;
   return (
     <>
-      <Seo title="License" description="DoscKit is licensed under the terms of the Creative Commons Attribution 4.0 International License." />
+      <Seo title="License" description="DoscKit is licensed under the terms of the Creative Commons Attribution 4.0 International License." meta={metaData} />
       <ThemeProvider />
     </>
   );
