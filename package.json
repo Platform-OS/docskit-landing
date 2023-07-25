@@ -1,0 +1,20 @@
+{
+  "name": "docskit-landing",
+  "version": "0.0.0",
+  "description": "<h1 align=\"center\">   platformOS DocsKit </h1>",
+  "main": "index.js",
+  "scripts": {
+    "install:docskit": "npm ci --prefix src",
+    "build": "npm run build --prefix src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Platform-OS/docskit-landing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Platform-OS/docskit-landing/issues"
+  },
+  "homepage": "https://github.com/Platform-OS/docskit-landing#readme"
+}
