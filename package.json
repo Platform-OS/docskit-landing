@@ -1,0 +1,25 @@
+{
+  "name": "docskit-landing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Platform-OS/docskit-landing.git"
+  },
+  "author": "nemvalid <peter@platformos.com> (https://github.com/nemvalid/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Platform-OS/docskit-landing/issues"
+  },
+  "homepage": "https://github.com/Platform-OS/docskit-landing#readme",
+  "scripts": {
+    "eslint:mdx": "eslint ./src/docs ./src/partials",
+    "eslint:mdx:ci": "eslint ./src/docs ./src/partials --format json --output-file reports/eslint-mdx.json"
+  },
+  "devDependencies": {
+    "eslint": "^8.45.0",
+    "eslint-plugin-mdx": "^2.1.0",
+    "eslint-plugin-react": "^7.33.0"
+  }
+}

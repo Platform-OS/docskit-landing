@@ -1,0 +1,75 @@
+name: PR preview
+
+on:
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  deploy_preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      MPKIT_URL: ${{ secrets.MPKIT_PREVIEW_URL }}
+      MPKIT_EMAIL: ${{ secrets.MPKIT_EMAIL }}
+      MPKIT_TOKEN: ${{ secrets.MPKIT_TOKEN }}
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: EkLine Reviewer
+        uses: ekline-io/ekline-github-action@v5.8.0
+        with:
+          content_dir: ./src/docs
+          ek_token: ${{ secrets.ek_token }}
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          filter_mode: added
+          # ignore_rule: "EK00001,EK00004" # Optional
+
+      - name: Set up Node.js and Yarn
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.yarnpkg.com
+
+      - name: Install and run eslint
+        run: yarn install && yarn run eslint:mdx:ci
+        continue-on-error: true
+
+      - name: Annotate Code Linting Results
+        uses: ataylorme/eslint-annotate-action@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          report-json: "./reports/eslint-mdx.json"
+
+      - name: Install Docskit Dependencies
+        run: yarn install --cwd src
+
+      - name: Build
+        run: |
+          cd src
+          npm run build
+
+      - name: Deploy
+        shell: sh
+        run: |
+          set -e
+          npm -g install @platformos/pos-cli
+          pos-cli data clean --auto-confirm
+          pos-cli deploy
+
+      - name: Leave a comment after preview deployment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: pr-preview
+          recreate: true
+          message: "\
+            [PR Preview Action]\
+            :---:
+
+            :rocket: Deployed preview to ${{ secrets.MPKIT_PREVIEW_URL }}"

@@ -1,0 +1,43 @@
+name: Deploy to production
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  deploy_preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      MPKIT_URL: ${{ secrets.MPKIT_PROD_URL }}
+      MPKIT_EMAIL: ${{ secrets.MPKIT_EMAIL }}
+      MPKIT_TOKEN: ${{ secrets.MPKIT_TOKEN }}
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: master
+
+      - name: Set up Node.js and Yarn
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.yarnpkg.com
+
+      - name: Install Dependencies
+        run: yarn install --cwd src
+
+      - name: Build
+        run: |
+          cd src
+          npm run build
+
+      - name: Deploy
+        shell: sh
+        run: |
+          set -e
+          npm -g install @platformos/pos-cli
+          pos-cli deploy
+
