@@ -1,4 +1,4 @@
-name: Deploy to production
+name: Deploy to QA
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  deploy_preview:
+  deploy_qa:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
