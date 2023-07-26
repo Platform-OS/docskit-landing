@@ -37,7 +37,17 @@ jobs:
           node-version: 18
           registry-url: https://registry.yarnpkg.com
 
-      - name: Install Dependencies
+      - name: Install and run eslint
+        run: yarn install && yarn run eslint:mdx:ci
+        continue-on-error: true
+
+      - name: Annotate Code Linting Results
+        uses: ataylorme/eslint-annotate-action@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          report-json: "./reports/eslint-mdx.json"
+
+      - name: Install Docskit Dependencies
         run: yarn install --cwd src
 
       - name: Build
