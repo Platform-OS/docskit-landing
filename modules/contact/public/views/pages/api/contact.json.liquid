@@ -1,0 +1,27 @@
+---
+slug: api/contact
+method: post
+---
+
+{% parse_json object %}
+  {
+    "to":      "support@example.com",
+    "from":    {{ context.params.from | json }},
+    "cc": [],
+    "bcc": [],
+    "subject": {{ 'DocsKit: ' | append: context.params.subject | json }},
+    "partial": "modules/contact/contact",
+    "data": {{ context.params | json }}
+  }
+{% endparse_json %}
+{% function _ = 'modules/core/lib/commands/email/send', object: object %}
+{% if _.valid %}
+{
+  "status": "ok"
+}
+{% else %}
+{
+  "status": "error",
+  "errors": {{ _.errors | json }}
+}
+{% endif %}

@@ -1,0 +1,3 @@
+[submodule "core"]
+	path = modules/core
+	url = git@github.com:Platform-OS/pos-module-core.git

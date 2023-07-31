@@ -1,6 +1,10 @@
 const path = require('path');
 
 module.exports = {
+  proxy: {
+    prefix: '/api',
+    url: 'https://docskit-preview.staging.oregon.platform-os.com/'
+  },
   assetPrefix: process.env.ASSET_PREFIX,
   siteMetadata: {
     title: 'platformOS DocsKit',
