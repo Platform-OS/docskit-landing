@@ -92,8 +92,9 @@ export default function ContactForm() {
           </fieldset>
         </div>
       </div>
-      <div className="h-captcha" dataSitekey={hcaptcha_site_key} />
+      <div className="h-captcha" data-sitekey={hcaptcha_site_key} style={{ marginTop: '24px' }} />
       <div className="contact-form__actions">
+
         <button disabled={isLoading} className="transition-colors font-bold whitespace-nowrap bg-button-primary border-2 border-button-primary-stroke hover:border-button-primary-stroke-hover hover:bg-button-primary-hover text-button-primary-foreground hover:text-button-primary-foreground-hover py-2 px-4 rounded-button ">Send</button>
       </div>
       {!!errors.length && (<Message variant="error">
