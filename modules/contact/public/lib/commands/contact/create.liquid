@@ -1,0 +1,19 @@
+{% function object = 'modules/contact/commands/contact/create/build', object: object %}
+{% function object = 'modules/contact/commands/contact/create/check', object: object, hcaptcha_params: hcaptcha_params %}
+
+{% if object.valid %}
+  {% parse_json email_object %}
+    {
+      "to":      "support@example.com",
+      "from":    {{ object.email | json }},
+      "cc": [],
+      "bcc": [],
+      "subject": {{ 'DocsKit: ' | append: object.subject | json }},
+      "partial": "modules/contact/contact",
+      "data": {{ object | json }}
+    }
+  {% endparse_json %}
+  {% function _ = 'modules/core/lib/commands/email/send', object: email_object %}
+{% endif %}
+
+{% return object %}
