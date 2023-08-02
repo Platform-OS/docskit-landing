@@ -1,4 +1,5 @@
 import React from 'react';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import Message from '@components/message';
 import './contact-form.css';
 
@@ -54,6 +55,7 @@ export default function ContactForm() {
     )
   }
 
+
   return (
     <form onSubmit={handleSubmit} className="contact">
       <div className="contact-form">
@@ -84,10 +86,7 @@ export default function ContactForm() {
           </fieldset>
         </div>
       </div>
-      {hCaptchaKey && (<>
-        <div className="h-captcha" data-sitekey={hCaptchaKey} style={{ marginTop: '24px' }} />
-        <script src="https://hcaptcha.com/1/api.js" defer async />
-      </>)}
+      {hCaptchaKey && (<div className="h-captcha"><HCaptcha sitekey={hCaptchaKey} /></div>)}
       <div className="contact-form__actions">
 
         <button disabled={isLoading} className="transition-colors font-bold whitespace-nowrap bg-button-primary border-2 border-button-primary-stroke hover:border-button-primary-stroke-hover hover:bg-button-primary-hover text-button-primary-foreground hover:text-button-primary-foreground-hover py-2 px-4 rounded-button ">Send</button>
