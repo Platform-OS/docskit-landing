@@ -2,7 +2,7 @@
 slug: api/contact
 method: post
 ---
-{% function object = 'lib/commands/contacts/create', object: context.params, hcaptcha_params: context.params %}
+{% function object = 'modules/contact/commands/contact/create', object: context.params, hcaptcha_params: context.params %}
 {% if object.valid %}
 {
   "status": "ok"
