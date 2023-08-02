@@ -103,3 +103,11 @@ label {
     padding-right: 2rem;
   }
 }
+
+@media (min-width: 768px) {
+  .contact .h-captcha {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 2rem;
+  }
+}

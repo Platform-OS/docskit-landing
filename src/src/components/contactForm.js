@@ -3,7 +3,7 @@ import Message from '@components/message';
 import './contact-form.css';
 
 export default function ContactForm() {
-  const hcaptcha_site_key = typeof window !== 'undefined' && window._hcaptcha_site_key;
+  const [hCaptchaKey, setHCaptchaKey] = React.useState(null);
   const [submitted, setSubmitted] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
   const [errors, setErrors] = React.useState([]);
@@ -38,16 +38,8 @@ export default function ContactForm() {
   }
 
   React.useEffect(() => {
-    const script = document.createElement('script');
-
-    script.src = 'https://hcaptcha.com/1/api.js';
-    script.async = true;
-    script.defer = true;
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
+    if (typeof window !== 'undefined' && window._hcaptcha_site_key) {
+      setHCaptchaKey(window._hcaptcha_site_key);
     }
   }, []);
 
@@ -63,7 +55,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="contact">
       <div className="contact-form">
         <div className="contact-form__col">
           <fieldset className="contact-form__fieldset">
@@ -92,7 +84,10 @@ export default function ContactForm() {
           </fieldset>
         </div>
       </div>
-      <div className="h-captcha" data-sitekey={hcaptcha_site_key} style={{ marginTop: '24px' }} />
+      {hCaptchaKey && (<>
+        <div className="h-captcha" data-sitekey={hCaptchaKey} style={{ marginTop: '24px' }} />
+        <script src="https://hcaptcha.com/1/api.js" defer async />
+      </>)}
       <div className="contact-form__actions">
 
         <button disabled={isLoading} className="transition-colors font-bold whitespace-nowrap bg-button-primary border-2 border-button-primary-stroke hover:border-button-primary-stroke-hover hover:bg-button-primary-hover text-button-primary-foreground hover:text-button-primary-foreground-hover py-2 px-4 rounded-button ">Send</button>
