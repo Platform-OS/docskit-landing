@@ -6,8 +6,6 @@
     {
       "to":      "docskit@platformos.com",
       "from":    {{ object.email | json }},
-      "cc": [],
-      "bcc": [],
       "subject": {{ 'DocsKit: ' | append: object.subject | json }},
       "partial": "modules/contact/contact",
       "data": {{ object | json }}
