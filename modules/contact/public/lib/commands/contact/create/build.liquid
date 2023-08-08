@@ -1,0 +1,12 @@
+{% parse_json object %}
+  {
+    "email": {{ object.email | json }},
+    "name": {{ object.name | json }},
+    "subject": {{ object.subject | json }},
+    "message": {{ object.message | json }}
+  }
+{% endparse_json %}
+
+{% liquid
+  return object
+%}

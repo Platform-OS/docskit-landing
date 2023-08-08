@@ -9,7 +9,7 @@ module.exports = {
           "jsx": true,
           "modules": true
       },
-      "ecmaVersion": 6,
+      "ecmaVersion": 2020,
       "sourceType": "module"
   },
   "plugins": [

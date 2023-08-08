@@ -1,0 +1,15 @@
+---
+slug: api/contact
+method: post
+---
+{% function object = 'modules/contact/commands/contact/create', object: context.params, hcaptcha_params: context.params %}
+{% if object.valid %}
+{
+  "status": "ok"
+}
+{% else %}
+{
+  "status": "error",
+  "errors": {{ object.errors | json }}
+}
+{% endif %}
