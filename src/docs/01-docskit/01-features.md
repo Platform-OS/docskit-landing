@@ -21,3 +21,7 @@ DocsKit offers an array of powerful features designed to enhance your documentat
 * **SEO**: Enhance the discoverability of your documentation with DocsKit's support for creating SEO-friendly URLs, enabling you to structure and customize URLs with relevant keywords for improved search engine visibility.
 
 Experience the full potential of DocsKit: Simplify setup, encourage collaboration, ensure accessibility, and deliver outstanding performance while providing a delightful experience for your users.
+
+Test:
+
+The service is queried, and an acknowledgement is sent.
