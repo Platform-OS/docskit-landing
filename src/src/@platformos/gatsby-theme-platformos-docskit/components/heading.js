@@ -9,11 +9,6 @@ const Heading = ({ level = 1, children, ...rest }) => {
     case 1:
       classes += ' text-3xl sm:text-5xl font-bold';
       break;
-    case 2:
-      Tag = 'h2';
-      classes += ' text-3xl font-bold';
-      wrapperClasses += ' flex';
-      break;
     case 3:
       Tag = 'h3';
       classes += ' text-2xl font-bold';
@@ -30,6 +25,10 @@ const Heading = ({ level = 1, children, ...rest }) => {
       Tag = 'h6';
       classes += ' font-bold';
       break;
+    default:
+      Tag = 'h2';
+      classes += ' text-3xl font-bold';
+      wrapperClasses += ' flex';
   }
   return (
     <div className="headline">

@@ -2003,10 +2003,10 @@
     fs-extra "^7.0.0"
     gatsby-plugin-content-hash "^0.0.6"
 
-"@platformos/gatsby-theme-platformos-docskit@^1.1.7":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@platformos/gatsby-theme-platformos-docskit/-/gatsby-theme-platformos-docskit-1.1.7.tgz#f29daa9042a1ffaa9416bd180e1241fc50c7745f"
-  integrity sha512-egzA6qUCqbXEHbCPUIJhwyYmTRaKUDoSfK0n0SnNvzexo9G1Itz1VLZodATI5Lzv48EErldLRt2/G0Z9ESt+Ow==
+"@platformos/gatsby-theme-platformos-docskit@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@platformos/gatsby-theme-platformos-docskit/-/gatsby-theme-platformos-docskit-1.2.0.tgz#cadd806a8c097e2f9248d65e361e4e3062969b74"
+  integrity sha512-CahiY+OB+68iXGyV7/XBw2mVHoyMaklFTSDj0Q6EChsla4EpG7FJAjbauEOUV7GieO/clEpdgFOcw3362YGwcg==
   dependencies:
     "@fontsource-variable/mulish" "^5.0.1"
     "@mdx-js/react" "^2.3.0"
