@@ -1,0 +1,46 @@
+---
+title: "Step 3: Reviewing the content"
+slug: user-guide/writing-editing-reviewing/step-3-reviewing
+description: "Step 3: Reviewing the content"
+---
+
+# Step 3: Reviewing the content
+
+![Editorial workflow Step 3](./assets/Editorial_workflow_3.png)
+
+Once you've submitted your content as a **pull request (PR)** on GitHub, the review process starts. Make sure that you invite reviewers so the new content is peer-reviewed by both your subject matter experts and (technical) writers.
+
+
+### Preview environment
+
+Creating a pull request triggers the GitHub Actions integration, automatically deploying your content to a **preview environment**.
+This preview environment allows you and your peer reviewers to check how your changes will appear on your site, including graphical elements, formatting, and overall structure.
+This environment serves as a controlled testing ground for your new content and it provides a comprehensive preview of your content's final appearance.
+The preview instance automatically rebuilds with each further commit you make.
+
+
+### Linters: Automated documentation review
+
+<Message>**Language linters** are tools designed to analyze and improve the quality of written content. They automatically check for issues such as spelling and grammar errors, inconsistent language usage, and adherence to a defined style guide.</Message>
+
+Language linters can be integrated and be part of the CI toolchain. Using linters in your writing workflow can be highly beneficial as they promote consistency in writing style pointing out typos, errors, and non-inclusive language and enhancing overall readability of your documentation.
+
+
+#### Linter example
+
+For example, **[EkLine](https://ekline.io/)** conducts checks based on predefined style guide rules, assessing plain language usage, analyzing content quality and consistency, and ensuring compliance with documentation standards.
+
+![Example Ekline comment](./assets/ekline_comment.png)
+
+Similar to human peer-reviewers, Ekline provides feedback on your pull request (PR) and leaves comments instead of automatically forcing changes, so everything stays under the control of the author.
+It identifies issues such as spelling errors, passive voice, and the use of weasel words. This feedback is valuable for maintaining the overall quality and consistency of your content, enhancing readability and using plain English.
+You can incorporate these suggestions into your content as you continue to iterate and improve it.
+
+
+### Peer-review process
+
+Reviewers access the PR and examine the changes you've made. They can use GitHub's built-in tools to view the differences between the previous version and your proposed changes, and they can use the preview instance to check how the changes will be displayed on the live site.
+
+Reviewers can leave **comments** on specific lines or sections of the documentation, pointing out any issues, suggesting improvements, or asking questions. Discussions can happen within the comments, allowing for clarification and further collaboration.
+
+<Message>**Tip:** When you're actively working on a documentation update, but it's not yet ready for review, marking the PR as a **draft** signals to collaborators that the changes are incomplete. This prevents multiple reviewers from prematurely reviewing the same work and ensures that feedback is focused on the final, polished version, when you are satisfied with the overall content.</Message>

@@ -15,7 +15,6 @@ jobs:
     env:
       MPKIT_URL: ${{ secrets.MPKIT_PREVIEW_URL }}
       MPKIT_EMAIL: ${{ secrets.MPKIT_EMAIL }}
-      MPKIT_TOKEN: ${{ secrets.MPKIT_TOKEN }}
       ASSET_PREFIX: ${{ vars.PREVIEW_ASSET_PREFIX }}
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     steps:
@@ -24,14 +23,14 @@ jobs:
         with:
           submodules: true
 
-      - name: EkLine Reviewer
-        uses: ekline-io/ekline-github-action@v5.8.0
-        with:
-          content_dir: ./src/docs
-          ek_token: ${{ secrets.ek_token }}
-          github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review
-          filter_mode: added
+      # - name: EkLine Reviewer
+      #   uses: ekline-io/ekline-github-action@v5.8.0
+      #   with:
+      #     content_dir: ./src/docs
+      #     ek_token: ${{ secrets.ek_token }}
+      #     github_token: ${{ secrets.github_token }}
+      #     reporter: github-pr-review
+      #     filter_mode: added
           # ignore_rule: "EK00001,EK00004" # Optional
 
       - name: Set up Node.js and Yarn
@@ -59,6 +58,8 @@ jobs:
           npm run build
 
       - name: Deploy
+        env:
+         MPKIT_TOKEN: ${{ secrets.MPKIT_TOKEN }}
         shell: sh
         run: |
           set -e
