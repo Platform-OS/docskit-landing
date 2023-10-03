@@ -5,7 +5,7 @@ import Card from '../@platformos/gatsby-theme-platformos-docskit/components/card
 import Heading from '../@platformos/gatsby-theme-platformos-docskit/components/heading';
 import Grid from '@platformos/gatsby-theme-platformos-docskit/src/components/grid';
 import Button from '@platformos/gatsby-theme-platformos-docskit/src/components/button';
-import Awards from '../components/awards';
+import Awards from './awards';
 import bgImage1 from '../images/illustration1.svg';
 import bgImage2 from '../images/illustration2.svg';
 import colorSchemes from '../images/icons/colorschemes.svg';
