@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group">
+<g id="ui-webpage-slider">
+<path id="Shape" d="M18.7693 25H9C7.89543 25 7 24.1046 7 23V3C7 1.89543 7.89543 1 9 1H23C24.1046 1 25 1.89543 25 3V17.9413" stroke="#405568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape_2" d="M7 23H3C1.89543 23 1 22.1046 1 21V5C1 3.89543 1.89543 3 3 3H7" stroke="#405568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape_3" d="M25 3H29C30.1046 3 31 3.89543 31 5V21" stroke="#405568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape_4" d="M11 6H21" stroke="#405568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape_5" d="M11 11H21" stroke="#405568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape_6" d="M11 16H15" stroke="#405568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape_7" fill-rule="evenodd" clip-rule="evenodd" d="M21.8081 21.8076L25.3428 30.9996L27.4641 27.4636L31.0001 25.3423L21.8081 21.8076V21.8076Z" stroke="#405568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape_8" d="M31.0001 30.9999L27.4641 27.4639" stroke="#405568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</svg>

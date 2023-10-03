@@ -8,26 +8,30 @@ const Hero = () => (
       <div className="mr-auto place-self-center flex-1">
         <div>
           <h1 className="max-w-3xl mb-4 text-4xl leading-none md:text-5xl text-prominent font-bold">
-            DocsKit by <span className="text-interactive-text">platformOS</span>
+            DocsKit <span style={{display: 'block', fontWeight: 100, fontSize: '30px'}}> by <span className="text-interactive-text">platformOS</span></span>
           </h1>
 
-          <h2 className="max-w-3xl mb-6 font-light text-prominent lg:mb-8 md:text-lg lg:text-xl">
+          <h2 style={{
+            fontSize: '1.5rem',
+            lineHeight: '2rem',
+            fontWeight: 'bold',
+            padding: '1.5rem 0'
+          }}>
           Deploy a best practice and fully customizable documentation site quickly!
-          Inspired by our multi-award winning documentation site, our documentation package will provide everything
-          you need to build best practice documentation sites for your projects.
           </h2>
+          <p style={{
+            fontSize: '1.5rem',
+            lineHeight: '2rem'
+          }}>
+            Inspired by our multi-award winning documentation site, our documentation package will provide everything you need to build best practice documentation sites for your projects
+          </p>
         </div>
 
         <Search />
 
       </div>
       <div className="hero__illustration">
-        <StaticImage src="../../../images/docskit.png" width={350} quality={100} alt="PlatformOS DocsKit" placeholder='#fff' className="h-auto" />
-        <div className="area" aria-hidden="true">
-          <ul className="triangles">
-            <li>▶</li><li>▶</li><li>▶</li><li>▶</li><li>▶</li><li>▶</li>
-          </ul>
-        </div>
+        <StaticImage src="../../../images/hero.png" width={500} quality={100} loading='eager' alt="PlatformOS DocsKit" placeholder='#fff' className="h-auto" />
       </div>
   </div>
 );

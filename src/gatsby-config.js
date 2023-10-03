@@ -66,5 +66,11 @@ module.exports = {
           })),
       },
     },
+    {
+      resolve: `gatsby-plugin-plausible`,
+      options: {
+        domain: `docskit.platformos.com`,
+      },
+    },
   ],
 }
