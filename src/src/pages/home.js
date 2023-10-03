@@ -244,21 +244,21 @@ export default function HomePage() {
             <div className='tech-grid__card'>
               <Heading level={3}>
                 <span>Built with Gatsby</span>
-                <span><img src={gatsby} alt="Gatsby" /></span>
+                <span><img src={gatsby} alt="Gatsby" width={32} height={32} /></span>
               </Heading>
               <p>DocsKit is built on Gatsby: the modern, open-source, and lightning-fast static site generator framework</p>
             </div>
             <div className='tech-grid__card'>
               <Heading level={3}>
                 <span>Using GitHub</span>
-                <span><img src={github} alt="Github" /></span>
+                <span><img src={github} alt="Github" width={32} height={32} /></span>
               </Heading>
               <p>As a web-based hosting service for version control using Git, GitHub facilitates collaborative development</p>
             </div>
             <div className='tech-grid__card'>
               <Heading level={3}>
                 <span>Powered by platformOS</span>
-                <span><img src={pos} alt="platformOS" /></span></Heading>
+                <span><img src={pos} alt="platformOS" width={32} height={32} /></span></Heading>
               <p>DocsKit is maintained and developed by the team behind platformOS: the limitless API-first application development platform</p>
             </div>
           </div>
