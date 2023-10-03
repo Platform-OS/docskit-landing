@@ -61,8 +61,10 @@ export default function HomePage() {
       </section>
       <section className="section" style={{ marginTop: '-8rem', paddingTop: '10rem' }}>
         <div className="container not-prose">
-          <Grid>
-            <StaticImage src="../images/whats-included.png" alt="What's included in DocsKit" />
+          <Grid className='items-center'>
+            <div className='included-features-img'>
+              <StaticImage src="../images/whats-included.png" alt="What's included in DocsKit" />
+            </div>
             <div>
               <Heading level={2}>What's included <span className='sub'>in DocsKit</span></Heading>
               <ul className="feature-list">
@@ -187,7 +189,7 @@ export default function HomePage() {
 
       <section className="section section--gray">
         <div className="container not-prose">
-          <Grid>
+          <Grid className='items-center'>
             <div className='text-xl'>
               <Heading level={2}>Our inspiration <span className='sub'>the <span className='text-interactive-text'>platformOS Documentation</span></span></Heading>
               <p className='pb-6'>
@@ -199,7 +201,10 @@ export default function HomePage() {
                 community being involved in all phases of our editorial workflow, the portal is quick to adapt to their ever evolving needs.
               </p>
             </div>
-            <StaticImage src="../images/award.png" alt="Award winning documentation" placeholder='#F7F8FA' />
+
+            <div>
+              <StaticImage src="../images/award.png" alt="Award winning documentation" placeholder='#F7F8FA' />
+            </div>
           </Grid>
         </div>
       </section>
@@ -263,7 +268,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section >
-    </div >
+      </section>
+    </div>
   );
 }

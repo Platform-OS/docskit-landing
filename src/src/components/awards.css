@@ -1,11 +1,16 @@
 .awards {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 14px;
+
+  @media (min-width: 1024px) {
+    justify-content: space-between;
+  }
 }
 
-.awards img {
-  max-height: 6rem;
+.awards a {
+  display: inline-block;
+  width: 99px;
 }
