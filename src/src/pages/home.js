@@ -246,20 +246,20 @@ export default function HomePage() {
                 <span>Built with Gatsby</span>
                 <span><img src={gatsby} alt="Gatsby" width={32} height={32} /></span>
               </Heading>
-              <p>DocsKit is built on Gatsby: the modern, open-source, and lightning-fast static site generator framework</p>
+              <p>A fast, open-source static site generator using React.js and GraphQL. It offers rapid load times, security, and scalability with a customizable platform supported by a vast plugin ecosystem.</p>
             </div>
             <div className='tech-grid__card'>
               <Heading level={3}>
                 <span>Using GitHub</span>
                 <span><img src={github} alt="Github" width={32} height={32} /></span>
               </Heading>
-              <p>As a web-based hosting service for version control using Git, GitHub facilitates collaborative development</p>
+              <p>A web-based Git version control host that streamlines collaborative development. It offers project management, code tracking, and tools for enhanced teamwork and integration.</p>
             </div>
             <div className='tech-grid__card'>
               <Heading level={3}>
                 <span>Powered by platformOS</span>
                 <span><img src={pos} alt="platformOS" width={32} height={32} /></span></Heading>
-              <p>DocsKit is maintained and developed by the team behind platformOS: the limitless API-first application development platform</p>
+              <p>An API-driven platform for developing scalable web apps and sites. It manages hosting, automated DevOps, and backend services, enabling developers to focus on custom solutions.</p>
             </div>
           </div>
         </div>
