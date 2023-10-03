@@ -70,7 +70,7 @@ export default function HomePage() {
               <ul className="feature-list">
                 <li>
                   <img src={openSource} alt="Open source" />
-                  Open-source Docs as Code documentation solution leveraging platformOS, a git workflow, and a static site generator
+                  Open-source Docs as Code documentation solution leveraging platformOS, a Git workflow, and a static site generator
                 </li>
                 <li>
                   <img src={colorSchemes} alt="Configurable color schemes" />
