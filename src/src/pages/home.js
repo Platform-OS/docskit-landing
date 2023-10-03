@@ -25,6 +25,7 @@ import arrow from '../images/icons/arrow.svg';
 import pos from '../images/icons/pos.png';
 import book from '../images/icons/book.svg';
 import arrowRight from '../images/icons/arrow-right.svg';
+import video from '../images/customization.mp4';
 import '../styles/home.css';
 import { Link } from 'gatsby';
 
@@ -32,12 +33,12 @@ export default function HomePage() {
 
   return (
     <div className="home">
-      <section className="section section--gray">
+      <section className="section section--gray section--bg">
 
-        <div className="container">
+        <div className="container container--hero">
           <Hero />
           <Grid>
-            <Card variant="gradient" hoverable shadow bgImage={bgImage1}>
+            <Card variant="gradient" hoverable shadow bgImage={bgImage1} className='cta-card'>
 
               <Heading level={3}>Learn more about DocsKit</Heading>
               <p>
@@ -46,7 +47,7 @@ export default function HomePage() {
 
               <Button href="/docskit">Discover DocsKit</Button>
             </Card>
-            <Card variant="highlighted" hoverable shadow bgImage={bgImage2}>
+            <Card variant="highlighted" hoverable shadow bgImage={bgImage2} className='cta-card'>
 
               <Heading level={3}>Book a live demo</Heading>
               <p>
@@ -97,7 +98,7 @@ export default function HomePage() {
           <div className='py-8'>
 
             <Grid cols='3'>
-              <Card shadow>
+              <Card shadow className='feature-card'>
                 <Grid cols='3'>
                   <div style={{ gridColumn: 'span 2 / span 2' }}>
                     <Heading level={3}>Easy setup</Heading>
@@ -108,7 +109,7 @@ export default function HomePage() {
                   </span>
                 </Grid>
               </Card>
-              <Card shadow>
+              <Card shadow className='feature-card'>
                 <Grid cols='3'>
                   <div style={{ gridColumn: 'span 2 / span 2' }}>
                     <Heading level={3}>Markdown and MDX support</Heading>
@@ -119,7 +120,7 @@ export default function HomePage() {
                   </span>
                 </Grid>
               </Card>
-              <Card shadow>
+              <Card shadow className='feature-card'>
                 <Grid cols='3'>
                   <div style={{ gridColumn: 'span 2 / span 2' }}>
                     <Heading level={3}>Accessibility compliance</Heading>
@@ -130,7 +131,7 @@ export default function HomePage() {
                   </span>
                 </Grid>
               </Card>
-              <Card shadow>
+              <Card shadow className='feature-card'>
                 <Grid cols='3'>
                   <div style={{ gridColumn: 'span 2 / span 2' }}>
                     <Heading level={3}>Responsive design</Heading>
@@ -142,7 +143,7 @@ export default function HomePage() {
                   </span>
                 </Grid>
               </Card>
-              <Card shadow>
+              <Card shadow className='feature-card'>
                 <Grid cols='3'>
                   <div style={{ gridColumn: 'span 2 / span 2' }}>
                     <Heading level={3}>Customizable themes</Heading>
@@ -153,7 +154,7 @@ export default function HomePage() {
                   </span>
                 </Grid>
               </Card>
-              <Card shadow>
+              <Card shadow className='feature-card'>
                 <Grid cols='3'>
                   <div style={{ gridColumn: 'span 2 / span 2' }}>
                     <Heading level={3}>Search functionality</Heading>
@@ -168,7 +169,7 @@ export default function HomePage() {
           </div>
           <div className='flex'>
             <Link to="/docskit/features/" className='features-link hover:underline'>
-              More features <img src={arrow} alt="arrow"/>
+              More features <img src={arrow} alt="arrow" />
             </Link>
           </div>
         </div>
@@ -178,7 +179,9 @@ export default function HomePage() {
           <div className='text-center'>
             <Heading level={2}>Pre-designed custom components <span className="sub">that you can readily utilize in your MDX documentation pages</span></Heading>
           </div>
-          <StaticImage src="../images/docskit_customizable.png" alt="Customizations" placeholder='#fff'/>
+          <video width="1040" height="480" autoPlay loop muted className="mx-auto"> <source src={video} type="video/mp4" />
+            <StaticImage src="../images/docskit_customizable.png" alt="Customizations" placeholder='#fff' />
+          </video>
         </div>
       </section>
 

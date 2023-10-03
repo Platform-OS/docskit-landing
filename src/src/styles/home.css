@@ -85,7 +85,6 @@
 }
 
 @media (min-width: 1024px) {
-
   .home .tech-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -93,6 +92,12 @@
     border-left: 1px solid rgb(var(--divider));
     padding-left: 2rem;
   }
+}
+
+.home .cta-card .headline,
+.home .feature-card .headline {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .home .book-banner {
@@ -110,5 +115,10 @@
 
   @media (min-width: 640px) {
     background: url(../images/home-section-bg.svg) bottom left no-repeat;
+  }
+}
+.home .section--bg > .container--hero {
+  @media (min-width: 640px) {
+    background: url(../images/hero-bg.svg) top right no-repeat;
   }
 }
