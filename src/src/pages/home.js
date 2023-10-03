@@ -178,7 +178,7 @@ export default function HomePage() {
           <div className='text-center'>
             <Heading level={2}>Pre-designed custom components <span className="sub">that you can readily utilize in your MDX documentation pages</span></Heading>
           </div>
-          <StaticImage src="../images/docskit_customizable.png" alt="Customizations" />
+          <StaticImage src="../images/docskit_customizable.png" alt="Customizations" placeholder='#fff'/>
         </div>
       </section>
 
@@ -196,7 +196,7 @@ export default function HomePage() {
                 community being involved in all phases of our editorial workflow, the portal is quick to adapt to their ever evolving needs.
               </p>
             </div>
-            <StaticImage src="../images/award.png" alt="Award winning documentation" />
+            <StaticImage src="../images/award.png" alt="Award winning documentation" placeholder='#F7F8FA' />
           </Grid>
         </div>
       </section>
@@ -205,7 +205,7 @@ export default function HomePage() {
           <div className='text-center max-w-3xl mx-auto'>
             <Heading level={2}>Begin crafting your documentation <span className="sub">on a codebase fine-tuned for optimal performance, accessibility, sustainability, and SEO.</span></Heading>
           </div>
-          <StaticImage src="../images/performance.png" alt="Optimized for performance, accessibility, sustainability and SEO" />
+          <StaticImage src="../images/performance.png" alt="Optimized for performance, accessibility, sustainability and SEO" placeholder='#fff' />
         </div>
       </section>
       <section className='section section--gray'>
@@ -239,21 +239,21 @@ export default function HomePage() {
         <div className='container'>
           <div className='tech-grid not-prose'>
             <div className='tech-grid__card'>
-              <Heading level={4}>
+              <Heading level={3}>
                 <span>Built with Gatsby</span>
                 <span><img src={gatsby} alt="Gatsby" /></span>
               </Heading>
               <p>DocsKit is built on Gatsby: the modern, open-source, and lightning-fast static site generator framework</p>
             </div>
             <div className='tech-grid__card'>
-              <Heading level={4}>
+              <Heading level={3}>
                 <span>Using GitHub</span>
                 <span><img src={github} alt="Github" /></span>
               </Heading>
               <p>As a web-based hosting service for version control using Git, GitHub facilitates collaborative development</p>
             </div>
             <div className='tech-grid__card'>
-              <Heading level={4}>
+              <Heading level={3}>
                 <span>Powered by platformOS</span>
                 <span><img src={pos} alt="platformOS" /></span></Heading>
               <p>DocsKit is maintained and developed by the team behind platformOS: the limitless API-first application development platform</p>
