@@ -1,0 +1,114 @@
+.home {
+  margin: -4rem calc(50% - 50vw) 0;
+}
+
+.home .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.home .section {
+  padding: 3rem 0 4rem;
+  background: white;
+}
+.home .section--gray {
+  background: rgb(var(--base));
+}
+.home .headline {
+  margin-bottom: 2rem;
+}
+.home .headline .sub {
+  display: block;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 100;
+}
+
+.home .grid {
+  gap: 1.6rem;
+  margin-bottom: 0;
+}
+
+.feature-list {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.feature-list li {
+  display: flex;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  border-bottom: 1px solid rgb(var(--divider));
+}
+
+.home .icon--rounded {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  padding: 1.5rem;
+  border: 1px solid rgb(var(--divider));
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+
+  @media (min-width: 1024px) {
+    display: inline-flex;
+  }
+}
+.home .features-link {
+  display: inline-flex;
+  margin-left: auto;
+  gap: 8px;
+  padding: 8px 20px;
+  border: 1px solid rgb(var(--divider));
+}
+.home .tech-grid {
+  border: 1px solid rgb(var(--divider));
+  border-radius: 4px;
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+.home .tech-grid__card {
+  font-size: 12px;
+}
+.home .tech-grid__card .headline {
+  margin-top: 0;
+}
+.home .tech-grid__card .headline-4__text {
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 1024px) {
+
+  .home .tech-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .home .tech-grid > * + * {
+    border-left: 1px solid rgb(var(--divider));
+    padding-left: 2rem;
+  }
+}
+
+.home .book-banner {
+  padding: 16px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.home .section--bg {
+  padding: 0;
+}
+.home .section--bg > .container {
+  padding: 3rem 0 4rem;
+
+  @media (min-width: 640px) {
+    background: url(../images/home-section-bg.svg) bottom left no-repeat;
+  }
+}

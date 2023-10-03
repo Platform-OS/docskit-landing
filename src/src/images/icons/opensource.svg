@@ -1,0 +1,11 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group">
+<g id="bookmarks-document">
+<path id="Shape" d="M7 2.99902H3C1.89543 2.99902 1 3.89445 1 4.99902V28.999C1 30.1036 1.89543 30.999 3 30.999H29C30.1046 30.999 31 30.1036 31 28.999V4.99902C31 3.89445 30.1046 2.99902 29 2.99902H15" stroke="#405568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape_2" fill-rule="evenodd" clip-rule="evenodd" d="M15 14.999L11 12.0004L7 15.0004V2.00036C6.99965 1.73491 7.10485 1.48021 7.29242 1.29239C7.48 1.10456 7.73455 0.999023 8 0.999023H14C14.5523 0.999023 15 1.44674 15 1.99902V14.999Z" stroke="#405568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape_3" d="M7 24.999H21" stroke="#405568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape_4" d="M7 18.999H25" stroke="#405568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape_5" d="M25 12.999H19" stroke="#405568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</svg>
