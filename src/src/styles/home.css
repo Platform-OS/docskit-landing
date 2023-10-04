@@ -9,7 +9,8 @@
   padding-right: 1rem;
 }
 .home .section {
-  padding: 3rem 0 4rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
   background: white;
 }
 .home .section--gray {
@@ -108,10 +109,12 @@
 }
 
 .home .section--bg {
-  padding: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 .home .section--bg > .container {
-  padding: 3rem 0 4rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
 
   @media (min-width: 640px) {
     background: url(../images/home-section-bg.svg) bottom left no-repeat;
@@ -120,5 +123,11 @@
 .home .section--bg > .container--hero {
   @media (min-width: 640px) {
     background: url(../images/hero-bg.svg) top right no-repeat;
+  }
+}
+
+@media (max-width: 640px) {
+  .home .included-features-img {
+    order: 2;
   }
 }
