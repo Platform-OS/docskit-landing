@@ -26,7 +26,7 @@ import pos from '../images/icons/pos.png';
 import book from '../images/icons/book.svg';
 import arrowRight from '../images/icons/arrow-right.svg';
 import video from '../images/customization.mp4';
-import '../styles/home.css';
+import './home.css';
 import { Link } from 'gatsby';
 
 export default function HomePage() {
