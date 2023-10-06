@@ -29,6 +29,7 @@ import book from '../images/icons/book.svg';
 import arrowRight from '../images/icons/arrow-right.svg';
 import video from '../images/customization.mp4';
 import './home.css';
+import track from '../helpers/plausible';
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = React.useState(false);
@@ -56,7 +57,10 @@ export default function HomePage() {
               <p>
                 Dive deeper into DocsKit's capabilities! Join us for a 20-minute discussion to explore how DocsKit can enhance your documentation and determine if it's the right fit for your projects.              </p>
               <button
-                onClick={() => setModalOpen(true)}
+                onClick={() => {
+                  setModalOpen(true);
+                  track('CTA', {props: {text: 'Schedule a call', position: 'card'}});
+                }}
               >
                 <Button>Schedule a call</Button>
               </button>
@@ -283,6 +287,9 @@ export default function HomePage() {
             backgroundColor: 'rgba(0, 0, 0, 0.2)',
             zIndex: 500
           }
+        }}
+        onAfterClose={() => {
+          track('Modal-close');
         }}
       >
         <div className='text-center'>
