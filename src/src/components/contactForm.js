@@ -72,7 +72,6 @@ export default function ContactForm() {
             <label htmlFor="subject">Subject</label>
             <div className="select-wrapper">
               <select className="input--select" name="subject" id="subject">
-                <option value="demo">Book a demo</option>
                 <option value="sales">Contact sales</option>
                 <option value="tech">Technical enquiry</option>
               </select>
