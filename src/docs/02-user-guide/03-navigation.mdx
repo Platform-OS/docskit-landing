@@ -15,7 +15,7 @@ Furthermore, it is crucial to provide a meaningful title for each page in the fr
 While the slug and title properties are vital for establishing a robust navigation structure, we also support a fallback system based on folders and filenames. If a page lacks a specified slug, the system will generate one based on the folder structure. In such cases, ensure that each topic folder contains an index.mdx file serving as the content page for that particular topic. Nonetheless, we encourage content writers to supply a slug in the frontmatter for greater control over the URL and navigation structure.
 
 Here is an example of how the frontmatter for the current page is structured:  
-```frontmatter
+```yaml
 ---
 title: Navigation
 slug: user-guide/navigation
@@ -35,12 +35,13 @@ To facilitate navigation within each page, an automatically generated table of c
 ## Customization
 
 We recognize the significance of flexibility, which is why we provide you with the option to personalize the appearance of your pages. You can choose to disable the sidebar menu and/or the table of contents for specific pages, enabling you to concentrate solely on the content itself. To achieve this, add `hideNavigation: true` or `hideToc: true` to the frontmatter of the respective page.
-```frontmatter
+```yaml
 ---
 title: My full-width page
 slug: /full-width-page
 hideNavigation: true
 hideToc: true
+---
 ```
 
 ## Summary

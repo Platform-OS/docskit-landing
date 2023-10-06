@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link, Script } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import ReactModal from 'react-modal';
 import Hero from '../@platformos/gatsby-theme-platformos-docskit/components/hero';
 import Card from '../@platformos/gatsby-theme-platformos-docskit/components/card';
 import Heading from '../@platformos/gatsby-theme-platformos-docskit/components/heading';
@@ -27,12 +29,14 @@ import book from '../images/icons/book.svg';
 import arrowRight from '../images/icons/arrow-right.svg';
 import video from '../images/customization.mp4';
 import './home.css';
-import { Link } from 'gatsby';
+import track from '../helpers/plausible';
 
 export default function HomePage() {
+  const [modalOpen, setModalOpen] = React.useState(false);
+  ReactModal.setAppElement('#___gatsby');
 
   return (
-    <div className="home">
+    <div className="home" id="home">
       <section className="section section--gray section--bg">
 
         <div className="container container--hero">
@@ -49,12 +53,17 @@ export default function HomePage() {
             </Card>
             <Card variant="highlighted" hoverable shadow bgImage={bgImage2} className='cta-card'>
 
-              <Heading level={3}>Book a live demo</Heading>
+              <Heading level={3}>Schedule a discovery call</Heading>
               <p>
-                Experience the capabilities of DocsKit in action! Schedule a personalized demo to see how DocsKit can enhance your documentation process.
-              </p>
-
-              <Button href="/contact">Book a demo</Button>
+                Dive deeper into DocsKit's capabilities! Join us for a 20-minute discussion to explore how DocsKit can enhance your documentation and determine if it's the right fit for your projects.              </p>
+              <button
+                onClick={() => {
+                  setModalOpen(true);
+                  track('CTA', {props: {text: 'Schedule a call', position: 'card'}});
+                }}
+              >
+                <Button>Schedule a call</Button>
+              </button>
             </Card>
           </Grid>
         </div>
@@ -269,6 +278,29 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <ReactModal
+        isOpen={modalOpen}
+        onRequestClose={() => setModalOpen(false)}
+        closeTimeoutMS={300}
+        style={{
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+            zIndex: 500
+          }
+        }}
+        onAfterClose={() => {
+          track('Modal-close');
+        }}
+      >
+        <div className='text-center'>
+          <Heading level={3}>Schedule a call</Heading>
+          <p className='py-6'>
+            Join us for a 20-minute discussion to explore how DocsKit can enhance your documentation and determine if it's the right fit for your projects.
+          </p>
+        </div>
+        <iframe title="Contact Sales" src="https://calendar.thetrackapp.com/f/4c0193b4-305e-46e7-95db-c3430a08a056" id="track-booking-embed" className="w-full" />
+      </ReactModal>
+      <Script src="https://dgro9eqohvolk.cloudfront.net/track_scripts/communicator.js" defer />
     </div>
   );
 }
