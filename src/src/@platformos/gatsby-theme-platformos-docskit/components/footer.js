@@ -6,10 +6,10 @@ import { Link } from 'gatsby';
 const Footer = ({ children }) => (
   <footer className="footer bg-base p-6 text-sm">
     <div className="footer__content container mx-auto">
-      <Logo />
+      <div className='footer__logo'><Logo /></div>
       <span>platformOS DocsKit &copy; {new Date().getFullYear()}</span>
+      <span>built with DocsKit</span>
       <span>powered by <a href="https://platformos.com" target="_blank" rel="noopener noreferrer"><u>platformOS</u></a></span>
-      <span>built with <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer"><u>Gatsby</u></a></span>
       <Link to="/license/"><u>License</u></Link>
     </div>
   </footer>
