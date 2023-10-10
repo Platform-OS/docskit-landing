@@ -292,6 +292,7 @@ export default function HomePage() {
           track('Modal-close');
         }}
       >
+        <button className='modal-close' onClick={() => setModalOpen(false)} aria-label='Close'></button>
         <div className='text-center'>
           <Heading level={3}>Schedule a call</Heading>
           <p className='py-6'>
