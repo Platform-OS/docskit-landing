@@ -1,9 +1,16 @@
 .footer__content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+
+  @media (min-width: 640px) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+.footer__logo {
+  padding-bottom: 1rem;
 }
 .footer__content > * {
+  display: block;
   margin-right: 1rem;
   padding-right: 1rem;
 }
