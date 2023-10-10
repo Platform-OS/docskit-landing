@@ -21,10 +21,10 @@ const Awards = () => {
         <StaticImage src="../images/awards/award5.png" alt="Best Ongoing Developer Experience - DevPortal Awards 2022" />
       </a>
       <a href="https://documentation.platformos.com/community/awards/dpa_best_editorial_experience" target="_blank" rel="noopener noreferrer">
-        <StaticImage src="../images/awards/award6.svg" alt="Best Editorial Experience in a DevPortal - DevPortal Awards 2021" />
+        <StaticImage src="../images/awards/award7.png" alt="Best Editorial Experience in a DevPortal - DevPortal Awards 2021" />
       </a>
       <a href="https://documentation.platformos.com/community/awards/dpa_best_onboarding" target="_blank" rel="noopener noreferrer">
-        <StaticImage src="../images/awards/award7.png" alt="Best Onboarding - DevPortal Awards 2021" />
+        <StaticImage src="../images/awards/award6.svg" alt="Best Onboarding - DevPortal Awards 2021" />
       </a>
       <a href="https://documentation.platformos.com/community/awards/dpa_best_restapi_alternative" target="_blank" rel="noopener noreferrer">
         <StaticImage src="../images/awards/award8.png" alt="Best Developer Portal for Alternatives to REST_APIs - DevPortal Awards 2021" />
