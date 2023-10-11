@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/Platform-OS/docskit-landing#readme",
   "scripts": {
-    "eslint:mdx": "eslint ./src/docs ./src/partials",
-    "eslint:mdx:ci": "eslint ./src/docs ./src/partials --format json --output-file reports/eslint-mdx.json"
+    "eslint:mdx": "eslint ./src/docs ./src/partials --no-error-on-unmatched-pattern --exit-on-fatal-error",
+    "eslint:mdx:ci": "eslint ./src/docs ./src/partials --no-error-on-unmatched-pattern --exit-on-fatal-error --output-file reports/eslint-mdx.txt"
   },
   "devDependencies": {
     "eslint": "^8.45.0",
