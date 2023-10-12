@@ -61,11 +61,12 @@ export default function HomePage() {
               <p>
                 Dive deeper into DocsKit's capabilities! Join us for a 20-minute discussion to explore how DocsKit can enhance your documentation and determine if it's the right fit for your projects.              </p>
               <button
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
                   openTrackApp();
                 }}
               >
-                <Button>Schedule a call</Button>
+                <Button href="#">Schedule a call</Button>
               </button>
             </Card>
           </Grid>
