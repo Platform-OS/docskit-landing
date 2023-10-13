@@ -3,6 +3,7 @@ title: Resources
 slug: resources
 description: In the Resources section, we provide valuable supporting materials to assist you throughout your documentation journey.
 ---
+import pdf from '@partials/_assets/test-pdf.pdf'
 
 # Resources
 
@@ -11,3 +12,42 @@ In the Resources section, we provide valuable supporting materials to assist you
 Our resources include ready-to-use templates for the most frequently used content types. You'll find templates for task topics, concept topics, reference topics, and release notes. Primarily designed to ensure consistency in your content, these templates not only streamline the review process and save you time, but they also provide a helpful guide to contributors, making the documentation process smoother for everyone involved.
 
 Keep in mind that our Resource section is continuously evolving. As DocsKit grows, we're committed to expanding this section, ensuring you have all the tools and resources you need. So, stay tuned for more!
+
+# Static assets (pdf)
+  
+  
+
+## With MDX (js import + JSX)
+
+```mdx
+import pdf from '@partials/_assets/test-pdf.pdf'
+
+<a href={pdf}>Test pdf</a>
+```
+
+<a href={pdf}>Test pdf</a>
+  
+
+
+## Using the Button component (js import + JSX)
+
+```mdx
+import pdf from '@partials/_assets/test-pdf.pdf'
+
+<Button href={pdf}>Test pdf</Button>
+```
+
+<Button href={pdf}>Test pdf</Button>
+  
+  
+
+
+## ⛔ With MD links (referencing the file directly) - needs implementation in base DocsKit
+
+```mdx
+[Test pdf link](../partials/_assets/test-pdf.pdf)
+```
+
+[Test pdf link](../partials/_assets/test-pdf.pdf)
+
+
