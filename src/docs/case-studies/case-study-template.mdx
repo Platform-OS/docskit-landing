@@ -7,8 +7,8 @@ hideNavigation: true
 ---
 import bgImage from '../illustration1.svg';
 
-<Card variant="gradient" bgImage={bgImage}>
-<h1>Title</h1>
+<Card variant="hero">
+# Case Study Title
 Subtitle/motto: Short, catchy, marketing focused description of the topic, e.g. Unveiling online excellence with best practices
 </Card>
 
@@ -18,7 +18,7 @@ Subtitle/motto: Short, catchy, marketing focused description of the topic, e.g. 
 
 
 
-<Card shadow hoverable className="not-prose">
+<Card shadow hoverable variant="gradient" className="not-prose">
 - **Challenge:** Describe the primary challenge or problem your team faced
 - **Solutions:** Highlight the key solutions, strategies, or approaches you implemented to address the challenge.
 - **Results:** Provide a brief summary of the positive outcomes, achievements, or improvements you observed as a result of your efforts.
@@ -42,15 +42,15 @@ Subtitle/motto: Short, catchy, marketing focused description of the topic, e.g. 
 <br />
 
 <Grid cols="3">
-  <Card variant="highlighted" hoverable bgImage={bgImage}>
+  <Card variant="feature" shadow hoverable icon={bgImage}>
   #### First goal
   Goal description lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
   </Card>
-  <Card variant="highlighted" hoverable bgImage={bgImage}>
+  <Card variant="feature" shadow hoverable icon={bgImage}>
   #### Second goal
   Second goal lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
   </Card>
-  <Card variant="highlighted" hoverable bgImage={bgImage}>
+  <Card variant="feature" shadow hoverable icon={bgImage}>
   #### Third goal 
   Third goal lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   </Card>

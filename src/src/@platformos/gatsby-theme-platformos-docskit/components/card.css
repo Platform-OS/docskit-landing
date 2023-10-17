@@ -6,7 +6,7 @@
 .c-card--gradient:hover {
   background-position: right center;
 }
-.c-card__image {
+.c-card--image .c-card__image {
   opacity: .2;
   padding: 2rem;
 }
@@ -14,7 +14,7 @@
   .c-card--image {
     padding-right: 50%;
   }
-  .c-card__image {
+  .c-card--image .c-card__image {
     opacity: 1;
   }
 }
@@ -22,4 +22,26 @@
   .c-card--image {
     padding-right: 40%;
   }
+}
+
+.c-card--hero {
+  min-height: 24rem;
+  max-height: 50vh;
+  margin: 0 calc(50% - 50vw);
+  background: url(../../../images/hero_abstract.svg) center bottom -50px no-repeat;
+}
+
+.c-card--hero .c-card__content {
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.c-card--feature .c-card__image {
+  max-width: 30%;
+  height: auto;
+  padding: 0;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  border: 1px solid rgb(var(--divider));
 }
