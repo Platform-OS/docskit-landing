@@ -25,10 +25,10 @@
 }
 
 .c-card--hero {
+  display: flex;
+  align-items: center;
   min-height: 24rem;
   max-height: 50vh;
-  margin: 0 calc(50% - 50vw);
-  background: url(../../../images/hero_abstract.svg) center bottom -50px no-repeat;
 }
 
 .c-card--hero .c-card__content {

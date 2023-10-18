@@ -4,7 +4,7 @@ import './card.css';
 const Card = ({
   children,
   className = '',
-  variant = 'default' /* default | gradient | feature */,
+  variant = 'default' /* default | gradient | hero | feature */,
   hoverable = false,
   shadow = false,
   bgImage = null,
@@ -33,7 +33,7 @@ const Card = ({
     default: `bg-panel ${base}`,
     highlighted: `text-inverted prose-headings:text-inverted prose-a:text-inverted bg-gradient-to-r from-gradient2-from to-gradient2-to ${base}`,
     gradient: `text-inverted prose-headings:text-inverted prose-a:text-inverted bg-gradient-to-r from-gradient1-from to-gradient1-to ${base}`,
-    hero: `text-center ${base}`,
+    hero: `${base}`,
     feature: `${base}`
   };
 
