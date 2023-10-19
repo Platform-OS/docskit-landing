@@ -16,7 +16,7 @@ import bgImage from './assets/partials.svg';
 DocsKit Partials redefine content creation by offering a centralized solution to the challenge of maintaining consistency and efficiency in user guides and technical documentation.
 
 
-## Summary
+### Summary
 <br />
 <Card shadow hoverable variant="gradient" className="not-prose">
 **Challenge:** Updating and reviewing repetitive content in documentation.
@@ -35,30 +35,33 @@ Our challenge was to maintain repetitive content within user guides, where ident
 From a reviewer's perspective, dealing with redundant pieces of texts can be a time-consuming task, often leading to the realization that the same content has been reviewed multiple times. Additionally, pinpointing inaccuracies and providing feedback for each occurrence becomes a complex and demanding process, which makes the documentation workflow cumbersome.
 
 
+### Project Goals
+<br />
+
+import icon1 from './assets/partials-goal1.svg'
+import icon2 from './assets/partials-goal2.svg'
+import icon3 from './assets/partials-goal3.svg'
+
+<Grid cols="3">
+  <Card variant="feature" shadow hoverable icon={icon1}>
+    #### Streamline content creation
+    Allow writers to create a library of reusable content including paragraphs, images, or entire chapters to reduce the need to recreate the same content in multiple places and save time.
+  </Card>
+  <Card variant="feature" shadow hoverable icon={icon2}>
+    #### Ensure consistency
+    When updates are required, changes made to content in the centralized folder are automatically reflected in all instances throughout the documentation, ensuring that the information remains consistent and up-to-date.
+  </Card>
+  <Card variant="feature" shadow hoverable icon={icon3}>
+    #### Simplify review process
+    Partials not only benefit writers but also reviewers. Since the content is centralized, reviewers only need to review it once, reducing the time and effort required for the review process. This results in a more efficient and less burdensome review workflow.
+  </Card>
+</Grid>
+
 ### Challenges
 
 The challenge extended to the necessity of manually updating content in multiple locations when changes were needed. The difficulty lay in finding the redundant text, and also in ensuring that every instance where the same piece of text was used was identified and updated, including all relevant resources, e.g., images, custom components, and visuals. Even minor modifications or updates, such as changing a few words incurred a significant cost in terms of time and mental energy from both the writer and reviewer.
 
 There was a trial-and-error process, where reviewers would often leave notes requesting updates "at every occurrence." This left the writer with the frustrating burden of the responsibility of finding and updating every instance, which was a mentally taxing task. To compound the issue, recognizing the repetitive parts required a close familiarity with the whole documentation and its structure, which is sometimes not possible.
-
-
-### Project Goals
-<br />
-
-<Grid cols="3">
-  <Card variant="feature" shadow hoverable icon={bgImage}>
-    #### Streamline content creation
-    Allow writers to create a library of reusable content including paragraphs, images, or entire chapters to reduce the need to recreate the same content in multiple places and save time.
-  </Card>
-  <Card variant="feature" shadow hoverable icon={bgImage}>
-    #### Ensure consistency
-    When updates are required, changes made to content in the centralized folder are automatically reflected in all instances throughout the documentation, ensuring that the information remains consistent and up-to-date.
-  </Card>
-  <Card variant="feature" shadow hoverable icon={bgImage}>
-    #### Simplify review process
-    Partials not only benefit writers but also reviewers. Since the content is centralized, reviewers only need to review it once, reducing the time and effort required for the review process. This results in a more efficient and less burdensome review workflow.
-  </Card>
-</Grid>
 
 
 ### Solution

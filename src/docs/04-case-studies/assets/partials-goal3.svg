@@ -1,0 +1,10 @@
+<svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group">
+<g id="app-window-eye">
+<path id="Rectangle-path" fill-rule="evenodd" clip-rule="evenodd" d="M1.64697 2.45508C1.64697 1.62665 2.31855 0.955078 3.14697 0.955078H27.685C28.5134 0.955078 29.185 1.62665 29.185 2.45508V25.0261C29.185 25.8545 28.5134 26.5261 27.685 26.5261H3.14697C2.31855 26.5261 1.64697 25.8545 1.64697 25.0261V2.45508Z" stroke="#1D4ED8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape" d="M1.64697 6.85547H29.185" stroke="#1D4ED8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape_2" fill-rule="evenodd" clip-rule="evenodd" d="M23.0848 16.1061C23.3511 16.4515 23.3511 16.933 23.0848 17.2784C22.0908 18.5884 19.3567 21.6045 15.4161 21.6045C11.4755 21.6045 8.7414 18.5884 7.74741 17.2771C7.48198 16.9314 7.48198 16.4505 7.74741 16.1047C8.74271 14.8013 11.4755 11.7773 15.4161 11.7773C19.3567 11.7773 22.0908 14.8013 23.0848 16.1061Z" stroke="#1D4ED8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Shape_3" d="M15.4161 16.1992C15.6877 16.1992 15.9078 16.4194 15.9078 16.691C15.9078 16.9626 15.6877 17.1827 15.4161 17.1827C15.1445 17.1827 14.9243 16.9626 14.9243 16.691C14.9243 16.4194 15.1445 16.1992 15.4161 16.1992" stroke="#1D4ED8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</svg>

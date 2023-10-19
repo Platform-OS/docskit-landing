@@ -40,7 +40,7 @@ const Card = ({
   return (
     <div className={`${classes[variant]} c-card--${variant} ${className}`}>
       <div className='c-card__content'>
-        {image && <img src={image} alt="" className={`c-card__image ${imageClasses}`} />}
+        {image && <span className='c-card__image-wrapper'><img src={image} alt="" className={`c-card__image ${imageClasses}`} /></span>}
         {children}
       </div>
     </div>
