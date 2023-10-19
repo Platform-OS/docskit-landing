@@ -1,0 +1,95 @@
+---
+title: Centralizing Reusable Content with DocsKit Partials
+slug: case-studies/docskit-mdx-partials
+description: DocsKit Partials redefine content creation by offering a centralized solution to the challenge of maintaining consistency and efficiency in user guides and technical documentation.
+hideToc: true
+---
+import bgImage from './assets/partials.svg';
+
+<Card variant="hero" bgImage={bgImage}> 
+# Centralizing reusable content with DocsKit Partials
+## Write once, use it everywhere.
+</Card>
+
+## Project overview
+
+DocsKit Partials redefine content creation by offering a centralized solution to the challenge of maintaining consistency and efficiency in user guides and technical documentation.
+
+
+## Summary
+<br />
+<Card shadow hoverable variant="gradient" className="not-prose">
+**Challenge:** Updating and reviewing repetitive content in documentation.
+
+**Solutions:** Creating a Centralized Reusable Content Library.
+
+**Results:** Streamlined updates, increased efficiency, enhanced consistency, and reduced review time.
+
+**Key Learnings:** The power of centralizing reusable content and its impact on documentation workflows.
+</Card>
+
+### Problem statement
+
+Our challenge was to maintain repetitive content within user guides, where identical pieces of texts or images are distributed across multiple locations and used many times. Updating the whole documentation became a complex task when a change was required, especially when we needed to ensure consistency across all instances.
+
+From a reviewer's perspective, dealing with redundant pieces of texts can be a time-consuming task, often leading to the realization that the same content has been reviewed multiple times. Additionally, pinpointing inaccuracies and providing feedback for each occurrence becomes a complex and demanding process, which makes the documentation workflow cumbersome.
+
+
+### Challenges
+
+The challenge extended to the necessity of manually updating content in multiple locations when changes were needed. The difficulty lay in finding the redundant text, and also in ensuring that every instance where the same piece of text was used was identified and updated, including all relevant resources, e.g., images, custom components, and visuals. Even minor modifications or updates, such as changing a few words incurred a significant cost in terms of time and mental energy from both the writer and reviewer.
+
+There was a trial-and-error process, where reviewers would often leave notes requesting updates "at every occurrence." This left the writer with the frustrating burden of the responsibility of finding and updating every instance, which was a mentally taxing task. To compound the issue, recognizing the repetitive parts required a close familiarity with the whole documentation and its structure, which is sometimes not possible.
+
+
+### Project Goals
+<br />
+
+<Grid cols="3">
+  <Card variant="feature" shadow hoverable icon={bgImage}>
+    #### Streamline content creation
+    Allow writers to create a library of reusable content including paragraphs, images, or entire chapters to reduce the need to recreate the same content in multiple places and save time.
+  </Card>
+  <Card variant="feature" shadow hoverable icon={bgImage}>
+    #### Ensure consistency
+    When updates are required, changes made to content in the centralized folder are automatically reflected in all instances throughout the documentation, ensuring that the information remains consistent and up-to-date.
+  </Card>
+  <Card variant="feature" shadow hoverable icon={bgImage}>
+    #### Simplify review process
+    Partials not only benefit writers but also reviewers. Since the content is centralized, reviewers only need to review it once, reducing the time and effort required for the review process. This results in a more efficient and less burdensome review workflow.
+  </Card>
+</Grid>
+
+
+### Solution
+
+DocsKit Partials allowed us to create a library of reusable content, whether it was a single sentence or a comprehensive chapter containing images and visuals, just like any other content crafted in MDX within DocsKit. Storing and maintaining reusable content elements at one place but using it in multiple instances saved time and also improved the overall user experience by ensuring that the documentation is accurate and up-to-date.
+
+With Partials, we could update content once, and every instance throughout our documentation automatically reflected the change. We could maintain the content in a central library, then imported it and used it anywhere we wanted throughout the DocsKit site.
+
+```jsx
+import SharedContentSnippet from '@partials/common.mdx'
+```
+
+The reusable content parts are written in MDX and rendered the very same way using the same [formatting options](/user-guide/markdown/) and [custom components](/user-guide/components/) as any other part of the site.
+
+### Results
+
+We created user guides and technical documentation with unprecedented efficiency and consistency. Updates that once required significant effort and introduced the risk of errors became much easier.
+
+This approach ensures that when updates or corrections are necessary in a specific part of the documentation, you only need to make those changes in our centralized content library. As a result, these updates are automatically applied across all instances where that content is utilized. Using DocsKit Partials reduces time spent during both the writing and the review process, because you only need to take care of the repetitive content part once, both when writing, editing, and reviewing.
+
+Our documentation process was transformed, with every instance of reusable content-chunks instantly reflecting changes, ensuring accuracy and consistency.
+
+**SCREENSHOT** 
+
+Partial utilized in the documentation of the District of Columbia Department of Buildings
+
+<Card variant="gradient">
+  #### Key Learnings
+
+  Our journey with DocsKit Partials has illuminated a path toward more efficient, consistent, and user-friendly technical documentation, using significantly less time and mental energy during the writing and review process.
+
+  DocsKit Partials centralize your content, so you create it once and use it everywhere, eliminating the need for trial-and-error and manual updates. Centralizing and managing reusable content is a significant advancement in the world of technical documentation, as it can help streamline the process of maintaining and revising user guides or longer technical documentation that have parts that are used in multiple places. Say goodbye to manual updates and welcome a new era of streamlined, consistent, and efficient documentation workflows.
+
+</Card>

@@ -29,6 +29,15 @@
   align-items: center;
   min-height: 24rem;
   max-height: 50vh;
+  padding-left: 0;
+}
+
+.c-card--hero .headline {
+  margin: 0;
+}
+.c-card--hero h2 {
+  text-transform: uppercase;
+  font-weight: 100;
 }
 
 .c-card--hero .c-card__content {
