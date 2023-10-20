@@ -13,16 +13,27 @@
   opacity: .2;
   padding: 2rem;
 }
-@media (min-width: 1024px) {
+
+@media (min-width: 1280px) {
   .c-card--image {
-    padding-right: 50%;
+    padding-right: 40%;
   }
   .c-card--image .c-card__image {
     opacity: 1;
   }
+  .grid > .c-card--image {
+    padding-right: 20%;
+  }
+  .grid > .c-card--image .c-card__image {
+    opacity: .2;
+  }
 }
-@media (min-width: 1280px) {
-  .c-card--image {
+
+@media (min-width: 1536px) {
+  .grid > .c-card--image .c-card__image {
+    opacity: 1;
+  }
+  .grid > .c-card--image {
     padding-right: 40%;
   }
 }
