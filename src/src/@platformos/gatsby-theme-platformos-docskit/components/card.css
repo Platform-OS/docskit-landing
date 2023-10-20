@@ -1,4 +1,6 @@
 .c-card--gradient {
+  --tw-prose-bold: var(--text-inverted);
+
   background-size: 200% auto;
   background-image: linear-gradient(to right, var(--gradient1-from) 0%, var(--gradient1-to) 51%, var(--gradient1-from) 100%);
   transition: .5s;
@@ -6,20 +8,70 @@
 .c-card--gradient:hover {
   background-position: right center;
 }
-.c-card__image {
+
+.c-card--image .c-card__image {
   opacity: .2;
   padding: 2rem;
 }
-@media (min-width: 1024px) {
-  .c-card--image {
-    padding-right: 50%;
-  }
-  .c-card__image {
-    opacity: 1;
-  }
-}
+
 @media (min-width: 1280px) {
   .c-card--image {
     padding-right: 40%;
   }
+  .c-card--image .c-card__image {
+    opacity: 1;
+  }
+  .grid > .c-card--image {
+    padding-right: 20%;
+  }
+  .grid > .c-card--image .c-card__image {
+    opacity: .2;
+  }
+}
+
+@media (min-width: 1536px) {
+  .grid > .c-card--image .c-card__image {
+    opacity: 1;
+  }
+  .grid > .c-card--image {
+    padding-right: 40%;
+  }
+}
+
+.c-card--hero {
+  display: flex;
+  align-items: center;
+  min-height: 24rem;
+  max-height: 50vh;
+  padding-left: 0;
+}
+
+.c-card--hero .headline {
+  margin: 0;
+}
+.c-card--hero h2 {
+  font-weight: 100;
+}
+
+.c-card--hero .c-card__content {
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.c-card--feature {
+  text-align: center;
+}
+.c-card--feature .c-card__image-wrapper {
+  display: inline-block;
+  padding: 1.5rem;
+  margin: 0 auto;
+  border-radius: 9999px;
+  border: 1px solid rgb(var(--divider));
+}
+.c-card--feature .c-card__image {
+  width: 30px;
+  height: auto;
+  padding: 0;
+  margin: 0;
 }
