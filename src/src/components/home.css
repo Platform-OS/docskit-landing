@@ -103,6 +103,9 @@
 
 .home .book-banner {
   padding: 16px;
+}
+
+.home .book-banner .c-card__content {
   display: flex;
   gap: 1rem;
   align-items: center;
