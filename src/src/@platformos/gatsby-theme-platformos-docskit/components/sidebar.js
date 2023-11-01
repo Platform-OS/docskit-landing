@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-const NavItem = ({ children, slug = '', title = '', level = 0, activeBranch = [] }) => {
+const NavItem = ({ children, slug = '', title = '', level = 0, activeBranch = [], shouldUseNavigationBranch }) => {
   const hasChildren = children && children.length > 0;
-  const isOpen = activeBranch[0]?.title === title
+  const isOpen = !shouldUseNavigationBranch || activeBranch[0]?.title === title
   const textClass = level > 0 ? `pl-${2 + (level * 2)}` : 'font-bold py-2'; // 'pl-2 pl-4 pl-6'
   const itemClass = level > 0 ? 'border-l border-divider pl-4' : '';
   return (
@@ -46,7 +46,7 @@ const Sidebar = ({ branch, treeData = [], isMobileNavOpen = false, sidebarEnable
             <input name="q" aria-label="Search" className="search__input" type="search" placeholder="Search..." aria-autocomplete="none" autoComplete="off" />
           </form>
           <ul className="text-normal">
-            {treeData.map(item => item && (<NavItem key={item.slug} {...item} activeBranch={activeNavigationTreeBranch} />))}
+            {treeData.map(item => item && (<NavItem key={item.slug} {...item} activeBranch={activeNavigationTreeBranch} shouldUseNavigationBranch={shouldUseNavigationBranch} />))}
           </ul>
         </nav>
       </div>
