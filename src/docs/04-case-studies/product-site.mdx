@@ -80,14 +80,14 @@ The Gatsby ecosystem offers robust search capabilities through various plugins a
 
 DocsKit's search capabilities can be enhanced through third-party integrations like Algolia. Algolia provides a powerful hosted search service that can be seamlessly integrated with DocsKit sites, enabling advanced search features such as typo-tolerance and faceted search.
 
-DocsKit sites can implement search functionality by integrating local search plugins. These plugins index site content and offer fast, client-side search experiences for users.
+DocsKit sites can also implement search functionality by integrating local search plugins. These plugins index site content and offer fast, client-side search experiences for users.
 
-For the DocsKit landing page, we utilize the `gatsby-plugin-local-search` plugin to create search indexes during the build process. On the client side, we employ FlexSearch to process search terms and display results based on the generated search index.
+For the DocsKit product site, we utilize the `gatsby-plugin-local-search` plugin to create search indexes during the build process. On the client side, we employ FlexSearch to process search terms and display results based on the generated search index.
 
 ### Automation
 The DocsKit experience and the Docs as Code approach heavily rely on Continuous Integration and Continuous Deployment (CI/CD). Automation is integral to streamlining the editorial workflow and ensuring a seamless collaborative process for multiple team members working on the same documentation codebase.
 
-For the DocsKit landing page codebase, we leverage GitHub Actions to automate various tasks. This includes running code checks and code analysis, building and deploying site previews for every GitHub pull request, and deploying the accepted and merged changes to our User Acceptance Testing (UAT) environment. This automation significantly reduces manual intervention and accelerates the development and review process.
+For the DocsKit product site codebase, we leverage GitHub Actions to automate various tasks. This includes running code checks and code analysis, building and deploying site previews for every GitHub pull request, and deploying the accepted and merged changes to our User Acceptance Testing (UAT) environment. This automation significantly reduces manual intervention and accelerates the development and review process.
 
 Deploying the latest code to the production environment is a straightforward process, requiring just a single button click on GitHub. This level of automation not only enhances efficiency but also minimizes the risk of human errors, ensuring that the documentation site is always up to date and in sync with the latest changes.
 
