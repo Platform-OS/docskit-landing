@@ -11,7 +11,6 @@ module.exports = {
     {
       resolve: '@platformos/gatsby-theme-platformos-docskit',
       options: {
-        showFullNavigation: true
       }
     },
     '@platformos/gatsby-plugin-posify',
