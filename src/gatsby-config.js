@@ -5,7 +5,8 @@ module.exports = {
   siteMetadata: {
     title: 'platformOS DocsKit',
     description: 'platformOS DocsKit',
-    author: 'platformOS'
+    author: 'platformOS',
+    siteUrl: 'https://docskit.platformos.com'
   },
   plugins: [
     {
@@ -13,7 +14,6 @@ module.exports = {
       options: {
       }
     },
-    '@platformos/gatsby-plugin-posify',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -67,5 +67,7 @@ module.exports = {
         domain: `docskit.platformos.com`,
       },
     },
+    'gatsby-plugin-sitemap',
+    '@platformos/gatsby-plugin-posify'
   ],
 }
