@@ -68,34 +68,11 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-sitemap',
+      resolve: 'docskit-sitemap',
       options: {
-        createLinkInHead: false,
-        query: `
-        {
-          site {
-            siteMetadata {
-              siteUrl
-            }
-          }
-          allSitePage {
-            nodes {
-              path
-              pageContext
-            }
-          }
-        }
-        `,
-        serialize: ({ path, pageContext }) => {
-          return {
-            url: path,
-            lastmod: pageContext?.lastMod,
-          }
-        },
         excludes: ['/search/']
       },
     },
-    'gatsby-plugin-git-lastmod',
     '@platformos/gatsby-plugin-posify'
   ],
 }
