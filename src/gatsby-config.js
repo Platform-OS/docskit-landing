@@ -67,7 +67,35 @@ module.exports = {
         domain: `docskit.platformos.com`,
       },
     },
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        createLinkInHead: false,
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            nodes {
+              path
+              pageContext
+            }
+          }
+        }
+        `,
+        serialize: ({ path, pageContext }) => {
+          return {
+            url: path,
+            lastmod: pageContext?.lastMod,
+          }
+        },
+        excludes: ['/search/']
+      },
+    },
+    'gatsby-plugin-git-lastmod',
     '@platformos/gatsby-plugin-posify'
   ],
 }
