@@ -21,7 +21,6 @@
     "@platformos/gatsby-plugin-posify": "^0.0.2",
     "@platformos/gatsby-theme-platformos-docskit": "^1.2.0",
     "gatsby": "^5.10.0",
-    "gatsby-plugin-git-lastmod": "^0.1.2",
     "gatsby-plugin-local-search": "^2.0.1",
     "gatsby-plugin-manifest": "^5.10.0",
     "gatsby-plugin-plausible": "^0.0.7",
