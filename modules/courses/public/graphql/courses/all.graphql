@@ -1,0 +1,18 @@
+query MyQuery($status: String = "published") {
+  records(
+    per_page: 20
+    filter: {
+      table: {value: "modules/courses/course"},
+      properties: {name: "status", value: $status}
+    }
+  ) {
+    total_entries
+    results {
+      id
+      title: property(name: "title")
+      status: property(name: "status")
+      youtube_video_id: property(name: "youtube_video_id")
+      content: property(name: "content")
+    }
+  }
+}

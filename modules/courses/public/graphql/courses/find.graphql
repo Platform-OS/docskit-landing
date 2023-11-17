@@ -1,0 +1,15 @@
+query MyQuery($id: ID!) {
+  records(
+    per_page: 1
+    filter: {
+      table: { value: "modules/courses/course" },
+      id: { value: $id }
+    }
+  ) {
+    total_entries
+    results {
+      id
+      properties
+    }
+  }
+}

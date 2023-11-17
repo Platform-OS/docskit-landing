@@ -1,0 +1,6 @@
+name: course
+properties:
+  - name: title
+  - name: youtube_video_id
+  - name: content # markdown text
+  - name: status # published | unpublished

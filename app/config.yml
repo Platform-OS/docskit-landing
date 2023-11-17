@@ -1,0 +1,4 @@
+theme_search_paths:
+  -
+  - modules/courses
+  - modules
