@@ -30,4 +30,6 @@ layout: modules/courses/courses
   </form>
 {% endcapture %}
 
-{% theme_render_rc 'components/atoms/card', content: login_form, classes: 'form-panel' %}
+<div class="container">
+  {% theme_render_rc 'components/atoms/card', content: login_form, classes: 'form-panel' %}
+</div>

@@ -1,0 +1,32 @@
+query MyQuery (
+  $withVideos: Boolean = false
+) {
+  records(
+    per_page: 20
+    filter: {
+      table: {value: "modules/courses/module"}
+    }
+    sort: { properties: { name: "weight", order: ASC } }
+  ) {
+    total_entries
+    results {
+      id
+      title: property(name: "title")
+      description: property(name: "description")
+      videos: related_records(
+        table: "modules/courses/video"
+        join_on_property: "id"
+        foreign_property: "module_id"
+        sort: { properties: { name: "weight", order: ASC } }
+      ) @include(if: $withVideos) {
+        id
+        title: property(name: "title")
+        status: property(name: "status")
+        youtube_video_id: property(name: "youtube_video_id")
+        content: property(name: "content")
+        module_id: property(name: "module_id")
+      }
+
+    }
+  }
+}

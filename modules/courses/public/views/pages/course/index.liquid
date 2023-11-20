@@ -9,58 +9,71 @@ layout: modules/courses/courses
     redirect_to '/user/login'
   endunless
 
-  graphql courses = 'modules/courses/courses/all'
+  graphql modules = 'modules/courses/modules/all', withVideos: true
 
   if params.id
-    graphql current_course = 'modules/courses/courses/find', id: params.id
+    graphql current_course = 'modules/courses/videos/find', id: params.id
 
     if current_course.records.total_entries > 0
-      assign current_course = current_course.records.results.first.properties | hash_merge: id: current_course.records.results.first.id
+      assign current_course = current_course.records.results.first
     endif
-  endif
-%}
-<a href="/session/destroy">sign out</a>
-
-{% liquid
-  if current_course != blank
-    theme_render_rc 'components/atoms/heading', level: 1, content: current_course.title, classes: 'heading'
   endif
 %}
 
 <div class="courses">
   <div class="courses__content">
     {% if current_course != blank %}
+      {% theme_render_rc 'components/atoms/heading', level: 3, tag: 'h1' content: current_course.title, classes: 'heading' %}
+
       <div class="video">
-        <iframe class="video__iframe" src="https://www.youtube-nocookie.com/embed/{{ current_course.youtube_video_id }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe
+          class="video__iframe"
+          src="https://www.youtube-nocookie.com/embed/{{ current_course.youtube_video_id }}"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
 
-      <div class="markdown-body">
+      <div class="markdown-body container">
         {{ current_course.content | markdown }}
       </div>
+    {% else %}
+      <div class="container">[course/webinar intro copy]</div>
     {% endif %}
   </div>
 
-  <nav class="courses__sidebar">
-    <ul class="course-list">
-      {% for course in courses.records.results %}
-        <li class="course-list__item">
-          <a href="/course/{{ course.id }}">
-            <img
-                src="https://img.youtube.com/vi/{{ course.youtube_video_id }}/0.jpg"
-                class="course-list__image"
-                alt="{{ course.title }}"
-                loading="eager"
-                width="168"
-                height="94"
-            />
-          </a>
-          <a href="/course/{{ course.id }}">
-            {{ course.title }}
-          </a>
+  <nav class="courses__sidebar" data-nav-container>
+
+    <ul class="module-list">
+      {% for module in modules.records.results %}
+        <li class="module-list__item">
+          <h3 class="module-list__item-title" title="{{ module.description }}">{{ module.title }}</h3>
+          <ul class="course-list">
+            {% for course in module.videos %}
+              <li class="course-list__item {% if course.id == current_course.id %}course-list__item--active{% endif %}">
+                <a href="/course/{{ course.id }}">
+                  <img
+                    src="https://img.youtube.com/vi/{{ course.youtube_video_id }}/0.jpg"
+                    class="course-list__image"
+                    alt="{{ course.title }}"
+                    loading="lazy"
+                    width="160"
+                    height="90"
+                  >
+                </a>
+                <a href="/course/{{ course.id }}" class="pos-clean course-list__title">
+                  {{ course.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+
         </li>
       {% endfor %}
+
     </ul>
+
   </nav>
-
-
 </div>

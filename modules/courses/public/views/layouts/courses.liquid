@@ -1,6 +1,7 @@
 <!doctype html>
 {% liquid
   function headscripts = 'modules/core/lib/queries/headscripts/get'
+  function current_user = 'modules/user/lib/queries/user/current'
 
   if context.current_user
     response_headers '{ "Cache-Control": "no-store", "Pragma": "no-cache" }'
@@ -19,16 +20,18 @@
 
   <body>
     <div class="page-courses">
-      <main class="container">
+      {% theme_render_rc 'components/organisms/header', current_user: current_user %}
+      <main class="main">
         {{ content_for_layout }}
       </main>
       {% liquid
         function flash = 'modules/core/commands/session/get', key: 'sflash'
         if context.location.pathname != flash.from or flash.force_clear
-          function _ = 'modules/core/commands/session/clear', key: 'sflash'
+        function _ = 'modules/core/commands/session/clear', key: 'sflash'
         endif
         theme_render_rc 'components/molecules/flashes', params: flash
       %}
     </div>
+    <script src="{{ 'modules/courses/courses.js' | asset_url }}" async defer></script>
   </body>
 </html>

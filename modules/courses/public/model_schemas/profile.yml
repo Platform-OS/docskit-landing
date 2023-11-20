@@ -1,0 +1,8 @@
+name: profile
+properties:
+  - name: user_id
+  - name: firstname
+  - name: lastname
+  - name: company
+#  - name: webinars
+#    type: array

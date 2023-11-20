@@ -1,6 +1,9 @@
-name: course
+name: video
 properties:
   - name: title
   - name: youtube_video_id
   - name: content # markdown text
   - name: status # published | unpublished
+  - name: weight # used for sorting
+  - name: module_id # for categorization
+
