@@ -1,6 +1,6 @@
-query MyQuery(
+query findModule(
     $id: ID!
-    $withVideos: Boolean = false
+    $withLessons: Boolean = false
     $status: [String!] = ["published"]
   ) {
   records(
@@ -16,15 +16,15 @@ query MyQuery(
       title: property(name: "title")
       weight: property(name: "weight")
       description: property(name: "description")
-      videos: related_records(
-        table: "modules/courses/video"
+      lessons: related_records(
+        table: "modules/courses/lesson"
         join_on_property: "id"
         foreign_property: "module_id"
         filter: {
           properties: {name: "status", value_in: $status}
         }
         sort: { properties: { name: "weight", order: ASC } }
-      ) @include(if: $withVideos) {
+      ) @include(if: $withLessons) {
         id
         title: property(name: "title")
         status: property(name: "status")

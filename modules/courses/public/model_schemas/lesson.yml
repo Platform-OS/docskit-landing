@@ -1,4 +1,4 @@
-name: video
+name: lesson
 properties:
   - name: title
   - name: youtube_video_id

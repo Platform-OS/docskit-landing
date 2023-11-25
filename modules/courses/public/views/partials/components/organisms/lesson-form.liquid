@@ -1,6 +1,6 @@
 {% liquid
   assign status = '["published", "unpublished"]' | parse_json
-  graphql modules = 'modules/courses/modules/search', status: status
+  graphql modules = 'modules/courses/module/search', status: status
   assign modules = modules | dig: 'records', 'results' | array_map: 'id', 'title'
   assign module_options = '[]' | parse_json
   assign status_options = '[]' | parse_json

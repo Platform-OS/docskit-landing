@@ -6,7 +6,7 @@
   case action
     when 'list'
       assign status = '["published", "unpublished"]' | parse_json
-      graphql lessons = 'modules/courses/videos/search', status: status
+      graphql lessons = 'modules/courses/lesson/search', status: status
 
       render 'modules/courses/admin_partials/lessons/list', lessons: lessons
     when 'create'
@@ -14,7 +14,7 @@
     when 'edit'
       if url_params.id
         assign status = '["published", "unpublished"]' | parse_json
-        graphql current_course = 'modules/courses/videos/find', id: url_params.id, status: status
+        graphql current_course = 'modules/courses/lesson/find', id: url_params.id, status: status
         assign current_course = current_course.records.results.first
         render 'modules/courses/admin_partials/lessons/edit', lesson: current_course
     endif

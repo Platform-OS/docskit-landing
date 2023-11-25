@@ -6,14 +6,14 @@
   case action
     when 'list'
       assign status = '["published", "unpublished"]' | parse_json
-      graphql modules = 'modules/courses/modules/search', status: status, withVideos: true
+      graphql modules = 'modules/courses/module/search', status: status, withLessons: true
 
       render 'modules/courses/admin_partials/modules/list', modules: modules
     when 'create'
       render 'modules/courses/admin_partials/modules/create'
     when 'edit'
       if url_params.id
-        graphql current_module = 'modules/courses/modules/find', id: url_params.id
+        graphql current_module = 'modules/courses/module/find', id: url_params.id
         assign current_module = current_module.records.results.first
         render 'modules/courses/admin_partials/modules/edit', module: current_module
     endif

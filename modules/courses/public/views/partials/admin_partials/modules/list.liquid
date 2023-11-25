@@ -21,7 +21,7 @@
             <td class="px-6 py-4">{{ module.id }}</td>
             <td class="px-6 py-4">{{ module.title }}</td>
             <td class="px-6 py-4">{{ module.description }}</td>
-            <td class="px-6 py-4">{{ module.videos.size }}</td>
+            <td class="px-6 py-4">{{ module.lessons.size }}</td>
             {% assign edit_url = '/admin/course/modules/edit/' | append: module.id %}
             <td class="px-6 py-4">
               {% theme_render_rc 'components/atoms/button', content: 'Edit', classes: 'w-full', href: edit_url %} <br><br>

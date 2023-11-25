@@ -1,4 +1,4 @@
-mutation create(
+mutation updateModule(
     $id: ID!
     $title: String!
     $description: String

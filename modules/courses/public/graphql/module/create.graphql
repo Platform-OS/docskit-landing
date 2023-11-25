@@ -1,4 +1,4 @@
-mutation create(
+mutation createModule(
     $title: String!
     $description: String
     $weight: String

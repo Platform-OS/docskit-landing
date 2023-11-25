@@ -2,7 +2,7 @@
   function object = 'modules/courses/commands/lesson/delete/check', object: object
 
   if object.valid
-    graphql object = 'modules/courses/videos/delete', args: object
+    graphql object = 'modules/courses/lesson/delete', args: object
     hash_assign object['valid'] = true
   endif
 

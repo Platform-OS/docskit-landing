@@ -10,7 +10,7 @@ mutation create(
   record: record_update(
     id: $id
     record: {
-      table: "modules/courses/video",
+      table: "modules/courses/lesson",
       properties: [
         { name: "title", value: $title }
         { name: "status", value: $status }

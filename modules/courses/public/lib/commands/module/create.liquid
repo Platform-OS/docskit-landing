@@ -3,7 +3,7 @@
   function object = 'modules/courses/commands/module/create/check', object: object
 
   if object.valid
-    graphql object = 'modules/courses/modules/create', args: object
+    graphql object = 'modules/courses/module/create', args: object
     hash_assign object['valid'] = true
   endif
 

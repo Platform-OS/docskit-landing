@@ -5,7 +5,7 @@ query MyQuery(
   records(
     per_page: 1
     filter: {
-      table: { value: "modules/courses/video" },
+      table: { value: "modules/courses/lesson" },
       id: { value: $id },
       properties: { name: "status", value_in: $status }
     }
