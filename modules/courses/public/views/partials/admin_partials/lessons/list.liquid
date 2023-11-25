@@ -1,0 +1,52 @@
+<div class="p-8">
+  <h1 class="text-xl font-bold pb-6">Lessons</h1>
+
+  <div class="relative overflow-x-auto">
+    <div class="flex justify-end pb-8">
+      {% theme_render_rc 'components/atoms/button', content: 'Create new', variant: 'confirmation', href: '/admin/course/lessons/create/' %}
+    </div>
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-6 py-3">thumbnail</th>
+          <th scope="col" class="px-6 py-3">title</th>
+          <th scope="col" class="px-6 py-3">module</th>
+          <th scope="col" class="px-6 py-3">youtube id</th>
+          <th scope="col" class="px-6 py-3">content</th>
+          <th scope="col" class="px-6 py-3">status</th>
+          <th scope="col" class="px-6 py-3">action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for lesson in lessons.records.results %}
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <td class="px-6 py-4">
+              <img
+                src="https://img.youtube.com/vi/{{ lesson.youtube_video_id }}/0.jpg"
+                class="course-list__image"
+                alt="{{ lesson.title }}"
+                loading="lazy"
+                width="160"
+                height="90"
+              >
+            </td>
+            <td class="px-6 py-4">{{ lesson.title }}</td>
+            <td class="px-6 py-4">{{ lesson.module.title }}</td>
+            <td class="px-6 py-4">{{ lesson.youtube_video_id }}</td>
+            <td class="px-6 py-4">{{ lesson.content | markdown | strip_html | slice: 0, 80 | append: '...' }}</td>
+            <td class="px-6 py-4">{{ lesson.status }}</td>
+            {% assign edit_url = '/admin/course/lessons/edit/' | append: lesson.id %}
+            <td class="px-6 py-4">
+              {% theme_render_rc 'components/atoms/button', content: 'Edit', classes: 'w-full', href: edit_url %} <br><br>
+              <form action="/api/admin/course/lesson/delete" method="post">
+                <input type="hidden" name="authenticity_token" value="{{ context.authenticity_token }}">
+                <input type="hidden" name="id" value="{{ lesson.id }}">
+                {% theme_render_rc 'components/atoms/button', content: 'Delete', classes: 'w-full', type: 'submit', variant: 'important' %}
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>

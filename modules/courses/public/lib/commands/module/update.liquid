@@ -1,0 +1,10 @@
+{% liquid
+  function object = 'modules/courses/commands/module/update/build', object: object
+  function object = 'modules/courses/commands/module/update/check', object: object
+
+  if object.valid
+    graphql object = 'modules/courses/modules/update', args: object
+  endif
+
+  return object
+%}

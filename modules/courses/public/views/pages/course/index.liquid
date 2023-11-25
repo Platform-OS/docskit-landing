@@ -9,14 +9,20 @@ layout: modules/courses/courses
     redirect_to '/user/login'
   endunless
 
-  graphql modules = 'modules/courses/modules/all', withVideos: true
+  function can_view_all = 'modules/permission/lib/helpers/can_do', requester: current_user, do: 'courses.manage'
+
+  if can_view_all
+    assign status = '["published", "unpublished"]' | parse_json
+  endif
+
+  graphql modules = 'modules/courses/modules/search', withVideos: true, status: status
 
   if params.id
-    graphql current_course = 'modules/courses/videos/find', id: params.id
-
-    if current_course.records.total_entries > 0
-      assign current_course = current_course.records.results.first
-    endif
+    graphql current_course = 'modules/courses/videos/find', id: params.id, status: status
+    assign current_course = current_course.records.results.first
+    unless current_course.status == 'published' or can_view_all
+      redirect_to '/course'
+    endunless
   endif
 %}
 

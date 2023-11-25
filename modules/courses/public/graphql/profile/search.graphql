@@ -1,0 +1,18 @@
+query MyQuery {
+  records(
+    per_page: 100
+    filter: {
+      table: { value: "modules/courses/profile" }
+    }
+  ) {
+    total_entries
+    results {
+      id
+      user_id: property(name: "user_id")
+      email: property(name: "email")
+      firstname: property(name: "firstname")
+      lastname: property(name: "lastname")
+      company: property(name: "company")
+    }
+  }
+}

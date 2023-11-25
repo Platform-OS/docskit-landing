@@ -1,5 +1,6 @@
 query MyQuery (
   $withVideos: Boolean = false
+  $status: [String!] = ["published"]
 ) {
   records(
     per_page: 20
@@ -17,16 +18,19 @@ query MyQuery (
         table: "modules/courses/video"
         join_on_property: "id"
         foreign_property: "module_id"
+        filter: {
+          properties: {name: "status", value_in: $status}
+        }
         sort: { properties: { name: "weight", order: ASC } }
       ) @include(if: $withVideos) {
         id
         title: property(name: "title")
         status: property(name: "status")
+        weight: property(name: "weight")
         youtube_video_id: property(name: "youtube_video_id")
         content: property(name: "content")
         module_id: property(name: "module_id")
       }
-
     }
   }
 }

@@ -1,0 +1,16 @@
+mutation create(
+    $title: String!
+    $description: String
+  ) {
+  record: record_create(
+    record: {
+      table: "modules/courses/module",
+      properties: [
+        { name: "title", value: $title },
+        { name: "description", value: $description }
+      ]
+    }
+  ) {
+    id
+  }
+}

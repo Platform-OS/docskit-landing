@@ -21,6 +21,9 @@
     <button data-navigation-toggle>
       {% theme_render_rc 'components/atoms/icon', name: 'navigation', class: 'header__menu' %}
     </button>
+    {% if can_view_admin %}
+      {% theme_render_rc 'components/atoms/button', weight: 'primary', href: '/admin', content: 'Admin' %}
+    {% endif %}
     {% if current_user.id %}
       {% theme_render_rc 'components/atoms/button', weight: 'secondary', href: '/session/destroy', content: 'Log out' %}
     {% endif %}

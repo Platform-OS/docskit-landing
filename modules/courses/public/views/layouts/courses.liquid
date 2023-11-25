@@ -2,6 +2,7 @@
 {% liquid
   function headscripts = 'modules/core/lib/queries/headscripts/get'
   function current_user = 'modules/user/lib/queries/user/current'
+  function can_view_admin = 'modules/permission/lib/helpers/can_do', requester: current_user, do: 'admin_pages.view'
 
   if context.current_user
     response_headers '{ "Cache-Control": "no-store", "Pragma": "no-cache" }'
@@ -20,7 +21,7 @@
 
   <body>
     <div class="page-courses">
-      {% theme_render_rc 'components/organisms/header', current_user: current_user %}
+      {% theme_render_rc 'components/organisms/header', current_user: current_user, can_view_admin: can_view_admin %}
       <main class="main">
         {{ content_for_layout }}
       </main>

@@ -1,0 +1,25 @@
+{%- liquid
+  function current_user = 'modules/user/lib/queries/user/current'
+  function can = 'modules/permission/lib/helpers/can_do', requester: current_user, do: 'users.manage'
+  unless can
+    redirect_to '/course'
+  endunless
+
+  graphql profiles = 'modules/courses/profile/search'
+
+  assign headers = 'user_id,first_name,last_name,email,company' | split: ','
+  assign csv_array = '' | split: ''
+  assign csv_array = csv_array | add_to_array: headers
+  for profile in profiles.records.results
+      assign row = '' | split: ''
+      assign row = row | add_to_array: profile.user_id
+      assign row = row | add_to_array: profile.firstname
+      assign row = row | add_to_array: profile.lastname
+      assign row = row | add_to_array: profile.email
+      assign row = row | add_to_array: profile.company
+      assign csv_array = csv_array | add_to_array: row
+
+  endfor
+assign csv_body = csv_array | to_csv
+echo csv_body
+%}
