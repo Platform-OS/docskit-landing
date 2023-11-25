@@ -1,13 +1,14 @@
-query MyQuery (
-  $withVideos: Boolean = false
-  $status: [String!] = ["published"]
-) {
+query MyQuery(
+    $id: ID!
+    $withVideos: Boolean = false
+    $status: [String!] = ["published"]
+  ) {
   records(
-    per_page: 20
+    per_page: 1
     filter: {
-      table: {value: "modules/courses/module"}
+      table: { value: "modules/courses/module" },
+      id: { value: $id }
     }
-    sort: { properties: { name: "weight", order: ASC } }
   ) {
     total_entries
     results {

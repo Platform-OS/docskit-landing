@@ -1,1 +1,12 @@
+{% parse_json object %}
+  {
+    "id": {{ object.id | json }},
+    "title": {{ object.title | json }},
+    "description": {{ object.description | json }},
+    "weight": {{ object.weight | json }}
+  }
+{% endparse_json %}
 
+{% liquid
+  return object
+%}

@@ -30,7 +30,7 @@
                 height="90"
               >
             </td>
-            <td class="px-6 py-4">{{ lesson.title }}</td>
+            <td class="px-6 py-4"><a href="/course/{{ lesson.id }}" target="_blank" title="Open in new tab" class="text-interactive-text underline">{{ lesson.title }}</a></td>
             <td class="px-6 py-4">{{ lesson.module.title }}</td>
             <td class="px-6 py-4">{{ lesson.youtube_video_id }}</td>
             <td class="px-6 py-4">{{ lesson.content | markdown | strip_html | slice: 0, 80 | append: '...' }}</td>
@@ -41,7 +41,10 @@
               <form action="/api/admin/course/lesson/delete" method="post">
                 <input type="hidden" name="authenticity_token" value="{{ context.authenticity_token }}">
                 <input type="hidden" name="id" value="{{ lesson.id }}">
-                {% theme_render_rc 'components/atoms/button', content: 'Delete', classes: 'w-full', type: 'submit', variant: 'important' %}
+                {% liquid
+                  assign attributes = null | parse_json | hash_merge: onclick: 'confirmSubmit(event)'
+                  theme_render_rc 'components/atoms/button', content: 'Delete', classes: 'w-full', type: 'submit', variant: 'important', attributes: attributes
+                %}
               </form>
             </td>
           </tr>
@@ -50,3 +53,14 @@
     </table>
   </div>
 </div>
+<script>
+  function confirmSubmit(event) {
+      // Display a confirmation dialog
+      var isConfirmed = window.confirm("Are you sure you want to delete the lesson?");
+
+      // If the user confirms, submit the form; otherwise, prevent form submission
+      if (!isConfirmed) {
+          event.preventDefault();
+      }
+  }
+</script>

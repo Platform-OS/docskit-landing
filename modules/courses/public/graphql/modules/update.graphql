@@ -1,9 +1,11 @@
 mutation create(
+    $id: ID!
     $title: String!
     $description: String
     $weight: String
   ) {
-  record: record_create(
+  record: record_update(
+    id: $id
     record: {
       table: "modules/courses/module",
       properties: [

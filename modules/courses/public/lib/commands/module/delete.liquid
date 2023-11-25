@@ -1,0 +1,10 @@
+{% liquid
+  function object = 'modules/courses/commands/module/delete/check', object: object
+
+  if object.valid
+    graphql object = 'modules/courses/modules/delete', args: object
+    hash_assign object['valid'] = true
+  endif
+
+  return object
+%}

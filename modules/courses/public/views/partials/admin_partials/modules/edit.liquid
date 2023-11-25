@@ -1,0 +1,8 @@
+<div class="p-8">
+  <h1 class="text-xl font-bold pb-6">Edit "{{ module.title }}"</h1>
+
+  <div>
+    {% theme_render_rc 'components/organisms/module-form', module: module, action: '/api/admin/course/module/update' %}
+  </div>
+</div>
+
