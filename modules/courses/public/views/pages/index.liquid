@@ -6,7 +6,7 @@ layout: modules/courses/courses
   function current_user = 'modules/user/lib/queries/user/current'
 
   unless current_user.id
-    redirect_to '/user/login'
+    redirect_to '/user/register'
   endunless
 
   function can_view_all = 'modules/permission/lib/helpers/can_do', requester: current_user, do: 'courses.manage'

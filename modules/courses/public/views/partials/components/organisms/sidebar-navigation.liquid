@@ -3,11 +3,18 @@ metadata:
   name: Course sidebar navigation
   params:
     modules: []
+    current_lesson: {}
 ---
 <ul class="module-list">
   {% for module in modules %}
-    <li class="module-list__item">
-      <h3 class="module-list__item-title" title="{{ module.description }}">{{ module.title }}</h3>
+    {% assign is_active_module = module.lessons | array_detect: id: current_lesson.id %}
+    <li class="module-list__item {% if is_active_module %}module-list__item--active{% endif %}">
+      <h3 class="module-list__item-title" title="{{ module.description }}">
+        {{ module.title }}
+        <span class="module-list__item-icon">
+          {% theme_render_rc 'components/atoms/icon', name: 'dashDown' %}
+        </span>
+      </h3>
       <ul class="course-list">
         {% for lesson in module.lessons %}
           <li class="course-list__item {% if lesson.id == current_lesson.id %}course-list__item--active{% endif %}">
