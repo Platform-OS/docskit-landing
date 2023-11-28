@@ -1,0 +1,32 @@
+---
+metadata:
+  name: Course sidebar navigation
+  params:
+    modules: []
+---
+<ul class="module-list">
+  {% for module in modules %}
+    <li class="module-list__item">
+      <h3 class="module-list__item-title" title="{{ module.description }}">{{ module.title }}</h3>
+      <ul class="course-list">
+        {% for lesson in module.lessons %}
+          <li class="course-list__item {% if lesson.id == current_lesson.id %}course-list__item--active{% endif %}">
+            <a href="/course/{{ lesson.id }}">
+              <img
+                src="https://img.youtube.com/vi/{{ lesson.youtube_video_id }}/0.jpg"
+                class="course-list__image"
+                alt="{{ lesson.title }}"
+                loading="lazy"
+                width="160"
+                height="90"
+              >
+            </a>
+            <a href="/course/{{ lesson.id }}" class="pos-clean course-list__title">
+              {{ lesson.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>

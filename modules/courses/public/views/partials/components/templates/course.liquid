@@ -1,0 +1,16 @@
+---
+metadata:
+  name: Course page template
+  params:
+    current_lesson: {}
+    modules: []
+---
+<div class="courses">
+  <div class="courses__content">
+    {% theme_render_rc 'components/organisms/lesson', lesson: current_lesson %}
+  </div>
+
+  <nav class="courses__sidebar" data-nav-container>
+    {% theme_render_rc 'components/organisms/sidebar-navigation', modules: modules %}
+  </nav>
+</div>

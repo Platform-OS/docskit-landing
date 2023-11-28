@@ -16,71 +16,22 @@ layout: modules/courses/courses
   endif
 
   graphql modules = 'modules/courses/module/search', withLessons: true, status: status
+  assign modules = modules.records.results
+
+  assign current_lesson = modules.first.lessons.first
+
+  if current_lesson == blank and can_view_all
+    redirect_to '/admin'
+  endif
 
   if params.id
     graphql current_lesson = 'modules/courses/lesson/find', id: params.id, status: status
     assign current_lesson = current_lesson.records.results.first
-
-    unless current_lesson.status == 'published' or can_view_all and current_lesson
-      redirect_to '/course'
-    endunless
   endif
+
+  unless current_lesson.status == 'published' or can_view_all and current_lesson
+    redirect_to '/course'
+  endunless
 %}
 
-<div class="courses">
-  <div class="courses__content">
-    {% if current_lesson != blank %}
-      {% theme_render_rc 'components/atoms/heading', level: 3, tag: 'h1' content: current_lesson.title, classes: 'heading' %}
-
-      <div class="video">
-        <iframe
-          class="video__iframe"
-          src="https://www.youtube-nocookie.com/embed/{{ current_lesson.youtube_video_id }}"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
-
-      <div class="markdown-body container">
-        {{ current_lesson.content | markdown }}
-      </div>
-    {% else %}
-      <div class="container">[course/webinar intro copy]</div>
-    {% endif %}
-  </div>
-
-  <nav class="courses__sidebar" data-nav-container>
-
-    <ul class="module-list">
-      {% for module in modules.records.results %}
-        <li class="module-list__item">
-          <h3 class="module-list__item-title" title="{{ module.description }}">{{ module.title }}</h3>
-          <ul class="course-list">
-            {% for lesson in module.lessons %}
-              <li class="course-list__item {% if lesson.id == current_lesson.id %}course-list__item--active{% endif %}">
-                <a href="/course/{{ lesson.id }}">
-                  <img
-                    src="https://img.youtube.com/vi/{{ lesson.youtube_video_id }}/0.jpg"
-                    class="course-list__image"
-                    alt="{{ lesson.title }}"
-                    loading="lazy"
-                    width="160"
-                    height="90"
-                  >
-                </a>
-                <a href="/course/{{ lesson.id }}" class="pos-clean course-list__title">
-                  {{ lesson.title }}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-
-        </li>
-      {% endfor %}
-
-    </ul>
-
-  </nav>
-</div>
+{% theme_render_rc 'components/templates/course', modules: modules, current_lesson: current_lesson %}

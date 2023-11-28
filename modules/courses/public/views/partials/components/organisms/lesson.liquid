@@ -1,0 +1,22 @@
+---
+metadata:
+  name: Lesson
+  params:
+    lesson: {}
+---
+{% theme_render_rc 'components/atoms/heading', level: 3, tag: 'h1' content: lesson.title, classes: 'heading' %}
+
+<div class="video">
+  <iframe
+    class="video__iframe"
+    src="https://www.youtube-nocookie.com/embed/{{ lesson.youtube_video_id }}"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<div class="markdown-body container">
+  {{ lesson.content | markdown }}
+</div>
