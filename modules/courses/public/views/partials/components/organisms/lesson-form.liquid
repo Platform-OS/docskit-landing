@@ -28,7 +28,7 @@
     assign label_params = null | parse_json | hash_merge: content: 'Module'
     theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'w-full py-2 mb-2 max-w-xl'
 
-    assign input_params = null | parse_json | hash_merge: type: 'text', name: 'youtube_video_id', value: lesson.youtube_video_id, required: true
+    assign input_params = null | parse_json | hash_merge: type: 'text', name: 'youtube_video_id', value: lesson.youtube_video_id
     assign label_params = null | parse_json | hash_merge: content: 'Youtube video ID'
     theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'w-full py-2 mb-2 max-w-xs'
 
@@ -62,6 +62,8 @@
 <script>
   var simplemde = new SimpleMDE({
     element: document.querySelector('[data-markdown-editor]'),
-    forceSync: true
+    forceSync: true,
+    spellChecker: false,
+    hideIcons: ["guide", "side-by-side", "preview", "fullscreen"]
   });
 </script>

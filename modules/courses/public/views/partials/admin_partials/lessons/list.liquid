@@ -1,3 +1,9 @@
+---
+metadata:
+  name: Lessons admin list
+  params:
+    modules: []
+---
 <div class="p-8">
   <h1 class="text-xl font-bold pb-6">Lessons</h1>
 
@@ -18,36 +24,59 @@
         </tr>
       </thead>
       <tbody>
-        {% for lesson in lessons.records.results %}
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <td class="px-6 py-4">
-              <img
-                src="https://img.youtube.com/vi/{{ lesson.youtube_video_id }}/0.jpg"
-                class="course-list__image"
-                alt="{{ lesson.title }}"
-                loading="lazy"
-                width="160"
-                height="90"
-              >
-            </td>
-            <td class="px-6 py-4"><a href="/course/{{ lesson.id }}" target="_blank" title="Open in new tab" class="text-interactive-text underline">{{ lesson.title }}</a></td>
-            <td class="px-6 py-4">{{ lesson.module.title }}</td>
-            <td class="px-6 py-4">{{ lesson.youtube_video_id }}</td>
-            <td class="px-6 py-4">{{ lesson.content | markdown | strip_html | slice: 0, 80 | append: '...' }}</td>
-            <td class="px-6 py-4">{{ lesson.status }}</td>
-            {% assign edit_url = '/admin/course/lessons/edit/' | append: lesson.id %}
-            <td class="px-6 py-4">
-              {% theme_render_rc 'components/atoms/button', content: 'Edit', classes: 'w-full', href: edit_url %} <br><br>
-              <form action="/api/admin/course/lesson/delete" method="post">
-                <input type="hidden" name="authenticity_token" value="{{ context.authenticity_token }}">
-                <input type="hidden" name="id" value="{{ lesson.id }}">
-                {% liquid
-                  assign attributes = null | parse_json | hash_merge: onclick: 'confirmSubmit(event)'
-                  theme_render_rc 'components/atoms/button', content: 'Delete', classes: 'w-full', type: 'submit', variant: 'important', attributes: attributes
-                %}
-              </form>
-            </td>
-          </tr>
+        {% for module in modules.records.results %}
+          {% unless module.lessons.size < 1 %}
+            {% for lesson in module.lessons %}
+              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td class="px-6 py-4">
+                  <img
+                    src="https://img.youtube.com/vi/{{ lesson.youtube_video_id }}/mqdefault.jpg"
+                    class="course-list__image"
+                    alt="{{ lesson.title }}"
+                    loading="lazy"
+                    width="100"
+                    height="56"
+                  >
+                </td>
+                <td class="px-6 py-4">
+                  <a
+                    href="/course/{{ lesson.id }}"
+                    target="_blank"
+                    title="Open in new tab"
+                    class="text-interactive-text underline"
+                  >
+                    {{- lesson.title -}}
+                  </a>
+                </td>
+                <td class="px-6 py-4">{{ module.title }}</td>
+                <td class="px-6 py-4">{{ lesson.youtube_video_id }}</td>
+                <td class="px-6 py-4">{{ lesson.content | markdown | strip_html | slice: 0, 80 | append: '...' }}</td>
+                <td class="px-6 py-4">
+                  {% liquid
+                    assign variant = 'success'
+                    if lesson.status != 'published'
+                      assign variant = 'warning'
+                    endif
+                    theme_render_rc 'components/molecules/chip', content: lesson.status, variant: variant
+                  %}
+                </td>
+                {% assign edit_url = '/admin/course/lessons/edit/' | append: lesson.id %}
+                <td class="px-6 py-4">
+                  {% theme_render_rc 'components/atoms/button', content: 'Edit', size: 'small', classes: 'w-24', href: edit_url %}
+                  <br>
+                  <br>
+                  <form action="/api/admin/course/lesson/delete" method="post">
+                    <input type="hidden" name="authenticity_token" value="{{ context.authenticity_token }}">
+                    <input type="hidden" name="id" value="{{ lesson.id }}">
+                    {% liquid
+                      assign attributes = null | parse_json | hash_merge: onclick: 'confirmSubmit(event)'
+                      theme_render_rc 'components/atoms/button', content: 'Delete', size: 'small', classes: 'w-24', type: 'submit', variant: 'important', attributes: attributes
+                    %}
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          {% endunless %}
         {% endfor %}
       </tbody>
     </table>
@@ -55,12 +84,12 @@
 </div>
 <script>
   function confirmSubmit(event) {
-      // Display a confirmation dialog
-      var isConfirmed = window.confirm("Are you sure you want to delete the lesson?");
+    // Display a confirmation dialog
+    var isConfirmed = window.confirm('Are you sure you want to delete the lesson?')
 
-      // If the user confirms, submit the form; otherwise, prevent form submission
-      if (!isConfirmed) {
-          event.preventDefault();
-      }
+    // If the user confirms, submit the form; otherwise, prevent form submission
+    if (!isConfirmed) {
+      event.preventDefault()
+    }
   }
 </script>

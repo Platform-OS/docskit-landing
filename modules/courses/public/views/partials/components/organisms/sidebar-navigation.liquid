@@ -4,6 +4,9 @@ metadata:
   params:
     modules: []
     current_lesson: {}
+    can_view_all:
+      - false
+      - true
 ---
 <ul class="module-list">
   {% for module in modules %}
@@ -17,20 +20,49 @@ metadata:
       </h3>
       <ul class="course-list">
         {% for lesson in module.lessons %}
-          <li class="course-list__item {% if lesson.id == current_lesson.id %}course-list__item--active{% endif %}">
+          {% liquid
+            if lesson.status == 'unpublished' and can_view_all != true
+              assign is_unpublished = true
+            endif
+            assign image_url = 'modules/courses/images/default.png' | asset_url
+            if lesson.youtube_video_id
+              assign image_url = 'https://img.youtube.com/vi/' | append: lesson.youtube_video_id | append: '/mqdefault.jpg'
+            endif
+          %}
+          <li class="course-list__item {% if lesson.id == current_lesson.id %}course-list__item--active{% endif %} {% if is_unpublished %}course-list__item--unpublished{% endif %}">
+            {% if is_unpublished == true %}
+                <img
+                  src="{{ 'modules/courses/images/coming_soon.png' | asset_url }}"
+                  class="course-list__image"
+                  alt="{{ lesson.title }}"
+                  loading="lazy"
+                  width="100"
+                  height="56"
+                >
+              <span class="course-list__title">
+                {{ lesson.title }}
+                <span class="course-list__description">Coming soon</span>
+              </span>
+            {% else %}
             <a href="/course/{{ lesson.id }}">
               <img
-                src="https://img.youtube.com/vi/{{ lesson.youtube_video_id }}/0.jpg"
+                src="{{ image_url }}"
                 class="course-list__image"
                 alt="{{ lesson.title }}"
                 loading="lazy"
-                width="160"
-                height="90"
+                width="100"
+                height="56"
               >
             </a>
             <a href="/course/{{ lesson.id }}" class="pos-clean course-list__title">
               {{ lesson.title }}
+              {% if lesson.status != 'published' %}
+                <span class="course-list__description">
+                  {% theme_render_rc 'components/molecules/chip', variant: 'warning', content: 'unpublished' %}
+                </span>
+              {% endif %}
             </a>
+            {% endif %}
           </li>
         {% endfor %}
       </ul>

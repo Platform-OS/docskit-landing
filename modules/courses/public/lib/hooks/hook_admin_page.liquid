@@ -1,6 +1,16 @@
 {% parse_json admin_pages %}
   [
     {
+      "relative_path": null,
+      "menu": {
+        "title": "Course home",
+        "link_attributes": {
+          "href": "/course"
+        }
+      },
+      "permission": "courses.manage"
+    },
+    {
       "relative_path": "/admin/course/modules",
       "partial": "modules/courses/admin_pages/modules",
       "menu": {

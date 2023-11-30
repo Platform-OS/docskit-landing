@@ -6,14 +6,12 @@ layout: modules/courses/courses
   function current_user = 'modules/user/lib/queries/user/current'
 
   unless current_user.id
-    redirect_to '/user/register'
+    redirect_to '/user/login'
   endunless
 
   function can_view_all = 'modules/permission/lib/helpers/can_do', requester: current_user, do: 'courses.manage'
 
-  if can_view_all
-    assign status = '["published", "unpublished"]' | parse_json
-  endif
+  assign status = '["published", "unpublished"]' | parse_json
 
   graphql modules = 'modules/courses/module/search', withLessons: true, status: status
   assign modules = modules.records.results
@@ -33,5 +31,6 @@ layout: modules/courses/courses
     redirect_to '/course'
   endunless
 %}
+{% content_for 'pagetitle' %}{{ current_lesson.title }} | Docs as Code Course{% endcontent_for %}
 
-{% theme_render_rc 'components/templates/course', modules: modules, current_lesson: current_lesson %}
+{% theme_render_rc 'components/templates/course', modules: modules, current_lesson: current_lesson, can_view_all: can_view_all %}

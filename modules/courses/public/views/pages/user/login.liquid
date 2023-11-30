@@ -7,29 +7,6 @@ layout: modules/courses/courses
   unless can
     redirect_to '/course'
   endunless
+
+  theme_render_rc 'components/organisms/user-login-form'
 %}
-
-{% capture login_form %}
-  {% theme_render_rc 'components/atoms/heading', level: 2, content: 'Login', classes: 'heading' %}
-  <form action="/session/create" method="post" class="user-form">
-    <input type="hidden" name="authenticity_token" value="{{ context.authenticity_token }}">
-
-    {% liquid
-      assign input_params = null | parse_json | hash_merge: type: 'email', name: 'email'
-      assign label_params = null | parse_json | hash_merge: content: 'E-mail'
-
-      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'user-form__fieldset'
-
-      assign input_params = null | parse_json | hash_merge: type: 'password', name: 'password'
-      assign label_params = null | parse_json | hash_merge: content: 'Password'
-      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'user-form__fieldset'
-
-      theme_render_rc 'components/atoms/button', content: 'Sign in', type: 'submit'
-    %}
-    <div class="user-form__footer">Don't have an account yet? <a href="/user/register">Click here to sign up!</a></div>
-  </form>
-{% endcapture %}
-
-<div class="container">
-  {% theme_render_rc 'components/atoms/card', content: login_form, classes: 'form-panel' %}
-</div>

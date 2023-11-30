@@ -3,6 +3,8 @@
 <div class="p-8">
   <h1 class="text-xl font-bold pb-6">Create new lesson</h1>
 
+  {% theme_render_rc 'components/molecules/alert', severity: 'warning', classes: 'w-full mb-6', content: 'Unpublished lessons will still show up in the navigation as "coming soon", but they can only be accessed by admin' %}
+
   <div>
     {% theme_render_rc 'components/organisms/lesson-form', action: '/api/admin/course/lesson/new' %}
   </div>

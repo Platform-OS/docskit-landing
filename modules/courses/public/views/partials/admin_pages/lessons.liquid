@@ -6,9 +6,9 @@
   case action
     when 'list'
       assign status = '["published", "unpublished"]' | parse_json
-      graphql lessons = 'modules/courses/lesson/search', status: status
+      graphql modules = 'modules/courses/module/search', status: status, withLessons: true
 
-      render 'modules/courses/admin_partials/lessons/list', lessons: lessons
+      render 'modules/courses/admin_partials/lessons/list', modules: modules
     when 'create'
       render 'modules/courses/admin_partials/lessons/create'
     when 'edit'

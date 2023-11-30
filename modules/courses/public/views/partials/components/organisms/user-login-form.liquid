@@ -1,0 +1,38 @@
+---
+metadata:
+  name: User login form
+  params:
+   validation: {}
+---
+
+{% capture login_form %}
+  {% theme_render_rc 'components/atoms/heading', level: 2, content: 'Login', classes: 'heading' %}
+  <form action="/session/create" method="post" class="user-form">
+    <input type="hidden" name="authenticity_token" value="{{ context.authenticity_token }}">
+
+    {% liquid
+      assign input_params = null | parse_json | hash_merge: type: 'email', name: 'email'
+      assign label_params = null | parse_json | hash_merge: content: 'E-mail'
+
+      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'user-form__fieldset'
+
+      assign input_params = null | parse_json | hash_merge: type: 'password', name: 'password'
+      assign label_params = null | parse_json | hash_merge: content: 'Password'
+      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'user-form__fieldset'
+
+      theme_render_rc 'components/atoms/button', content: 'Sign in', type: 'submit'
+    %}
+    <div class="user-form__footer">Don't have an account yet? <a href="/user/register">Click here to sign up!</a></div>
+    <div class="user-form__footer">Lost password? <a href="/user/reset-password">Reset</a></div>
+  </form>
+{% endcapture %}
+
+<div class="user-forms" style="background-image: url({{ 'modules/courses/images/user-forms.png' | asset_url }})">
+  <div class="container user-forms__content">
+    <h1 class="user-forms__title">Docs as Code Fundamentals</h1>
+    <p class="user-forms__description">
+      Embark on a comprehensive learning journey with our Docs as Code Fundamentals course. Designed for beginners and those looking to solidify their understanding, this course delves into the well-established methodology of Docs as Code.
+    </p>
+    {% theme_render_rc 'components/atoms/card', content: login_form, classes: 'form-panel' %}
+  </div>
+</div>

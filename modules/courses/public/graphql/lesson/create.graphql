@@ -2,7 +2,7 @@ mutation create(
   $title: String!
   $status: String!
   $weight: String
-  $youtube_video_id: String!
+  $youtube_video_id: String
   $content: String!
   $module_id: String!
 ) {
