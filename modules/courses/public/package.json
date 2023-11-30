@@ -1,0 +1,18 @@
+{
+  "name": "pos-module-courses",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/courses.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "esbuild src/courses.js --bundle --sourcemap --outdir=assets --watch",
+    "build": "esbuild src/courses.js --bundle --minify --outdir=assets"
+  },
+  "author": "nemvalid <peter@platformos.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "0.19.8"
+  }
+}
