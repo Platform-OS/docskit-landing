@@ -228,11 +228,13 @@ p {
 .course-list {
   max-height: 0;
   overflow: hidden;
+  opacity: 0;
   transition: all 300ms ease-in-out;
 }
 
 .module-list__item--active .course-list {
   max-height: 100vh;
+  opacity: 1;
 }
 
 .module-list__item-icon {
@@ -246,6 +248,7 @@ p {
 .course-list__item {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   gap: 1rem;
   color: rgb(var(--prominent));
   padding: 1rem;
@@ -266,6 +269,7 @@ p {
 .course-list__image {
   width: 160px;
   height: auto;
+  background-color: rgb(var(--page));
 }
 
 @media (min-width: 1024px) and (max-width: 1280px) {
