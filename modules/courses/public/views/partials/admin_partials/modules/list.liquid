@@ -5,8 +5,8 @@
     <div class="flex justify-end pb-8">
       {% theme_render_rc 'components/atoms/button', content: 'Create new', variant: 'confirmation', href: '/admin/course/modules/create/' %}
     </div>
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
         <tr>
           <th scope="col" class="px-6 py-3">id</th>
           <th scope="col" class="px-6 py-3">title</th>
@@ -17,7 +17,7 @@
       </thead>
       <tbody>
         {% for module in modules.records.results %}
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <tr class="bg-white border-b">
             <td class="px-6 py-4">{{ module.id }}</td>
             <td class="px-6 py-4">{{ module.title }}</td>
             <td class="px-6 py-4">{{ module.description }}</td>

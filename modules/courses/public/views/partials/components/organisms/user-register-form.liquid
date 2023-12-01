@@ -2,7 +2,7 @@
 metadata:
   name: User register form
   params:
-   validation: {}
+   errors: {}
 ---
 
 {% capture register_form %}
@@ -23,16 +23,20 @@ metadata:
       assign label_params = null | parse_json | hash_merge: content: 'Company'
       theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'user-form__fieldset'
 
+      assign validation = null
+      if errors.email != blank
+        assign validation = null | parse_json | hash_merge: passed: false, messages: errors.email
+      endif
       assign input_params = null | parse_json | hash_merge: type: 'email', name: 'email', required: true
       assign label_params = null | parse_json | hash_merge: content: 'E-mail'
-      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'user-form__fieldset'
+      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, validation: validation, classes: 'user-form__fieldset'
 
       assign input_params = null | parse_json | hash_merge: type: 'password', name: 'password', required: true
       assign label_params = null | parse_json | hash_merge: content: 'Password'
       theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'user-form__fieldset'
 
       assign input_params = null | parse_json | hash_merge: type: 'checkbox', name: 'terms', required: true
-      assign label_params = null | parse_json | hash_merge: content: 'By signing up, you are agreeing to our <a href="https://www.platformos.com/terms-of-use">terms of service.</a>'
+      assign label_params = null | parse_json | hash_merge: content: 'By signing up, you are agreeing to our <a href="https://www.platformos.com/terms-of-use" target="_blank">terms of service.</a>'
       theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'user-form__fieldset'
 
       theme_render_rc 'components/atoms/button', content: 'Sign up', type: 'submit'

@@ -8,7 +8,7 @@ metadata:
 
 {% liquid
   if lesson.status != 'published'
-    theme_render_rc 'components/molecules/alert', severity: 'warning', classes: 'w-full', content: 'This lesson is currently unpublished. Unpublished lessons will still show up in the navigation as "coming soon", but they can only be viewed by admins'
+    theme_render_rc 'components/molecules/alert', severity: 'warning', classes: 'w-full mb-6', content: 'This lesson is currently unpublished. Unpublished lessons will still show up in the navigation as "coming soon", but they can only be viewed by admins'
   endif
 %}
 

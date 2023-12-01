@@ -1,4 +1,5 @@
 ---
+layout: modules/courses/courses
 slug: user/create
 method: post
 ---
@@ -10,6 +11,8 @@ method: post
     graphql _profile = 'modules/courses/profile/create', user_id: result.id, email: context.params.email, firstname: context.params.firstname, lastname: context.params.lastname, company: context.params.company
     function _session = 'modules/user/lib/commands/session/create', user_id: result.id, validate_password: false
     redirect_to '/course'
+  else
+    theme_render_rc 'components/organisms/user-register-form', errors: result.errors
   endif
 %}
 

@@ -2,7 +2,7 @@
 metadata:
   name: User login form
   params:
-   validation: {}
+   errors: {}
 ---
 
 {% capture login_form %}
@@ -11,19 +11,27 @@ metadata:
     <input type="hidden" name="authenticity_token" value="{{ context.authenticity_token }}">
 
     {% liquid
-      assign input_params = null | parse_json | hash_merge: type: 'email', name: 'email'
+      assign validation = null
+      if errors.email != blank
+        assign validation = null | parse_json | hash_merge: passed: false, messages: errors.email
+      endif
+      assign input_params = null | parse_json | hash_merge: type: 'email', name: 'email', required: true
       assign label_params = null | parse_json | hash_merge: content: 'E-mail'
 
-      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'user-form__fieldset'
+      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, validation: validation, classes: 'user-form__fieldset'
 
-      assign input_params = null | parse_json | hash_merge: type: 'password', name: 'password'
+      assign validation = null
+      if errors.password != blank
+        assign validation = null | parse_json | hash_merge: passed: false, messages: errors.password
+      endif
+      assign input_params = null | parse_json | hash_merge: type: 'password', name: 'password', required: true
       assign label_params = null | parse_json | hash_merge: content: 'Password'
-      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'user-form__fieldset'
+      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, validation: validation, classes: 'user-form__fieldset'
 
       theme_render_rc 'components/atoms/button', content: 'Sign in', type: 'submit'
     %}
     <div class="user-form__footer">Don't have an account yet? <a href="/user/register">Click here to sign up!</a></div>
-    <div class="user-form__footer">Lost password? <a href="/user/reset-password">Reset</a></div>
+    {% comment %} <div class="user-form__footer">Lost password? <a href="/user/reset-password">Reset</a></div> {% endcomment %}
   </form>
 {% endcapture %}
 

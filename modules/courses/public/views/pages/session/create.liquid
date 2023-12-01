@@ -1,4 +1,5 @@
 ---
+layout: modules/courses/courses
 slug: session/create
 method: post
 ---
@@ -7,6 +8,6 @@ method: post
   if res.valid
     redirect_to '/course'
   else
-    redirect_to '/user/login'
+    theme_render_rc 'components/organisms/user-login-form', errors: res.errors
   endif
 %}
