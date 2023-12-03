@@ -2,7 +2,7 @@ mutation updateModule(
     $id: ID!
     $title: String!
     $description: String
-    $weight: String
+    $weight: Int
   ) {
   record: record_update(
     id: $id
@@ -11,7 +11,7 @@ mutation updateModule(
       properties: [
         { name: "title", value: $title },
         { name: "description", value: $description },
-        { name: "weight", value: $weight }
+        { name: "weight", value_int: $weight }
       ]
     }
   ) {

@@ -1,7 +1,7 @@
 mutation createModule(
     $title: String!
     $description: String
-    $weight: String
+    $weight: Int
   ) {
   record: record_create(
     record: {
@@ -9,7 +9,7 @@ mutation createModule(
       properties: [
         { name: "title", value: $title },
         { name: "description", value: $description },
-        { name: "weight", value: $weight }
+        { name: "weight", value_int: $weight }
       ]
     }
   ) {

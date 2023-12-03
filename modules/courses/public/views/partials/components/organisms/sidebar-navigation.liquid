@@ -11,6 +11,11 @@ metadata:
 <ul class="module-list">
   {% for module in modules %}
     {% assign is_active_module = module.lessons | array_detect: id: current_lesson.id %}
+    {% liquid
+      if module.lessons.size < 1
+        continue
+      endif
+    %}
     <li class="module-list__item {% if is_active_module %}module-list__item--active{% endif %}">
       <h3 class="module-list__item-title" title="{{ module.description }}">
         {{ module.title }}
@@ -21,6 +26,7 @@ metadata:
       <ul class="course-list">
         {% for lesson in module.lessons %}
           {% liquid
+            assign is_unpublished = false
             if lesson.status == 'unpublished' and can_view_all != true
               assign is_unpublished = true
             endif

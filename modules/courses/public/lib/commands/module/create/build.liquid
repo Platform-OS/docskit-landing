@@ -2,7 +2,7 @@
   {
     "title": {{ object.title | json }},
     "description": {{ object.description | json }},
-    "weight": {{ object.weight | json }}
+    "weight": {{ object.weight | plus: 0 | json }}
   }
 {% endparse_json %}
 

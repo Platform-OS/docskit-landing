@@ -1,7 +1,7 @@
 mutation create(
   $title: String!
   $status: String!
-  $weight: String
+  $weight: Int
   $youtube_video_id: String
   $content: String!
   $module_id: String!
@@ -11,7 +11,7 @@ mutation create(
       table: "modules/courses/lesson",
       properties: [
         { name: "title", value: $title }
-        { name: "status", value: $status }
+        { name: "status", value_int: $status }
         { name: "weight", value: $weight }
         { name: "youtube_video_id", value: $youtube_video_id }
         { name: "content", value: $content }
@@ -21,7 +21,7 @@ mutation create(
   ) {
     title: property(name: "title")
     status: property(name: "status")
-    weight: property(name: "weight")
+    weight: property_int(name: "weight")
     youtube_video_id: property(name: "youtube_video_id")
     content: property(name: "content")
     module_id: property(name: "module_id")

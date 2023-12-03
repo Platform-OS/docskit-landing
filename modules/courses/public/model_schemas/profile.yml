@@ -5,5 +5,3 @@ properties:
   - name: firstname
   - name: lastname
   - name: company
-#  - name: webinars
-#    type: array

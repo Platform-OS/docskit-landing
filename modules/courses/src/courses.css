@@ -196,7 +196,7 @@ p {
 }
 
 .courses__sidebar--open {
-  max-height: 1200px;
+  max-height: 2000px;
   display: block;
   opacity: 1;
 }
@@ -331,6 +331,13 @@ p {
   align-items: center;
 }
 
+.header__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: space-around;
+}
+
 .header__menu {
   width: 32px;
   height: 32px;
@@ -340,4 +347,12 @@ p {
   .header__menu {
     display: none;
   }
+}
+
+.markdown-body ol {
+  list-style-type: decimal;
+}
+
+.markdown-body ul {
+  list-style-type: disc;
 }

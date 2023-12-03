@@ -5,7 +5,7 @@
     "youtube_video_id": {{ object.youtube_video_id | json }},
     "content": {{ object.content | json }},
     "status": {{ object.status | json }},
-    "weight": {{ object.weight | json }},
+    "weight": {{ object.weight | plus: 0 | json }},
     "module_id": {{ object.module_id | json }}
   }
 {% endparse_json %}

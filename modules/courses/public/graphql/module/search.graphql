@@ -3,9 +3,9 @@ query searchModule (
   $status: [String!] = ["published"]
 ) {
   records(
-    per_page: 20
+    per_page: 50
     filter: {
-      table: {value: "modules/courses/module"}
+      table: { value: "modules/courses/module" }
     }
     sort: { properties: { name: "weight", order: ASC } }
   ) {
@@ -13,21 +13,21 @@ query searchModule (
     results {
       id
       title: property(name: "title")
-      weight: property(name: "weight")
+      weight: property_int(name: "weight")
       description: property(name: "description")
       lessons: related_records(
         table: "modules/courses/lesson"
         join_on_property: "id"
         foreign_property: "module_id"
         filter: {
-          properties: {name: "status", value_in: $status}
+          properties: { name: "status", value_in: $status }
         }
         sort: { properties: { name: "weight", order: ASC } }
       ) @include(if: $withLessons) {
         id
         title: property(name: "title")
         status: property(name: "status")
-        weight: property(name: "weight")
+        weight: property_int(name: "weight")
         youtube_video_id: property(name: "youtube_video_id")
         content: property(name: "content")
         module_id: property(name: "module_id")
