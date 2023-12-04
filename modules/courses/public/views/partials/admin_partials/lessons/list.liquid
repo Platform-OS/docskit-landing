@@ -51,12 +51,12 @@ metadata:
                     title="Open in new tab"
                     class="text-interactive-text underline"
                   >
-                    {{- lesson.title -}}
+                    {{- lesson.title | truncate: 80  -}}
                   </a>
                 </td>
                 <td class="px-6 py-4">{{ module.title }}</td>
                 <td class="px-6 py-4">{{ lesson.youtube_video_id }}</td>
-                <td class="px-6 py-4">{{ lesson.content | markdown | strip_html | slice: 0, 80 | append: '...' }}</td>
+                <td class="px-6 py-4">{{ lesson.content | markdown | strip_html | truncate: 80 }}</td>
                 <td class="px-6 py-4">
                   {% liquid
                     assign variant = 'success'

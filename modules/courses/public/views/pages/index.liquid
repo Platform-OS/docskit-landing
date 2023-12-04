@@ -9,7 +9,7 @@ layout: modules/courses/courses
     redirect_to '/user/login'
   endunless
 
-  function can_view_all = 'modules/permission/lib/helpers/can_do', requester: current_user, do: 'courses.manage'
+  function can_manage_course = 'modules/permission/lib/helpers/can_do', requester: current_user, do: 'courses.manage'
 
   assign status = '["published", "unpublished"]' | parse_json
 
@@ -18,19 +18,18 @@ layout: modules/courses/courses
 
   assign current_lesson = modules.first.lessons.first
 
-  if current_lesson == blank and can_view_all
+  if current_lesson == blank and can_manage_course
     redirect_to '/admin'
   endif
 
   if params.id
     graphql current_lesson = 'modules/courses/lesson/find', id: params.id, status: status
     assign current_lesson = current_lesson.records.results.first
+    unless current_lesson.status == 'published' or can_manage_course
+      redirect_to '/course'
+    endunless
   endif
-
-  unless current_lesson.status == 'published' or can_view_all and current_lesson
-    redirect_to '/course'
-  endunless
 %}
 {% content_for 'pagetitle' %}{{ current_lesson.title }} | Docs as Code Course{% endcontent_for %}
 
-{% theme_render_rc 'components/templates/course', modules: modules, current_lesson: current_lesson, can_view_all: can_view_all %}
+{% theme_render_rc 'components/templates/course', modules: modules, current_lesson: current_lesson, can_view_all: can_manage_course %}
