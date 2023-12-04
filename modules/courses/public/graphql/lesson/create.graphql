@@ -11,8 +11,8 @@ mutation create(
       table: "modules/courses/lesson",
       properties: [
         { name: "title", value: $title }
-        { name: "status", value_int: $status }
-        { name: "weight", value: $weight }
+        { name: "status", value: $status }
+        { name: "weight", value_int: $weight }
         { name: "youtube_video_id", value: $youtube_video_id }
         { name: "content", value: $content }
         { name: "module_id", value: $module_id }
