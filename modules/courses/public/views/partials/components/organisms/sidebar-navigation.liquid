@@ -40,27 +40,25 @@ metadata:
                 <img
                   src="{{ 'modules/courses/images/coming_soon.png' | asset_url }}"
                   class="course-list__image"
-                  alt="{{ lesson.title }}"
                   loading="lazy"
                   width="100"
                   height="56"
                 >
               <span class="course-list__title">
-                {{ lesson.title }}
+                {{ lesson.title | truncate: 120 }}
               </span>
             {% else %}
             <a href="/course/{{ lesson.id }}">
               <img
                 src="{{ image_url }}"
                 class="course-list__image"
-                alt="{{ lesson.title }}"
                 loading="lazy"
                 width="100"
                 height="56"
               >
             </a>
             <a href="/course/{{ lesson.id }}" class="pos-clean course-list__title">
-              {{ lesson.title }}
+              {{ lesson.title | truncate: 120 }}
               {% if lesson.status != 'published' %}
                 <span class="course-list__description">
                   {% theme_render_rc 'components/molecules/chip', variant: 'warning', content: 'unpublished' %}
