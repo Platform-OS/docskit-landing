@@ -6,7 +6,6 @@ metadata:
 ---
 
 {% capture login_form %}
-  {% theme_render_rc 'components/atoms/heading', level: 2, content: 'Login', classes: 'heading' %}
   <form action="/session/create" method="post" class="user-form">
     <input type="hidden" name="authenticity_token" value="{{ context.authenticity_token }}">
 
@@ -34,13 +33,4 @@ metadata:
     {% comment %} <div class="user-form__footer">Lost password? <a href="/user/reset-password">Reset</a></div> {% endcomment %}
   </form>
 {% endcapture %}
-
-<div class="user-forms" style="background-image: url({{ 'modules/courses/images/user-forms.png' | asset_url }})">
-  <div class="container user-forms__content">
-    <h1 class="user-forms__title">Docs as Code Fundamentals</h1>
-    <p class="user-forms__description">
-      Embark on a comprehensive learning journey with our Docs as Code Fundamentals course. Designed for beginners and those looking to solidify their understanding, this course delves into the well-established methodology of Docs as Code.
-    </p>
-    {% theme_render_rc 'components/atoms/card', content: login_form, classes: 'form-panel' %}
-  </div>
-</div>
+{% theme_render_rc 'components/atoms/card', content: login_form, classes: 'form-panel' %}

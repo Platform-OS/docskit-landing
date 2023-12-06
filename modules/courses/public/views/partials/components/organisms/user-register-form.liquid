@@ -6,7 +6,6 @@ metadata:
 ---
 
 {% capture register_form %}
-  {% theme_render_rc 'components/atoms/heading', level: 2, content: 'Sign up', classes: 'heading' %}
   <form action="/user/create" method="post" class="user-form">
     <input type="hidden" name="authenticity_token" value="{{ context.authenticity_token }}">
 
@@ -44,9 +43,5 @@ metadata:
     <div class="user-form__footer">Already have an account? <a href="/user/login">Click here to log in!</a></div>
   </form>
 {% endcapture %}
+{% theme_render_rc 'components/atoms/card', content: register_form, classes: 'form-panel' %}
 
-<div class="user-forms user-forms--center" style="background-image: url({{ 'modules/courses/images/user-forms.png' | asset_url }})">
-  <div class="container user-forms__content">
-    {% theme_render_rc 'components/atoms/card', content: register_form, classes: 'form-panel' %}
-  </div>
-</div>

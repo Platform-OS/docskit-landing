@@ -8,6 +8,6 @@ method: post
   if res.valid
     redirect_to '/course'
   else
-    theme_render_rc 'components/organisms/user-login-form', errors: res.errors
+    theme_render_rc 'components/pages/login', errors: res.errors
   endif
 %}

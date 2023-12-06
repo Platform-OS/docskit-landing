@@ -126,8 +126,47 @@ p {
   background-repeat: no-repeat;
 }
 
-.page-courses .user-forms--center {
+.page-courses .user-forms--register {
   align-items: center;
+  background-position-x: right;
+}
+
+.page-courses .user-forms__register-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.page-courses .user-forms--register .user-forms__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  justify-content: center;
+  gap: 4rem;
+  padding: 2rem .5rem;
+}
+
+.page-courses .user-forms__video {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+.page-courses .user-forms--register .heading--multiline {
+  font-weight: bold;
+  font-size: 3rem;
+}
+.page-courses .user-forms--register .heading--multiline .heading__sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+@media (min-width: 1024px) {
+  .page-courses .user-forms--register .heading--multiline {
+    text-align: left;
+  }
 }
 
 .page-courses .user-forms__title,

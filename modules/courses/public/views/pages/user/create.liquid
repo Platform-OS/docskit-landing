@@ -12,7 +12,7 @@ method: post
     function _session = 'modules/user/lib/commands/session/create', user_id: result.id, validate_password: false
     redirect_to '/course'
   else
-    theme_render_rc 'components/organisms/user-register-form', errors: result.errors
+    theme_render_rc 'components/pages/register', errors: result.errors
   endif
 %}
 
