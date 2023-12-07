@@ -5,11 +5,11 @@ metadata:
    errors: {}
 ---
 <div
-  class="user-forms user-forms--register"
-  style="background-image: url({{ 'modules/courses/images/user-signup.png' | asset_url }})"
+  class="user-forms user-forms--register user-forms--center"
+  style="background-image: url({{ 'modules/courses/images/user-forms.png' | asset_url }})"
 >
   <div class="container user-forms__register-content">
-    <h1 class="heading heading--multiline">Sign up <span class="heading__sub">to Docs as Code Fundamentals course</span></h1>
+    <h1 class="heading heading--multiline">Sign up <span class="heading__sub">for the Docs as Code Fundamentals course</span></h1>
     <div class="container user-forms__content">
       <div class="user-forms__form">
         {% theme_render_rc 'components/organisms/user-register-form', errors: errors %}

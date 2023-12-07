@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'Gotham';
+  src: url(./fonts/Gotham-Light.woff) format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url(./fonts/Gotham-Bold.woff2) format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 html,
 body {
   height: 100%;
@@ -75,10 +91,11 @@ p {
 }
 
 .heading {
-  padding: 6px 0 24px;
-  text-align: center;
+  font-family: 'Gotham', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1.6rem;
+  text-align: center;
   line-height: 1.2;
+  padding: 6px 0 24px;
 }
 
 @media (min-width: 768px) {
@@ -89,7 +106,7 @@ p {
 
 .form-panel {
   max-width: 500px;
-  margin: 16px auto;
+  /* margin: 16px auto; */
 }
 
 .user-form .user-form__fieldset {
@@ -112,6 +129,7 @@ p {
 
 .page-courses .main {
   display: flex;
+  background: radial-gradient(87.97% 61.63% at 39.2% 54.59%, #FFF 51.28%, #F5F6FC 100%);
 }
 
 .page-courses .content-static {
@@ -121,20 +139,23 @@ p {
 .page-courses .user-forms {
   display: flex;
   flex: 1;
-  background-position: bottom left;
+  background-position: bottom right;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.page-courses .user-forms--register {
+.page-courses .user-forms--center {
   align-items: center;
-  background-position-x: right;
 }
 
 .page-courses .user-forms__register-content {
   display: flex;
   flex: 1;
   flex-direction: column;
+}
+
+.page-courses .user-forms--login .user-forms__content {
+  max-width: 768px;
 }
 
 .page-courses .user-forms--register .user-forms__content {
@@ -153,32 +174,36 @@ p {
   aspect-ratio: 16/9;
 }
 
-.page-courses .user-forms--register .heading--multiline {
+.page-courses .user-forms .heading--multiline {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
   font-weight: bold;
   font-size: 3rem;
 }
-.page-courses .user-forms--register .heading--multiline .heading__sub {
+
+.page-courses .user-forms .heading--multiline .heading__sub {
   display: block;
   font-size: 2rem;
   font-weight: 100;
 }
 
 @media (min-width: 1024px) {
-  .page-courses .user-forms--register .heading--multiline {
+  .page-courses .user-forms .heading--multiline {
     text-align: left;
   }
 }
 
 .page-courses .user-forms__title,
 .page-courses .user-forms__description {
-  max-width: 640px;
+  max-width: 1140px;
   margin: 2rem auto;
-  text-align: center;
 }
 
 .page-courses .user-forms__title {
-  font-size: 2rem;
+  font-family: "Gotham", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: bold;
+  font-size: 2rem;
 }
 
 .page-courses .user-forms__description {
@@ -192,6 +217,7 @@ p {
   width: 100%;
   grid-template-columns: 1fr;
   grid-template-rows: max-content 1fr;
+  background-color: rgb(var(--panel));
 }
 
 @media (min-width: 1024px) {
@@ -386,6 +412,9 @@ p {
   .header__menu {
     display: none;
   }
+}
+.markdown-body {
+  background: transparent;
 }
 
 .markdown-body ol {

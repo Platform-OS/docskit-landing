@@ -26,7 +26,7 @@
 
     assign default_module = lesson.module_id | default: module_options.first.value
     assign input_params = null | parse_json | hash_merge: type: 'select', name: 'module_id', value: default_module, options: module_options, classes: 'w-full', required: true
-    assign label_params = null | parse_json | hash_merge: content: 'Module'
+    assign label_params = null | parse_json | hash_merge: content: 'Training Module'
     theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'w-full py-2 mb-2 max-w-xl'
 
     assign description_params = null | parse_json | hash_merge: content: 'e.g. www.youtube.com/watch?v=<b style="background: blue; color: #fff"> rNfI9iUYXm8 </b>?si=MfbjH'

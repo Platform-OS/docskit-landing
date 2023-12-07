@@ -4,12 +4,17 @@ metadata:
   params:
    errors: {}
 ---
-<div class="user-forms" style="background-image: url({{ 'modules/courses/images/user-forms.png' | asset_url }})">
+<div class="user-forms user-forms--center user-forms--login" style="background-image: url({{ 'modules/courses/images/user-forms.png' | asset_url }})">
   <div class="container user-forms__content">
-    <h1 class="user-forms__title">Docs as Code Fundamentals</h1>
+    <h1 class="heading heading--multiline">
+      Log in <span class="heading__sub">to the Docs as Code Fundamentals course</span>
+    </h1>
     <p class="user-forms__description">
-      Embark on a comprehensive learning journey with our Docs as Code Fundamentals course. Designed for beginners and those looking to solidify their understanding, this course delves into the well-established methodology of Docs as Code.
+      Embark on a comprehensive learning journey with our Docs as Code Fundamentals course. Designed for beginners and
+      those looking to solidify their understanding, this course delves into the well-established methodology of Docs as
+      Code.
     </p>
+
     {% theme_render_rc 'components/organisms/user-login-form', errors: errors %}
   </div>
 </div>

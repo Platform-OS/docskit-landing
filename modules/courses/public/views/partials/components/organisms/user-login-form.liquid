@@ -4,7 +4,6 @@ metadata:
   params:
    errors: {}
 ---
-
 {% capture login_form %}
   <form action="/session/create" method="post" class="user-form">
     <input type="hidden" name="authenticity_token" value="{{ context.authenticity_token }}">
@@ -15,7 +14,7 @@ metadata:
         assign validation = null | parse_json | hash_merge: passed: false, messages: errors.email
       endif
       assign input_params = null | parse_json | hash_merge: type: 'email', name: 'email', required: true
-      assign label_params = null | parse_json | hash_merge: content: 'E-mail'
+      assign label_params = null | parse_json | hash_merge: content: 'Email'
 
       theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, validation: validation, classes: 'user-form__fieldset'
 

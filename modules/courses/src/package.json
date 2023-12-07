@@ -7,8 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "esbuild ./courses.js --bundle --sourcemap --outdir=../public/assets --watch",
-    "build": "esbuild ./courses.js --bundle --minify --outdir=../public/assets"
+    "start": "esbuild ./courses.js --bundle --sourcemap --outdir=../public/assets --watch --loader:.woff=dataurl --loader:.woff2=dataurl",
+    "build": "esbuild ./courses.js --bundle --minify --outdir=../public/assets --loader:.woff=dataurl --loader:.woff2=dataurl"
   },
   "author": "nemvalid <peter@platformos.com>",
   "license": "ISC",
