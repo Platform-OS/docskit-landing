@@ -29,7 +29,7 @@ metadata:
       theme_render_rc 'components/atoms/button', content: 'Sign in', type: 'submit'
     %}
     <div class="user-form__footer">Don't have an account yet? <a href="/user/register">Click here to sign up!</a></div>
-    {% comment %} <div class="user-form__footer">Lost password? <a href="/user/reset-password">Reset</a></div> {% endcomment %}
+    <div class="user-form__footer">Lost password? <a href="/user/forgotten-password">Reset</a></div>
   </form>
 {% endcapture %}
 {% theme_render_rc 'components/atoms/card', content: login_form, classes: 'form-panel' %}

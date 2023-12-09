@@ -1,0 +1,14 @@
+{% parse_json object %}
+  {
+    "firstname": {{ object.firstname | json }},
+    "lastname": {{ object.lastname | json }},
+    "email": {{ object.email | json }},
+    "password": {{ object.password | json }},
+    "company": {{ object.company | json }},
+    "terms": {{ object.terms | json }}
+  }
+{% endparse_json %}
+
+{% liquid
+  return object
+%}

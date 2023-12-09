@@ -1,0 +1,16 @@
+{% liquid
+  function object = 'modules/courses/commands/user/create/build', object: object
+  function object = 'modules/courses/commands/user/create/check', object: object
+
+  if object.valid
+    function result = 'modules/user/lib/commands/user/create', email: object.email, password: object.password, hook_params: null
+    if result.valid
+      graphql _profile = 'modules/courses/profile/create', user_id: result.id, email: object.email, firstname: object.firstname, lastname: object.lastname, company: object.company
+    else
+      hash_assign object['valid'] = false
+      hash_assign object['errors'] = result.errors
+    endif
+  endif
+
+  return object
+%}

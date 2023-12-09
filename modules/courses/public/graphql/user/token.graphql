@@ -1,0 +1,12 @@
+query MyQuery(
+  $email: String!
+  $valid_for: Int = 1
+  $expires_in: Float = 48
+) {
+  users(per_page: 1, filter: {email: {exact: $email}}) {
+    total_entries
+    results {
+      token: temporary_token(valid_for: $valid_for, expires_in: $expires_in)
+    }
+  }
+}

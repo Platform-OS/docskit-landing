@@ -424,3 +424,8 @@ p {
 .markdown-body ul {
   list-style-type: disc;
 }
+
+.h-captcha {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

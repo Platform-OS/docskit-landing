@@ -3,16 +3,14 @@ layout: modules/courses/courses
 slug: user/create
 method: post
 ---
-{% comment %} TODO: implement build/check {% endcomment %}
 {% liquid
-  function result = 'modules/user/lib/commands/user/create', email: context.params.email, password: context.params.password
+  function result = 'modules/courses/commands/user/create', object: context.params
 
   if result.valid
-    graphql _profile = 'modules/courses/profile/create', user_id: result.id, email: context.params.email, firstname: context.params.firstname, lastname: context.params.lastname, company: context.params.company
     function _session = 'modules/user/lib/commands/session/create', user_id: result.id, validate_password: false
     redirect_to '/course'
   else
-    theme_render_rc 'components/pages/register', errors: result.errors
+    assign object = result | hash_merge: password: null
+    theme_render_rc 'components/pages/register', errors: result.errors, object: object
   endif
 %}
-
