@@ -1,3 +1,9 @@
+---
+metadata:
+  name: Module form
+  params:
+    module: {}
+---
 <form action="{{action}}" method="POST" class="pb-12">
   <input type="hidden" name="authenticity_token" value="{{ context.authenticity_token }}">
   {% if module.id != blank %}
@@ -13,7 +19,6 @@
     assign label_params = null | parse_json | hash_merge: content: 'Weight'
     theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'w-full py-2 mb-2 max-w-xs'
 
-    assign attributes = null | parse_json | hash_merge: rows: 5
     assign input_params = null | parse_json | hash_merge: type: 'textarea', name: 'description', value: module.description
     assign label_params = null | parse_json | hash_merge: content: 'Description'
     theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'w-full py-2 mb-2 max-w-none'
