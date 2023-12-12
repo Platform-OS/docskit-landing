@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  assetPrefix: process.env.ASSET_PREFIX || "https://uploads.staging.oregon.platform-os.com/instances/10276/assets/",
+  assetPrefix: process.env.ASSET_PREFIX,
   siteMetadata: {
     title: 'platformOS DocsKit',
     description: 'platformOS DocsKit',
