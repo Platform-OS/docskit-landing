@@ -1,4 +1,7 @@
-{% graphql profiles = 'modules/courses/profile/search' %}
+{% liquid
+  assign page = context.params.page | to_positive_integer: 1
+  graphql profiles = 'modules/courses/profile/search', page: page, per_page: 25
+%}
 
 <div class="p-8">
   <h1 class="text-xl font-bold pb-6">Users ({{ profiles.records.total_entries }})</h1>
@@ -26,6 +29,13 @@
         {% endfor %}
       </tbody>
     </table>
+  </div>
+  <div class="flex justify-center py-8">
+    {% liquid
+      if profiles.records.total_pages > 1
+        theme_render_rc 'components/molecules/pagination', count: profiles.records.total_pages, active: page, maxCount: 5, url: url
+      endif
+    %}
   </div>
   <div class="flex justify-end py-8">
     {% theme_render_rc 'components/atoms/button', content: 'CSV export', href: '/api/admin/users.csv' %}

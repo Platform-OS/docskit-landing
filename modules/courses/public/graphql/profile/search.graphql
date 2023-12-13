@@ -1,11 +1,16 @@
-query searchProfile {
+query searchProfile(
+  $page: Int = 1
+  $per_page: Int = 20
+) {
   records(
-    per_page: 100
+    per_page: $per_page
+    page: $page
     filter: {
       table: { value: "modules/courses/profile" }
     }
   ) {
     total_entries
+    total_pages
     results {
       id
       user_id: property(name: "user_id")
