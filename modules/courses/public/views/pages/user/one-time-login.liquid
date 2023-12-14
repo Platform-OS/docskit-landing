@@ -1,0 +1,26 @@
+---
+layout: modules/courses/courses
+---
+{% liquid
+  function current_user = 'modules/user/lib/queries/user/current'
+  function can = 'modules/permission/lib/helpers/can_do', requester: current_user, do: 'sessions.create'
+  unless can
+    redirect_to '/course'
+  endunless
+
+  if context.params.token == blank or context.params.email == blank
+    redirect_to '/user/register'
+  endif
+
+  graphql user_exists = 'modules/user/user/list', email: context.params.email
+  if user_exists.users.total_entries != 0
+    function user = 'modules/user/lib/queries/user/load', id: user_exists.users.results.first.id
+    assign authenticated = context.params.token | is_token_valid: user.id
+    if authenticated
+      function _session = 'modules/user/lib/commands/session/create', user_id: user.id, validate_password: false
+      redirect_to '/user/reset-password'
+    endif
+  endif
+
+  redirect_to '/user/login'
+%}

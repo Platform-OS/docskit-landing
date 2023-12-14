@@ -1,0 +1,36 @@
+---
+metadata:
+  name: Register page
+  params:
+    errors: {}
+    object: {}
+---
+<div
+  class="user-forms user-forms--register user-forms--center"
+  style="background-image: url({{ 'modules/courses/images/user-forms.png' | asset_url }})"
+>
+  <div class="container user-forms__register-content">
+    <h1 class="heading heading--multiline">
+      Sign up <span class="heading__sub">for the Docs as Code Fundamentals course</span>
+    </h1>
+    <div class="container user-forms__content">
+      <div class="user-forms__form">
+        {% theme_render_rc 'components/organisms/user-register-form', errors: errors, object: object %}
+      </div>
+      <div class="user-forms__static">
+        <iframe
+          class="user-forms__video"
+          width="560"
+          height="315"
+          src="https://www.youtube-nocookie.com/embed/CP3IHQ6Ltdo?si=ZSJEHkzLAGOKP14E"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        <br>
+        {% theme_render_rc 'components/atoms/button', href: '/docs-as-code-course', content: 'Course details', weight: 'secondary', filled: true %}
+      </div>
+    </div>
+  </div>
+</div>

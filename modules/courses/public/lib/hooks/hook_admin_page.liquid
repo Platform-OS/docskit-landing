@@ -1,0 +1,40 @@
+{% parse_json admin_pages %}
+  [
+    {
+      "relative_path": null,
+      "menu": {
+        "title": "Course home",
+        "link_attributes": {
+          "href": "/course"
+        }
+      },
+      "permission": "courses.manage"
+    },
+    {
+      "relative_path": "/admin/course/modules",
+      "partial": "modules/courses/admin_pages/modules",
+      "menu": {
+        "title": "Training Modules"
+      },
+      "permission": "courses.manage"
+    },
+    {
+      "relative_path": "/admin/course/lessons",
+      "partial": "modules/courses/admin_pages/lessons",
+      "menu": {
+        "title": "Lessons"
+      },
+      "permission": "courses.manage"
+    },
+    {
+      "relative_path": "/admin/course/users",
+      "partial": "modules/courses/admin_pages/users",
+      "menu": {
+        "title": "Users"
+      },
+      "permission": "users.manage"
+    }
+  ]
+  {% endparse_json %}
+
+  {% return admin_pages %}

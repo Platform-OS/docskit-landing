@@ -1,0 +1,23 @@
+query searchProfile(
+  $page: Int = 1
+  $per_page: Int = 20
+) {
+  records(
+    per_page: $per_page
+    page: $page
+    filter: {
+      table: { value: "modules/courses/profile" }
+    }
+  ) {
+    total_entries
+    total_pages
+    results {
+      id
+      user_id: property(name: "user_id")
+      email: property(name: "email")
+      firstname: property(name: "firstname")
+      lastname: property(name: "lastname")
+      company: property(name: "company")
+    }
+  }
+}

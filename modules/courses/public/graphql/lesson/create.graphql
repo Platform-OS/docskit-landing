@@ -1,0 +1,29 @@
+mutation create(
+  $title: String!
+  $status: String!
+  $weight: Int
+  $youtube_video_id: String
+  $content: String!
+  $module_id: String!
+) {
+  record: record_create(
+    record: {
+      table: "modules/courses/lesson",
+      properties: [
+        { name: "title", value: $title }
+        { name: "status", value: $status }
+        { name: "weight", value_int: $weight }
+        { name: "youtube_video_id", value: $youtube_video_id }
+        { name: "content", value: $content }
+        { name: "module_id", value: $module_id }
+      ]
+    }
+  ) {
+    title: property(name: "title")
+    status: property(name: "status")
+    weight: property_int(name: "weight")
+    youtube_video_id: property(name: "youtube_video_id")
+    content: property(name: "content")
+    module_id: property(name: "module_id")
+  }
+}

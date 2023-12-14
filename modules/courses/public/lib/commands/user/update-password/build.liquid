@@ -1,0 +1,11 @@
+{% parse_json object %}
+  {
+    "id": {{ user.id | json }},
+    "password": {{ password | json }},
+    "confirm_password": {{ confirm_password | json }}
+  }
+{% endparse_json %}
+
+{% liquid
+  return object
+%}

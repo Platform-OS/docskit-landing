@@ -1,0 +1,71 @@
+{% liquid
+  assign status = '["published", "unpublished"]' | parse_json
+  graphql modules = 'modules/courses/module/search', status: status
+  assign modules = modules | dig: 'records', 'results' | array_map: 'id', 'title'
+  assign module_options = '[]' | parse_json
+  assign status_options = '[]' | parse_json
+  for module in modules
+    assign option = null | parse_json | hash_merge: label: module[1], value: module[0]
+    assign module_options = module_options | array_add: option
+  endfor
+  for s in status
+    assign option = null | parse_json | hash_merge: label: s, value: s
+    assign status_options = status_options | array_add: option
+  endfor
+%}
+<form action="{{action}}" method="POST" class="pb-12">
+  <input type="hidden" name="authenticity_token" value="{{ context.authenticity_token }}">
+  {% if lesson.id != blank %}
+    <input type="hidden" name="id" value="{{ lesson.id }}">
+  {% endif %}
+
+  {% liquid
+    assign input_params = null | parse_json | hash_merge: type: 'text', name: 'title', value: lesson.title, required: true
+    assign label_params = null | parse_json | hash_merge: content: 'Title'
+    theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'w-full py-2 mb-2 max-w-xl'
+
+    assign default_module = lesson.module_id | default: module_options.first.value
+    assign input_params = null | parse_json | hash_merge: type: 'select', name: 'module_id', value: default_module, options: module_options, classes: 'w-full', required: true
+    assign label_params = null | parse_json | hash_merge: content: 'Training Module'
+    theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'w-full py-2 mb-2 max-w-xl'
+
+    assign description_params = null | parse_json | hash_merge: content: 'e.g. www.youtube.com/watch?v=<b style="background: blue; color: #fff"> rNfI9iUYXm8 </b>?si=MfbjH'
+    assign input_params = null | parse_json | hash_merge: type: 'text', name: 'youtube_video_id', value: lesson.youtube_video_id
+    assign label_params = null | parse_json | hash_merge: content: 'Youtube video ID'
+    theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, description_params: description_params, classes: 'w-full py-2 mb-2 max-w-md'
+
+    assign input_params = null | parse_json | hash_merge: type: 'number', name: 'weight', value: lesson.weight
+    assign label_params = null | parse_json | hash_merge: content: 'Weight'
+    theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'w-full py-2 mb-2 max-w-xs'
+
+    assign attributes = null | parse_json | hash_merge: rows: 25
+    hash_assign attributes['data-markdown-editor'] = 'true'
+    assign input_params = null | parse_json | hash_merge: type: 'textarea', name: 'content', value: lesson.content, attributes: attributes, required: true
+    assign label_params = null | parse_json | hash_merge: content: 'Content (markdown)'
+    theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'w-full py-2 mb-2 max-w-none'
+
+    assign status = lesson.status | default: 'unpublished'
+    assign input_params = null | parse_json | hash_merge: type: 'select', name: 'status', value: status, options: status_options, classes: 'w-full', required: true
+    assign label_params = null | parse_json | hash_merge: content: 'Status'
+    theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'w-full py-2 mb-2 max-w-xs'
+
+    theme_render_rc 'components/atoms/button', content: 'Save', type: 'submit', variant: 'confirmation'
+  %}
+</form>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<style>
+  .CodeMirror-wrap,
+  .editor-toolbar {
+    width: 100%;
+  }
+</style>
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script>
+  var simplemde = new SimpleMDE({
+    element: document.querySelector('[data-markdown-editor]'),
+    forceSync: true,
+    spellChecker: false,
+    hideIcons: ["guide", "side-by-side", "preview", "fullscreen"]
+  });
+</script>

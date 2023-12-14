@@ -1,3 +1,18 @@
 [submodule "core"]
 	path = modules/core
 	url = git@github.com:Platform-OS/pos-module-core.git
+[submodule "permission"]
+	path = modules/permission
+	url = git@github.com:Platform-OS/pos-module-permission.git
+[submodule "user"]
+	path = modules/user
+	url = git@github.com:Platform-OS/pos-module-user.git
+[submodule "admin"]
+	path = modules/admin
+	url = git@github.com:Platform-OS/pos-module-admin.git
+[submodule "components"]
+	path = modules/components
+	url = git@github.com:Platform-OS/pos-module-components.git
+[submodule "theme-manager"]
+	path = modules/theme-manager
+	url = git@github.com:Platform-OS/pos-module-theme-manager.git

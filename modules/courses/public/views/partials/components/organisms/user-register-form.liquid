@@ -1,0 +1,64 @@
+---
+metadata:
+  name: User register form
+  params:
+   errors: {}
+   object: {}
+---
+
+{% capture register_form %}
+  <form action="/user/create" method="post" class="user-form">
+    <input type="hidden" name="authenticity_token" value="{{ context.authenticity_token }}">
+
+    {% liquid
+      assign validation = null
+      if errors.firstname != blank
+        assign validation = null | parse_json | hash_merge: passed: false, messages: errors.firstname
+      endif
+      assign input_params = null | parse_json | hash_merge: type: 'text', name: 'firstname', required: true, value: object.firstname
+      assign label_params = null | parse_json | hash_merge: content: 'Firstname'
+      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, validation: validation, classes: 'user-form__fieldset'
+
+      assign validation = null
+      if errors.lastname != blank
+        assign validation = null | parse_json | hash_merge: passed: false, messages: errors.lastname
+      endif
+      assign input_params = null | parse_json | hash_merge: type: 'text', name: 'lastname', required: true, value: object.lastname
+      assign label_params = null | parse_json | hash_merge: content: 'Lastname'
+      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, validation: validation, classes: 'user-form__fieldset'
+
+      assign input_params = null | parse_json | hash_merge: type: 'text', name: 'company', value: object.company
+      assign label_params = null | parse_json | hash_merge: content: 'Company'
+      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, classes: 'user-form__fieldset'
+
+      assign validation = null
+      if errors.email != blank
+        assign validation = null | parse_json | hash_merge: passed: false, messages: errors.email, value: object.email
+      endif
+      assign input_params = null | parse_json | hash_merge: type: 'email', name: 'email', required: true
+      assign label_params = null | parse_json | hash_merge: content: 'Email'
+      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, validation: validation, classes: 'user-form__fieldset'
+
+      assign validation = null
+      if errors.password != blank
+        assign validation = null | parse_json | hash_merge: passed: false, messages: errors.password
+      endif
+      assign input_params = null | parse_json | hash_merge: type: 'password', name: 'password', required: true
+      assign label_params = null | parse_json | hash_merge: content: 'Password'
+      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, validation: validation, classes: 'user-form__fieldset'
+
+      assign validation = null
+      if errors.terms != blank
+        assign validation = null | parse_json | hash_merge: passed: false, messages: errors.terms
+      endif
+      assign input_params = null | parse_json | hash_merge: type: 'checkbox', name: 'terms', required: true
+      assign label_params = null | parse_json | hash_merge: content: 'By signing up, you are agreeing to our <a href="https://www.platformos.com/terms-of-use" target="_blank">terms of service.</a>'
+      theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, validation: validation, classes: 'user-form__fieldset'
+
+      theme_render_rc 'components/atoms/button', content: 'Sign up', type: 'submit'
+    %}
+    <div class="user-form__footer">Already have an account? <a href="/user/login">Click here to log in!</a></div>
+  </form>
+{% endcapture %}
+{% theme_render_rc 'components/atoms/card', content: register_form, classes: 'form-panel' %}
+

@@ -74,6 +74,7 @@ export default function ContactForm() {
               <select className="input--select" name="subject" id="subject">
                 <option value="sales">Contact sales</option>
                 <option value="tech">Technical enquiry</option>
+                <option value="course">Docs as Code Fundamentals course</option>
               </select>
             </div>
           </fieldset>

@@ -1,0 +1,6 @@
+name: module
+properties:
+  - name: title
+  - name: description
+  - name: weight # used for sorting
+    type: integer

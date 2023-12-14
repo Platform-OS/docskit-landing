@@ -1,0 +1,5 @@
+{% liquid
+  hash_assign params_to_modify['admin_pages'] = params_to_modify['admin_pages'] | array_reject: relative_path: '/admin/users' | array_reject: permission: 'styleguide.view' | array_reject: relative_path: '/admin/themes'
+
+  return params_to_modify
+%}

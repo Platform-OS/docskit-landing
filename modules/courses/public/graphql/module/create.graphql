@@ -1,0 +1,18 @@
+mutation createModule(
+    $title: String!
+    $description: String
+    $weight: Int
+  ) {
+  record: record_create(
+    record: {
+      table: "modules/courses/module",
+      properties: [
+        { name: "title", value: $title },
+        { name: "description", value: $description },
+        { name: "weight", value_int: $weight }
+      ]
+    }
+  ) {
+    id
+  }
+}

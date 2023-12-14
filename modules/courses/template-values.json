@@ -1,0 +1,8 @@
+{
+  "name": "DocsKit Courses",
+  "machine_name": "courses",
+  "type": "module",
+  "version": "0.0.0",
+  "dependencies": {
+  }
+}

@@ -1,0 +1,12 @@
+---
+layout: modules/courses/courses
+---
+{% liquid
+  function current_user = 'modules/user/lib/queries/user/current'
+  function can = 'modules/permission/lib/helpers/can_do', requester: current_user, do: 'sessions.create'
+  unless can
+    redirect_to '/course'
+  endunless
+
+  theme_render_rc 'components/pages/login'
+%}

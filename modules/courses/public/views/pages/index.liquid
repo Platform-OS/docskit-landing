@@ -1,0 +1,33 @@
+---
+slug: course(/:id)
+layout: modules/courses/courses
+---
+{% liquid
+  function current_user = 'modules/user/lib/queries/user/current'
+
+  unless current_user.id
+    redirect_to '/user/register'
+  endunless
+
+  function can_manage_course = 'modules/permission/lib/helpers/can_do', requester: current_user, do: 'courses.manage'
+
+  assign status = '["published", "unpublished"]' | parse_json
+
+  function modules = 'modules/courses/queries/modules/search', withLessons: true, status: status
+
+  assign current_lesson = modules.first.lessons.first
+
+  if current_lesson == blank and can_manage_course
+    redirect_to '/admin'
+  endif
+
+  if params.id
+    function current_lesson = 'modules/courses/queries/lessons/find', id: params.id, status: status
+    unless current_lesson.status == 'published' or can_manage_course
+      redirect_to '/course'
+    endunless
+  endif
+%}
+{% content_for 'pagetitle' %}{{ current_lesson.title }} | Docs as Code Course{% endcontent_for %}
+
+{% theme_render_rc 'components/templates/course', modules: modules, current_lesson: current_lesson, can_view_all: can_manage_course %}

@@ -1,0 +1,22 @@
+{% liquid
+  assign url_template = '["course/lessons/{action}/{id}", "course/lessons/{action}"]' | parse_json
+  assign url_params = context.params.path | extract_url_params: url_template
+  assign action = url_params.action | default: 'list'
+
+  case action
+    when 'list'
+      assign status = '["published", "unpublished"]' | parse_json
+      graphql modules = 'modules/courses/module/search', status: status, withLessons: true
+
+      render 'modules/courses/admin_partials/lessons/list', modules: modules
+    when 'create'
+      render 'modules/courses/admin_partials/lessons/create'
+    when 'edit'
+      if url_params.id
+        assign status = '["published", "unpublished"]' | parse_json
+        graphql current_course = 'modules/courses/lesson/find', id: url_params.id, status: status
+        assign current_course = current_course.records.results.first
+        render 'modules/courses/admin_partials/lessons/edit', lesson: current_course
+    endif
+  endcase
+%}

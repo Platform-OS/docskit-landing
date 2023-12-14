@@ -1,0 +1,29 @@
+---
+layout: modules/courses/courses
+slug: user/otp
+method: post
+---
+{% liquid
+  function current_user = 'modules/user/lib/queries/user/current'
+  function can = 'modules/permission/lib/helpers/can_do', requester: current_user, do: 'sessions.create'
+  unless can
+    redirect_to '/course'
+  endunless
+
+  function result = 'modules/courses/commands/user/otp', email: context.params.email, hcaptcha_params: context.params
+
+  if result.valid
+    graphql user_token = 'modules/courses/user/token', email: context.params.email
+    if user_token.users.total_entries != 0
+      assign url_params = null | parse_json | hash_merge: token: user_token.users.results.first.token, host: context.location.host, email: context.params.email
+      assign url = 'https://{host}/user/one-time-login?token={token}&email={email}' | expand_url_template: url_params
+      assign data = null | parse_json | hash_merge: url: url
+      assign object = null | parse_json | hash_merge: from: 'courses@platformos.com', to: context.params.email, subject: 'Password reset request', partial: 'modules/courses/email/password-reset', data: data
+      function _email = 'modules/core/lib/commands/email/send', object: object
+      endif
+    theme_render_rc 'components/pages/forgotten-password-confirm'
+  else
+    theme_render_rc 'components/pages/forgotten-password', errors: result.errors
+  endif
+%}
+

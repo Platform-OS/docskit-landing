@@ -1,0 +1,43 @@
+{% liquid
+  assign page = context.params.page | to_positive_integer: 1
+  graphql profiles = 'modules/courses/profile/search', page: page, per_page: 25
+%}
+
+<div class="p-8">
+  <h1 class="text-xl font-bold pb-6">Users ({{ profiles.records.total_entries }})</h1>
+
+  <div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+        <tr>
+          <th scope="col" class="px-6 py-3">user id</th>
+          <th scope="col" class="px-6 py-3">email</th>
+          <th scope="col" class="px-6 py-3">first name</th>
+          <th scope="col" class="px-6 py-3">last name</th>
+          <th scope="col" class="px-6 py-3">company</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for profile in profiles.records.results %}
+          <tr class="bg-white border-b ">
+            <td class="px-6 py-4">{{ profile.user_id }}</td>
+            <td class="px-6 py-4">{{ profile.email }}</td>
+            <td class="px-6 py-4">{{ profile.firstname }}</td>
+            <td class="px-6 py-4">{{ profile.lastname }}</td>
+            <td class="px-6 py-4">{{ profile.company }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="flex justify-center py-8">
+    {% liquid
+      if profiles.records.total_pages > 1
+        theme_render_rc 'components/molecules/pagination', count: profiles.records.total_pages, active: page, maxCount: 5, url: url
+      endif
+    %}
+  </div>
+  <div class="flex justify-end py-8">
+    {% theme_render_rc 'components/atoms/button', content: 'CSV export', href: '/api/admin/users.csv' %}
+  </div>
+</div>

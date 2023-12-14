@@ -1,0 +1,8 @@
+en:
+  validation:
+    blank: This field is required
+    invalid_email_or_password: Invalid email or password
+    email:
+      required: Please provide your email address
+      format: The email doesn't look right, please check again
+    user_exists: It seems you already have a registered account. Please check the email field again or sign in with your credentials.

@@ -1,0 +1,13 @@
+theme_search_paths:
+  -
+  - modules/courses
+  - modules
+modules_that_allow_delete_on_deploy:
+  - admin
+  - components
+  - contact
+  - core
+  - courses
+  - permission
+  - theme-manager
+  - user

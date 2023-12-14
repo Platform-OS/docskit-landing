@@ -1,0 +1,8 @@
+mutation deleteModule($id: ID!) {
+  record: record_delete(
+    table: "modules/courses/module"
+    id: $id
+  ) {
+    id
+  }
+}

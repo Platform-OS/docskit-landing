@@ -1,0 +1,30 @@
+query MyQuery(
+    $status: [String!] = ["published"]
+  ) {
+  records(
+    per_page: 20
+    filter: {
+      table: { value: "modules/courses/lesson" },
+      properties: { name: "status", value_in: $status }
+    }
+  ) {
+    total_entries
+    results {
+      id
+      title: property(name: "title")
+      status: property(name: "status")
+      weight: property_int(name: "weight")
+      youtube_video_id: property(name: "youtube_video_id")
+      content: property(name: "content")
+      module_id: property(name: "module_id")
+      module: related_record(
+        table: "modules/courses/module"
+        join_on_property: "module_id"
+        foreign_property: "id"
+      ) {
+        id,
+        title: property(name: "title")
+      }
+    }
+  }
+}

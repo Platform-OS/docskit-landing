@@ -1,0 +1,30 @@
+---
+metadata:
+  name: Lesson
+  params:
+    lesson: {}
+---
+{% theme_render_rc 'components/atoms/heading', level: 1, tag: 'h1' content: lesson.title, classes: 'heading' %}
+
+{% liquid
+  if lesson.status != 'published'
+    theme_render_rc 'components/molecules/alert', severity: 'warning', classes: 'w-full mb-6', content: 'This lesson is currently unpublished. Unpublished lessons will still show up in the navigation as "coming soon", but they can only be viewed by admins'
+  endif
+%}
+
+{% if lesson.youtube_video_id %}
+  <div class="video">
+    <iframe
+      class="video__iframe"
+      src="https://www.youtube-nocookie.com/embed/{{ lesson.youtube_video_id }}"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+{% endif %}
+
+<div class="markdown-body container">
+  {{ lesson.content | markdown }}
+</div>

@@ -1,0 +1,74 @@
+---
+metadata:
+  name: Course sidebar navigation
+  params:
+    modules: []
+    current_lesson: {}
+    can_view_all:
+      - false
+      - true
+---
+<ul class="module-list">
+  {% for module in modules %}
+    {% assign is_active_module = module.lessons | array_detect: id: current_lesson.id %}
+    {% liquid
+      if module.lessons.size < 1
+        continue
+      endif
+    %}
+    <li class="module-list__item {% if is_active_module %}module-list__item--active{% endif %}">
+      <h3 class="module-list__item-title" title="{{ module.description }}">
+        {{ module.title }}
+        <span class="module-list__item-icon">
+          {% theme_render_rc 'components/atoms/icon', name: 'dashDown' %}
+        </span>
+      </h3>
+      <ul class="course-list">
+        {% for lesson in module.lessons %}
+          {% liquid
+            assign is_unpublished = false
+            if lesson.status == 'unpublished' and can_view_all != true
+              assign is_unpublished = true
+            endif
+            assign image_url = 'modules/courses/images/default.png' | asset_url
+            if lesson.youtube_video_id
+              assign image_url = 'https://img.youtube.com/vi/' | append: lesson.youtube_video_id | append: '/mqdefault.jpg'
+            endif
+          %}
+          <li class="course-list__item {% if lesson.id == current_lesson.id %}course-list__item--active{% endif %} {% if is_unpublished %}course-list__item--unpublished{% endif %}">
+            {% if is_unpublished == true %}
+                <img
+                  src="{{ 'modules/courses/images/coming_soon.png' | asset_url }}"
+                  class="course-list__image"
+                  loading="lazy"
+                  width="100"
+                  height="56"
+                >
+              <span class="course-list__title">
+                {{ lesson.title | truncate: 120 }}
+              </span>
+            {% else %}
+            <a href="/course/{{ lesson.id }}">
+              <img
+                src="{{ image_url }}"
+                class="course-list__image"
+                loading="lazy"
+                width="100"
+                height="56"
+              >
+            </a>
+            <a href="/course/{{ lesson.id }}" class="pos-clean course-list__title">
+              {{ lesson.title | truncate: 120 }}
+              {% if lesson.status != 'published' %}
+                <span class="course-list__description">
+                  {% theme_render_rc 'components/molecules/chip', variant: 'warning', content: 'unpublished' %}
+                </span>
+              {% endif %}
+            </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>

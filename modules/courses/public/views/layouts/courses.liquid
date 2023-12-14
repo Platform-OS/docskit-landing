@@ -1,0 +1,35 @@
+<!doctype html>
+{% liquid
+  function headscripts = 'modules/core/lib/queries/headscripts/get'
+  function current_user = 'modules/user/lib/queries/user/current'
+  function can_view_admin = 'modules/permission/lib/helpers/can_do', requester: current_user, do: 'admin_pages.view'
+
+  if context.current_user
+    response_headers '{ "Cache-Control": "no-store", "Pragma": "no-cache" }'
+  endif
+%}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    {{ headscripts }}
+    <link rel="stylesheet" href="{{ 'modules/courses/courses.css' | asset_url }}">
+  </head>
+
+  <body>
+    <div class="page-courses">
+      {% theme_render_rc 'components/organisms/header', current_user: current_user, can_view_admin: can_view_admin %}
+      <main class="main">
+        {{ content_for_layout }}
+      </main>
+      {% liquid
+        function flash = 'modules/core/commands/session/get', key: 'sflash'
+        if context.location.pathname != flash.from or flash.force_clear
+        function _ = 'modules/core/commands/session/clear', key: 'sflash'
+        endif
+        theme_render_rc 'components/molecules/flashes', params: flash
+      %}
+    </div>
+    <script src="{{ 'modules/courses/courses.js' | asset_url }}" async defer></script>
+  </body>
+</html>
