@@ -1,0 +1,6 @@
+{% liquid
+  graphql modules = 'modules/courses/module/search', withLessons: withLessons, status: status
+  assign modules = modules.records.results
+
+  return modules
+%}

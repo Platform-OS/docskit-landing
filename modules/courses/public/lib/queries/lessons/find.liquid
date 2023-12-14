@@ -1,0 +1,6 @@
+{% liquid
+  graphql lesson = 'modules/courses/lesson/find', id: id, status: status
+  assign result = lesson.records.results.first
+
+  return result
+%}

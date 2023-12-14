@@ -13,8 +13,7 @@ layout: modules/courses/courses
 
   assign status = '["published", "unpublished"]' | parse_json
 
-  graphql modules = 'modules/courses/module/search', withLessons: true, status: status
-  assign modules = modules.records.results
+  function modules = 'modules/courses/queries/modules/search', withLessons: true, status: status
 
   assign current_lesson = modules.first.lessons.first
 
@@ -23,8 +22,7 @@ layout: modules/courses/courses
   endif
 
   if params.id
-    graphql current_lesson = 'modules/courses/lesson/find', id: params.id, status: status
-    assign current_lesson = current_lesson.records.results.first
+    function current_lesson = 'modules/courses/queries/lessons/find', id: params.id, status: status
     unless current_lesson.status == 'published' or can_manage_course
       redirect_to '/course'
     endunless
