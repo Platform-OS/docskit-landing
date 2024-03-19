@@ -25,12 +25,11 @@ jobs:
       - name: Set up Node.js and Yarn
         uses: actions/setup-node@v3
         with:
-          node-version: 18
-          registry-url: https://registry.yarnpkg.com
+          node-version: 20
 
       - name: Install and run eslint
         id: eslint-ci
-        run: yarn install && yarn run eslint:mdx:ci
+        run: npm install && npm run eslint:mdx:ci
 
       - name: PR comment with eslint error
         if: failure() && steps.eslint-ci.outcome != 'success'
@@ -39,7 +38,9 @@ jobs:
           filePath: reports/eslint-mdx.txt
 
       - name: Install Docskit Dependencies
-        run: yarn install --cwd src
+        run: |
+          cd src
+          npm install --legacy-peer-deps
 
       - name: Build
         run: |
