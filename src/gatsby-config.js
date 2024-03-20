@@ -73,6 +73,22 @@ module.exports = {
         excludes: ['/search/']
       },
     },
+    {
+      resolve: `gatsby-plugin-gdpr-cookies`,
+      options: {
+        googleTagManager: {
+          trackingId: 'GTM-K9M86P9X',
+          cookieName: 'gatsby-gdpr-google-tagmanager',
+          dataLayerName: 'dataLayer',
+        },
+        hotjar: {
+          hjid: '3873889',
+          hjsv: '6',
+          cookieName: 'gatsby-gdpr-hotjar',
+        },
+        environments: ['production', 'development']
+      },
+    },
     '@platformos/gatsby-plugin-posify'
   ],
 }

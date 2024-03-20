@@ -25,11 +25,12 @@ jobs:
       - name: Set up Node.js and Yarn
         uses: actions/setup-node@v3
         with:
-          node-version: 18
-          registry-url: https://registry.yarnpkg.com
+          node-version: 20
 
       - name: Install Dependencies
-        run: yarn install --cwd src
+        run: |
+          cd src
+          npm install --legacy-peer-deps
 
       - name: Build
         run: |

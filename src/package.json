@@ -21,6 +21,8 @@
     "@platformos/gatsby-plugin-posify": "^0.0.2",
     "@platformos/gatsby-theme-platformos-docskit": "^1.2.0",
     "gatsby": "^5.10.0",
+    "gatsby-cookie-notice": "^1.0.6",
+    "gatsby-plugin-gdpr-cookies": "^2.0.9",
     "gatsby-plugin-local-search": "^2.0.1",
     "gatsby-plugin-manifest": "^5.10.0",
     "gatsby-plugin-plausible": "^0.0.7",

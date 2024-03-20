@@ -1,0 +1,54 @@
+.cc__wrapper {
+  background: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  box-shadow: 0 0px 16px rgba(0,0,0,0.1);
+  z-index: 2000;
+}
+
+.cc__wrapper .container {
+  margin: 0 auto;
+}
+
+.cc__title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.cc__description {
+  padding: 8px 0 16px;
+}
+
+.cc__wrapper .float-end {
+  float: right;
+}
+
+.cc__wrapper .btn {
+  border-radius: 4px;
+  padding: 4px 12px;
+}
+
+.cc__wrapper .btn-primary {
+  background-color: rgba(var(--button-primary, 29, 78, 216), 1);
+  border: 2px solid rgba(var(--button-primary, 29, 78, 216), 1);
+  color: #fff;
+}
+.cc__wrapper .btn-secondary {
+  color: rgba(var(--button-primary, 29, 78, 216), 1);
+  border: 2px solid currentColor;
+}
+
+.cc__wrapper .row > div {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.cc__wrapper .row p {
+  width: 100%;
+  padding-bottom: 8px;
+}
+.cc__wrapper .row label {
+  font-weight: bold;
+}
