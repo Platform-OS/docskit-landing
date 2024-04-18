@@ -1,0 +1,54 @@
+---
+metadata:
+  title: OpenAI Search
+  description: Proof of concept
+---
+{%- liquid
+  assign res = '{}' | parse_json
+  if context.constants['modules/openai/OPENAI_SECRET_TOKEN'] == blank
+    response_status 401
+    hash_assign res['error'] = "OpenAI is not configured in this environment."
+  else
+    function hcaptcha_already_solved = 'modules/core/commands/session/get', key: 'hcpatcha_solved', clear: false
+    if context.params.query != blank and context.params.query.size < 1000
+      assign c = '{ "errors": {}, "valid": true }' | parse_json
+      function c = 'modules/core/validations/hcaptcha', c: c, hcaptcha_params: context.params
+      if hcaptcha_already_solved == 'true' or c.valid
+        function _hcaptcha_already_solved = 'modules/core/commands/session/set', key: 'hcpatcha_solved', value: 'true'
+        assign user_input = '[]' | parse_json | add_to_array: context.params.query
+        function embeddings_response = 'modules/openai/commands/openai/fetch_embeddings', object: user_input
+
+        if embeddings_response.data.size > 0
+          assign embedding = embeddings_response.data.first.embedding
+
+          function related_embeddings = 'modules/openai/queries/embeddings/search', related_to: embedding, limit: 5, metadata: null
+          assign search_results = related_embeddings.results
+        else
+          hash_assign res['error'] =  "Could not fetch embeddings: " | append: embeddings_response
+        endif
+      else
+        hash_assign res['error'] =  "Validation error: " | append: c.errors
+      endif
+    endif
+
+    if search_results
+      assign results = '[]' | parse_json
+      for embedding in search_results
+        assign result = '{}' | parse_json
+        if embedding.metadata.slug == '/'
+          assign slug = embedding.metadata.slug
+        else
+          assign slug = '/' | append: embedding.metadata.slug
+        endif
+        hash_assign result['href'] = slug
+        hash_assign result['title'] = embedding.metadata.page_metadata.title | default: slug
+        hash_assign result['description'] = embedding.metadata.page_metadata.description
+        assign results = results | array_add: result
+      endfor
+      hash_assign res['results'] = results
+    endif
+
+  endif
+  print res
+-%}
+
