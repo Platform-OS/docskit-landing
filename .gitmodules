@@ -16,6 +16,4 @@
 [submodule "theme-manager"]
 	path = modules/theme-manager
 	url = git@github.com:Platform-OS/pos-module-theme-manager.git
-[submodule "openai"]
-	path = pos-module-openai
-	url = git@github.com:Platform-OS/pos-module-openai.git
+
