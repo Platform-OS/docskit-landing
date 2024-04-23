@@ -62,9 +62,8 @@ jobs:
       - name: Search reindex
         uses: fjogeleit/http-request-action@v1
         with:
-          url: '${{ secrets.MPKIT_PREVIEW_URL }}_embeddings/reindex.json'
+          url: '${{ secrets.MPKIT_PREVIEW_URL }}_embeddings/reindex.json?token=${{ secrets.OPENAI_REINDEX_TOKEN }}'
           method: 'GET'
-          data: '{"token": "${{ secrets.OPENAI_REINDEX_TOKEN }}"}'
 
       - name: Leave a comment after preview deployment
         uses: marocchino/sticky-pull-request-comment@v2
