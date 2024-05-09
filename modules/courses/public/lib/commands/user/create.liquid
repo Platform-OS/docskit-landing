@@ -1,6 +1,6 @@
 {% liquid
   function object = 'modules/courses/commands/user/create/build', object: object
-  function object = 'modules/courses/commands/user/create/check', object: object, hcaptcha_params: hcaptcha_params %}
+  function object = 'modules/courses/commands/user/create/check', object: object, hcaptcha_params: context.params
 
   comment
     A simplified alternative to hook_user_create
