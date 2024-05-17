@@ -55,7 +55,7 @@ metadata:
       theme_render_rc 'components/molecules/formfield', input_params: input_params, label_params: label_params, validation: validation, classes: 'user-form__fieldset'
 
       if errors.hcaptcha
-      theme_render_rc 'components/molecules/alert', content: 'Captcha validation error, please try again', severity: 'warning'
+        theme_render_rc 'components/molecules/alert', content: 'Captcha validation error, please try again', severity: 'warning'
       endif
       spam_protection 'hcaptcha'
 
