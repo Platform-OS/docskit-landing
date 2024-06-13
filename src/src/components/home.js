@@ -82,23 +82,23 @@ export default function HomePage() {
               <Heading level={2}>What's included <span className='sub'>in DocsKit</span></Heading>
               <ul className="feature-list">
                 <li>
-                  <img src={openSource} alt="Open source" />
+                  <img src={openSource} alt="" />
                   Open-source Docs as Code documentation solution leveraging platformOS, a Git workflow, and a static site generator
                 </li>
                 <li>
-                  <img src={colorSchemes} alt="Configurable color schemes" />
+                  <img src={colorSchemes} alt="" />
                   Three configurable color schemes
                 </li>
                 <li>
-                  <img src={editorialWorkflow} alt="Editorial workflow" />
+                  <img src={editorialWorkflow} alt="" />
                   Editorial workflow
                 </li>
                 <li>
-                  <img src={howTo} alt="Comprehensive documentation" />
+                  <img src={howTo} alt="" />
                   Comprehensive how-to documentation for using the DocsKit
                 </li>
                 <li>
-                  <img src={templates} alt="Content type templates" />
+                  <img src={templates} alt="" />
                   Templates for your most frequently used content types
                 </li>
               </ul>
