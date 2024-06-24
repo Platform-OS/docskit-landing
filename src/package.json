@@ -23,13 +23,11 @@
     "gatsby": "^5.10.0",
     "gatsby-cookie-notice": "^1.0.6",
     "gatsby-plugin-gdpr-cookies": "^2.0.9",
-    "gatsby-plugin-local-search": "^2.0.1",
     "gatsby-plugin-manifest": "^5.10.0",
     "gatsby-plugin-plausible": "^0.0.7",
     "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-use-flexsearch": "^0.1.1",
     "sitemap": "^7.1.1"
   }
 }

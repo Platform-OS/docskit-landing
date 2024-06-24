@@ -26,42 +26,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-local-search',
-      options: {
-        name: 'pages',
-        engine: 'flexsearch',
-        engineOptions: {
-          tokenize: 'forward'
-        },
-        query: `
-        {
-          allMdx {
-            nodes {
-              id
-              body
-              frontmatter {
-                title
-                description
-                slug
-              }
-            }
-          }
-        }
-        `,
-        ref: 'id',
-        index: ['title', 'body', 'description'],
-        store: ['id', 'slug', 'title', 'description'],
-        normalizer: ({ data }) =>
-          data.allMdx.nodes.map((node) => ({
-            id: node.id,
-            slug: node.frontmatter.slug,
-            title: node.frontmatter.title,
-            description: node.frontmatter.description,
-            body: node.body
-          })),
-      },
-    },
-    {
       resolve: `gatsby-plugin-plausible`,
       options: {
         domain: `docskit.platformos.com`,

@@ -11,3 +11,5 @@ modules_that_allow_delete_on_deploy:
   - permission
   - theme-manager
   - user
+  - openai
+  - openai-docs-kit
