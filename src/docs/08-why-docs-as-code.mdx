@@ -1,0 +1,70 @@
+---
+title: Why Docs as Code
+slug: why-dac
+description: TODO 
+---
+
+# Collaboration and Version Control
+
+Docs as Code thrives on collaboration and version control. By using GitHub (or another Git platform) for managing your documentation, multiple contributors can work on the same project without worrying about overwriting each other’s work. Every time you push a change, Git tracks the version and provides you with the ability to review, revert, or merge changes efficiently.
+
+**Tip:** Always commit your changes regularly with meaningful messages. This not only helps you keep track of your progress but also allows your team members to understand the purpose of each change.
+
+Example:
+```
+git add .
+git commit -m "Added troubleshooting guide for installation issues"
+```
+
+## Reviewing and Proofreading
+
+Once you've written your documentation, it's time to **review** it. In an editorial workflow, reviewing is crucial to ensure that content is clear, accurate, and aligned with your style guide. Reviewers should focus on:
+
+- **Clarity and readability**: Is the content easy to understand for the target audience?
+- **Technical accuracy**: Are the instructions correct? Do they match the actual code or configuration?
+- **Consistency**: Does the document follow your style guide, especially regarding terminology, formatting, and tone?
+
+GitHub's **pull request (PR)** feature is perfect for this. It allows reviewers to provide comments, suggest changes, and approve or reject the changes. Once a PR is merged, the changes are officially part of the documentation.
+
+**Tip:** As part of the Docs as Code workflow, always encourage peer review before merging significant changes to ensure content quality.
+
+## Continuous Integration (CI)
+
+To ensure the quality of your documentation, especially for large projects, you can implement **Continuous Integration (CI)**. CI tools (e.g., GitHub Actions, Jenkins) help automate the process of checking for issues, building your documentation site, and even running tests for code snippets. This ensures that your documentation is always up-to-date and that the quality remains high.
+
+For DocsKit, this could involve setting up a CI pipeline that:
+
+- Automatically checks for broken links
+- Validates MDX syntax
+- Runs accessibility checks to ensure that your site is usable by everyone
+
+By integrating CI into your workflow, you can catch errors early and maintain a high-quality documentation site that your users can trust.
+
+## Managing Documentation Versions
+
+As your project evolves, the documentation will need to reflect changes in the software or service. It’s important to track different versions of your documentation, especially if the software has major updates.
+
+DocsKit supports managing multiple versions of your documentation. This allows you to publish documentation for different versions of your product, making it easier for users to find the correct version of the guide they need.
+
+**Tip:** To manage different versions, you can organize your content into versioned directories. For example, a structure like:
+
+```
+└── src
+    ├── docs
+        ├── v1.0
+        │   ├── installation.mdx
+        │   └── setup.mdx
+        └── v2.0
+            ├── installation.mdx
+            └── setup.mdx
+```
+
+Each version of the documentation can then have its own set of pages, tailored to the features or changes of that particular version.
+
+**Message**: To learn more about managing versions in DocsKit, check out the [versioning topic in the DocsKit user guide](https://docskit.platformos.com/documentation/versioning/).
+
+## Final Thoughts
+
+Writing documentation with Docs as Code ensures that your process is both scalable and maintainable. By using Git for version control, following a consistent editorial workflow, and leveraging DocsKit's customizable templates, you can build high-quality, user-friendly documentation that evolves alongside your project.
+
+Whether you’re writing from scratch or improving existing content, the key to success is collaboration, consistency, and always keeping the end user in mind.
