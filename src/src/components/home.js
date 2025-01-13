@@ -33,7 +33,7 @@ import './home.css';
 const openTrackApp = () => {
   track('CTA', {props: {text: 'Schedule a call', position: 'card'}});
   if (window !== undefined) {
-    const trackAppWindow = window.open('https://calendar.thetrackapp.com/colin-frost/5939f8d5-c49e-4626-9e70-3f51aa599dcd', '_blank', 'noreferrer');
+    const trackAppWindow = window.open('/contact', '_blank', 'noreferrer');
     trackAppWindow?.focus();
   }
 }
