@@ -1,3 +1,4 @@
+escape_output_instead_of_sanitize: true
 theme_search_paths:
   -
   - modules/courses
