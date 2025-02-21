@@ -43,7 +43,7 @@ const Sidebar = ({ branch, treeData = [], isMobileNavOpen = false, sidebarEnable
         <nav className="w-56">
           <p className="pb-6 text-supplementary">Search documentation</p>
           <form method="get" action="/search/" style={{ marginBottom: '1.5rem' }} autoComplete="off">
-            <input name="q" aria-label="Search" className="search__input" type="search" placeholder="Search..." aria-autocomplete="none" autoComplete="off" />
+            <input name="query" aria-label="Search" className="search__input" type="search" placeholder="Search..." aria-autocomplete="none" autoComplete="off" />
           </form>
           <ul className="text-normal">
             {treeData.map(item => item && (<NavItem key={item.slug} {...item} activeBranch={activeNavigationTreeBranch} shouldUseNavigationBranch={shouldUseNavigationBranch} />))}
