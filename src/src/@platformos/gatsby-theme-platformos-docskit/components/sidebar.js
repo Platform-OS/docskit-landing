@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 const NavItem = ({ children, slug = '', title = '', level = 0, activeBranch = [], shouldUseNavigationBranch }) => {
   const hasChildren = children && children.length > 0;
-  const isOpen = !shouldUseNavigationBranch || activeBranch[0]?.title === title
+  const isOpen = !shouldUseNavigationBranch || activeBranch[0]?.title === title;
   const textClass = level > 0 ? `pl-${2 + (level * 2)}` : 'font-bold py-2'; // 'pl-2 pl-4 pl-6'
   const itemClass = level > 0 ? 'border-l border-divider pl-4' : '';
   return (
@@ -11,10 +11,20 @@ const NavItem = ({ children, slug = '', title = '', level = 0, activeBranch = []
       {title !== '' && (
         <Link
           to={slug}
-          className={`hover:text-interactive-text inline-block py-1 ${textClass} ${itemClass}`}
+          className={`hover:text-interactive-text inline-block py-1 ${textClass} ${itemClass} flex items-center`}
           activeClassName="text-interactive-text border-interactive-text"
         >
           {title}
+          {hasChildren && (
+            <span
+              className={`ml-auto transition-transform duration-200 ${
+                isOpen ? 'rotate-180' : 'rotate-0'
+              }`}
+              aria-hidden="true"
+            >
+              ▼
+            </span>
+          )}
         </Link>
       )}
       {hasChildren && (
