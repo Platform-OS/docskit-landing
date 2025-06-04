@@ -63,7 +63,7 @@ const Breadcrumbs = ({ treeData = [], currentPath = '/' }) => {
             </li>
             {!crumb.active &&
               (<li className="inline">
-                <span className="text-supplementary">/</span>
+                <span className="text-supplementary" aria-hidden="true">/</span>
               </li>)}
           </React.Fragment>
         ))}
