@@ -42,6 +42,10 @@ main .prose a:not(:where([class~="not-prose"] *)) {
 	margin-bottom: 0.5em;
 }
 
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
 .styled-list ul li::before {
 	content: '';
 	position: absolute;

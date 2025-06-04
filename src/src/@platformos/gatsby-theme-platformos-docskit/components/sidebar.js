@@ -3,22 +3,34 @@ import { Link } from 'gatsby';
 
 const NavItem = ({ children, slug = '', title = '', level = 0, activeBranch = [], shouldUseNavigationBranch }) => {
   const hasChildren = children && children.length > 0;
-  const isOpen = !shouldUseNavigationBranch || activeBranch[0]?.title === title
+  const isOpen = !shouldUseNavigationBranch || activeBranch[0]?.title === title;
   const textClass = level > 0 ? `pl-${2 + (level * 2)}` : 'font-bold py-2'; // 'pl-2 pl-4 pl-6'
   const itemClass = level > 0 ? 'border-l border-divider pl-4' : '';
+  const dropdownId = `navitem-dropdown-${slug.replace(/\W+/g, '-')}`;
+
   return (
     <li className="text-prominent">
       {title !== '' && (
         <Link
           to={slug}
-          className={`hover:text-interactive-text inline-block py-1 ${textClass} ${itemClass}`}
+          className={`hover:text-interactive-text inline-block py-1 flex items-center justify-between ${textClass} ${itemClass}`}
           activeClassName="text-interactive-text border-interactive-text"
+          aria-expanded={hasChildren ? isOpen : undefined}
+          aria-controls={hasChildren ? dropdownId : undefined}
         >
           {title}
+          {hasChildren && (
+            <span aria-hidden="true">
+              {isOpen ? '▲' : '▼'}
+            </span>
+          )}
         </Link>
       )}
       {hasChildren && (
-        <ul className={isOpen || level > 0 ? '' : 'hidden'}>
+        <ul
+          id={dropdownId}
+          className={isOpen || level > 0 ? '' : 'hidden'}
+        >
           {children.map((item) => (
             <NavItem key={item.slug} {...item} level={level + 1} />
           ))}
