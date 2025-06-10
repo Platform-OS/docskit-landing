@@ -120,7 +120,7 @@ export default function ContactForm() {
         </div>
       </div>
       {hCaptchaKey && (
-        <div className="h-captcha" aria-label="hCaptcha">
+        <div className="h-captcha" aria-labelledby="hcaptcha-accessibility-desc">
           <HCaptcha
             sitekey={hCaptchaKey}
             accessibility={true}
