@@ -121,7 +121,14 @@ export default function ContactForm() {
       </div>
       {hCaptchaKey && (
         <div className="h-captcha" aria-label="hCaptcha">
-          <HCaptcha sitekey={hCaptchaKey} />
+          <HCaptcha
+            sitekey={hCaptchaKey}
+            accessibility={true}
+            aria-label="CAPTCHA: Complete this challenge to prove you are not a robot. If you have difficulty, use the accessibility option."
+          />
+          <div className="sr-only" id="hcaptcha-accessibility-desc">
+            This CAPTCHA may require solving an image challenge. If you are unable to complete it, select the accessibility option for an audio challenge or contact us at <a href="mailto:support@example.com">support@example.com</a>.
+          </div>
         </div>
       )}
       <div className="contact-form__actions">
