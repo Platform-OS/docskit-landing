@@ -125,6 +125,7 @@ export default function ContactForm() {
             sitekey={hCaptchaKey}
             accessibility={true}
             aria-label="CAPTCHA: Complete this challenge to prove you are not a robot. If you have difficulty, use the accessibility option."
+            aria-describedby="hcaptcha-accessibility-desc"
           />
           <div className="sr-only" id="hcaptcha-accessibility-desc">
             This CAPTCHA may require solving an image challenge. If you are unable to complete it, select the accessibility option for an audio challenge or contact us at <a href="mailto:support@example.com">support@example.com</a>.
