@@ -43,16 +43,30 @@ const Breadcrumbs = ({ treeData = [], currentPath = '/' }) => {
   return (
     <nav className="w-full mb-6 text-supplementary text-sm">
       <ol className="list-reset" data-testid="breadcrumbs">
-        {breadcrumbs.map(crumb => (
+        {breadcrumbs.map((crumb, idx) => (
           <React.Fragment key={crumb.slug}>
-            <li data-testid="breadcrumb-item" className="cursor-default inline break-word">
-              {crumb.active ? crumb.title : (<Link to={crumb.slug} className="text-interactive-text hover:text-interactive-hover">{crumb.title}</Link>)}
+            <li
+              data-testid="breadcrumb-item"
+              className={`cursor-default inline break-word${crumb.active ? ' px-4 py-2' : ''}`}
+            >
+              {crumb.active
+                ? crumb.title
+                : (
+                  <Link
+                    to={crumb.slug}
+                    className={`text-interactive-text underline hover:text-interactive-hover py-2 ${idx === 0 ? 'pr-4' : 'px-4'}`}
+                  >
+                    {crumb.title}
+                  </Link>
+                )
+              }
             </li>
             {!crumb.active &&
               (<li className="inline">
-                <span className="mx-2 text-supplementary">/</span>
+                <span className="text-supplementary" aria-hidden="true">/</span>
               </li>)}
-          </React.Fragment>))}
+          </React.Fragment>
+        ))}
       </ol>
     </nav>
   );
