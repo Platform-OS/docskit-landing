@@ -185,7 +185,7 @@ export default function HomePage() {
             </Grid>
           </div>
           <div className='flex'>
-            <Link to="/docskit/features/" className='features-link hover:underline'>
+            <Link to="/docskit/features/" className='features-link hover:underline' alt="Discover DocsKit Features designed to enhance your documentation site.">
               More features <img src={arrow} />
             </Link>
           </div>
