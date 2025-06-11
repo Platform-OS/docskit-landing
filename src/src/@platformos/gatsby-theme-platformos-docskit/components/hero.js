@@ -31,7 +31,7 @@ const Hero = () => (
 
       </div>
       <div className="hero__illustration">
-        <StaticImage src="../../../images/hero.png" width={500} quality={100} loading='eager' alt="PlatformOS DocsKit" placeholder='#fff' className="h-auto" />
+        <StaticImage src="../../../images/hero.png" width={500} quality={100} loading='eager' placeholder='#fff' className="h-auto" />
       </div>
   </div>
 );
