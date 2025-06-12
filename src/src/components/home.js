@@ -31,7 +31,7 @@ import track from '../helpers/plausible';
 import './home.css';
 
 const openTrackApp = () => {
-  track('CTA', {props: {text: 'Schedule a call', position: 'card'}});
+  track('CTA', { props: { text: 'Schedule a call', position: 'card' } });
   if (window !== undefined) {
     const trackAppWindow = window.open('/contact', '_blank', 'noreferrer');
     trackAppWindow?.focus();
@@ -59,15 +59,17 @@ export default function HomePage() {
 
               <Heading level={3}>Schedule a discovery call</Heading>
               <p>
-                Dive deeper into DocsKit's capabilities! Join us for a 20-minute discussion to explore how DocsKit can enhance your documentation and determine if it's the right fit for your projects.              </p>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  openTrackApp();
-                }}
+                Dive deeper into DocsKit's capabilities! Join us for a 20-minute discussion to explore how DocsKit can enhance your documentation and determine if it's the right fit for your projects.
+              </p>
+
+              <Button
+                href="/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={openTrackApp}
               >
-                <Button href="#">Schedule a call</Button>
-              </button>
+                Schedule a call
+              </Button>
             </Card>
           </Grid>
         </div>
@@ -76,7 +78,7 @@ export default function HomePage() {
         <div className="container not-prose">
           <Grid className='items-center'>
             <div className='included-features-img'>
-              <StaticImage src="../images/whats-included.png" alt="What's included in DocsKit" />
+              <StaticImage src="../images/whats-included.png" alt="" />
             </div>
             <div>
               <Heading level={2}>What's included <span className='sub'>in DocsKit</span></Heading>
@@ -120,7 +122,7 @@ export default function HomePage() {
                     <p>quick and effortless deployment of your documentation site</p>
                   </div>
                   <span className='icon--rounded'>
-                    <img src={setup} alt="Easy setup" />
+                    <img src={setup} alt="" />
                   </span>
                 </Grid>
               </Card>
@@ -131,7 +133,7 @@ export default function HomePage() {
                     <p>easy formatting and content creation</p>
                   </div>
                   <span className='icon--rounded'>
-                    <img src={markdown} alt="Markdown and MDX support" />
+                    <img src={markdown} alt="" />
                   </span>
                 </Grid>
               </Card>
@@ -142,7 +144,7 @@ export default function HomePage() {
                     <p>inclusive experience for all users</p>
                   </div>
                   <span className='icon--rounded'>
-                    <img src={accessibility} alt="Accessibility compliance" />
+                    <img src={accessibility} alt="" />
                   </span>
                 </Grid>
               </Card>
@@ -154,7 +156,7 @@ export default function HomePage() {
                   </div>
 
                   <span className='icon--rounded'>
-                    <img src={responsive} alt="Responsive design" />
+                    <img src={responsive} alt="" />
                   </span>
                 </Grid>
               </Card>
@@ -165,7 +167,7 @@ export default function HomePage() {
                     <p>personalize the appearance of your documentation</p>
                   </div>
                   <span className='icon--rounded'>
-                    <img src={themes} alt="Customizable themes" />
+                    <img src={themes} alt="" />
                   </span>
                 </Grid>
               </Card>
@@ -176,15 +178,15 @@ export default function HomePage() {
                     <p>quickly find specific content</p>
                   </div>
                   <span className='icon--rounded'>
-                    <img src={search} alt="Search functionality" />
+                    <img src={search} alt="" />
                   </span>
                 </Grid>
               </Card>
             </Grid>
           </div>
           <div className='flex'>
-            <Link to="/docskit/features/" className='features-link hover:underline'>
-              More features <img src={arrow} alt="arrow" />
+            <Link to="/docskit/features/" className='features-link hover:underline' alt="Discover DocsKit Features designed to enhance your documentation site.">
+              More features <img src={arrow} alt="" />
             </Link>
           </div>
         </div>
@@ -245,7 +247,7 @@ export default function HomePage() {
             </p>
             <Button href="https://www.amazon.com/Crafting-Docs-Success-End-End/dp/1484295935/">
               <span>
-                <img src={arrowRight} style={{ display: 'inline-block' }} alt="arrow" />
+                <img src={arrowRight} style={{ display: 'inline-block' }} alt="" />
               </span>
             </Button>
           </Card>
@@ -262,21 +264,21 @@ export default function HomePage() {
             <div className='tech-grid__card'>
               <Heading level={3}>
                 <span>Built with Gatsby</span>
-                <span><img src={gatsby} alt="Gatsby" width={32} height={32} /></span>
+                <span><img src={gatsby} width={32} height={32} /></span>
               </Heading>
               <p>A fast, open-source static site generator using React.js and GraphQL. It offers rapid load times, security, and scalability with a customizable platform supported by a vast plugin ecosystem.</p>
             </div>
             <div className='tech-grid__card'>
               <Heading level={3}>
                 <span>Using GitHub</span>
-                <span><img src={github} alt="Github" width={32} height={32} /></span>
+                <span><img src={github} width={32} height={32} /></span>
               </Heading>
               <p>A web-based Git version control host that streamlines collaborative development. It offers project management, code tracking, and tools for enhanced teamwork and integration.</p>
             </div>
             <div className='tech-grid__card'>
               <Heading level={3}>
                 <span>Powered by platformOS</span>
-                <span><img src={pos} alt="platformOS" width={32} height={32} /></span></Heading>
+                <span><img src={pos} width={32} height={32} /></span></Heading>
               <p>An API-driven platform for developing scalable web apps and sites. It manages hosting, automated DevOps, and backend services, enabling developers to focus on custom solutions.</p>
             </div>
           </div>

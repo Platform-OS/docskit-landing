@@ -6,9 +6,9 @@ import "./cta-card.css";
 const CtaCard = ({ iconSrc, ctaLink, ctaText, children }) => {
   return (
     <Card variant="gradient" className="c-card--cta not-prose">
-      {iconSrc && <img src={iconSrc} alt="icon" />}
+      {iconSrc && <img src={iconSrc} alt="" />}
       <div className="c-card--cta__content">
-        { children }
+        {children}
       </div>
       {ctaLink && (<Button href={ctaLink} className="c-card--cta__link">
         {ctaText}
