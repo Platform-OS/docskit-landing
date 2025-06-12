@@ -78,7 +78,7 @@ export default function HomePage() {
         <div className="container not-prose">
           <Grid className='items-center'>
             <div className='included-features-img'>
-              <StaticImage src="../images/whats-included.png" />
+              <StaticImage src="../images/whats-included.png" alt="" />
             </div>
             <div>
               <Heading level={2}>What's included <span className='sub'>in DocsKit</span></Heading>
@@ -122,7 +122,7 @@ export default function HomePage() {
                     <p>quick and effortless deployment of your documentation site</p>
                   </div>
                   <span className='icon--rounded'>
-                    <img src={setup} />
+                    <img src={setup} alt="" />
                   </span>
                 </Grid>
               </Card>
@@ -133,7 +133,7 @@ export default function HomePage() {
                     <p>easy formatting and content creation</p>
                   </div>
                   <span className='icon--rounded'>
-                    <img src={markdown} />
+                    <img src={markdown} alt="" />
                   </span>
                 </Grid>
               </Card>
@@ -144,7 +144,7 @@ export default function HomePage() {
                     <p>inclusive experience for all users</p>
                   </div>
                   <span className='icon--rounded'>
-                    <img src={accessibility} />
+                    <img src={accessibility} alt="" />
                   </span>
                 </Grid>
               </Card>
@@ -156,7 +156,7 @@ export default function HomePage() {
                   </div>
 
                   <span className='icon--rounded'>
-                    <img src={responsive} />
+                    <img src={responsive} alt="" />
                   </span>
                 </Grid>
               </Card>
@@ -167,7 +167,7 @@ export default function HomePage() {
                     <p>personalize the appearance of your documentation</p>
                   </div>
                   <span className='icon--rounded'>
-                    <img src={themes} />
+                    <img src={themes} alt="" />
                   </span>
                 </Grid>
               </Card>
@@ -178,7 +178,7 @@ export default function HomePage() {
                     <p>quickly find specific content</p>
                   </div>
                   <span className='icon--rounded'>
-                    <img src={search} />
+                    <img src={search} alt="" />
                   </span>
                 </Grid>
               </Card>
@@ -186,7 +186,7 @@ export default function HomePage() {
           </div>
           <div className='flex'>
             <Link to="/docskit/features/" className='features-link hover:underline' alt="Discover DocsKit Features designed to enhance your documentation site.">
-              More features <img src={arrow} />
+              More features <img src={arrow} alt="" />
             </Link>
           </div>
         </div>
@@ -247,7 +247,7 @@ export default function HomePage() {
             </p>
             <Button href="https://www.amazon.com/Crafting-Docs-Success-End-End/dp/1484295935/">
               <span>
-                <img src={arrowRight} style={{ display: 'inline-block' }} />
+                <img src={arrowRight} style={{ display: 'inline-block' }} alt="" />
               </span>
             </Button>
           </Card>
