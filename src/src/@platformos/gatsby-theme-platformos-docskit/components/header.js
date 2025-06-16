@@ -6,6 +6,26 @@ const Header = ({ siteTitle, isMobileNavOpen, toggleMobileNav, navigation }) => 
 
   return (
     <header className='fixed md:static w-full z-50 top-0 left-0 h-16 md:h-20 bg-panel text-normal flex items-center justify-between px-6 shadow-card'>
+      <nav aria-label="Skip links" className="absolute left-0 top-0">
+        <ul>
+          <li>
+            <a
+              href="#content"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-black p-2 rounded z-50"
+            >
+              Skip to content
+            </a>
+          </li>
+          <li>
+            <a
+              href="#sidebar"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-10 focus:left-2 bg-white text-black p-2 rounded z-50"
+            >
+              Skip to sidebar
+            </a>
+          </li>
+        </ul>
+      </nav>
       <Link to="/"><Logo /></Link>
       <button type="button" className="md:hidden text-graphic" aria-label="Open navigation" onClick={toggleMobileNav}>
         {!isMobileNavOpen ? (<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" className="h-6 w-6 stroke-current">

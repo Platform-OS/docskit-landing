@@ -50,7 +50,7 @@ const Sidebar = ({ branch, treeData = [], isMobileNavOpen = false, sidebarEnable
   classes += mobileClasses;
 
   return (
-    <div className={classes}>
+    <div id='sidebar' className={classes}>
       <div className="md:sticky top-[4.5rem] -ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-4">
         <nav className="w-56">
           <p className="pb-6 text-supplementary">Search documentation</p>
