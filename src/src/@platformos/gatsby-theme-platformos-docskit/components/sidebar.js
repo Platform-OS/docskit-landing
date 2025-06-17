@@ -13,7 +13,7 @@ const NavItem = ({ children, slug = '', title = '', level = 0, activeBranch = []
       {title !== '' && (
         <Link
           to={slug}
-          className={`hover:text-interactive-text inline-block py-1 flex items-center justify-between ${textClass} ${itemClass}`}
+          className={`hover:text-interactive-text inline-block py-2 flex items-center justify-between ${textClass} ${itemClass}`}
           activeClassName="text-interactive-text border-interactive-text"
           aria-expanded={hasChildren ? isOpen : undefined}
           aria-controls={hasChildren ? dropdownId : undefined}
@@ -50,7 +50,7 @@ const Sidebar = ({ branch, treeData = [], isMobileNavOpen = false, sidebarEnable
   classes += mobileClasses;
 
   return (
-    <div className={classes}>
+    <div id='sidebar' className={classes}>
       <div className="md:sticky top-[4.5rem] -ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-4">
         <nav className="w-56">
           <p className="pb-6 text-supplementary">Search documentation</p>
