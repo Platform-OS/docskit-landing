@@ -13,7 +13,7 @@ const NavItem = ({ children, slug = '', title = '', level = 0, activeBranch = []
       {title !== '' && (
         <Link
           to={slug}
-          className={`hover:text-interactive-text inline-block py-1 flex items-center justify-between ${textClass} ${itemClass}`}
+          className={`hover:text-interactive-text inline-block py-2 flex items-center justify-between ${textClass} ${itemClass}`}
           activeClassName="text-interactive-text border-interactive-text"
           aria-expanded={hasChildren ? isOpen : undefined}
           aria-controls={hasChildren ? dropdownId : undefined}

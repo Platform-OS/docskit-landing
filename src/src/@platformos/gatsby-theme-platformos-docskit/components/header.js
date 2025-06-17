@@ -26,8 +26,10 @@ const Header = ({ siteTitle, isMobileNavOpen, toggleMobileNav, navigation }) => 
           </li>
         </ul>
       </nav>
-      <Link to="/"><Logo /></Link>
-      <button type="button" className="md:hidden text-graphic" aria-label="Open navigation" onClick={toggleMobileNav}>
+      <div className="flex items-center h-full">
+        <Link to="/" className='h-full flex items-center'><Logo /></Link>
+      </div>
+      <button type="button" className="md:hidden text-graphic p-4" aria-label="Open navigation" onClick={toggleMobileNav}>
         {!isMobileNavOpen ? (<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" className="h-6 w-6 stroke-current">
           <path d="M4 7h16M4 12h16M4 17h16" />
         </svg>):
