@@ -196,7 +196,9 @@ export default function HomePage() {
           <div className='text-center'>
             <Heading level={2}>Pre-designed custom components <span className="sub">that you can readily utilize in your MDX documentation pages</span></Heading>
           </div>
-          <video width="1040" height="480" autoPlay loop muted className="mx-auto" alt="An animation demonstrates how DocsKit's appearance can be customized using configurable components."> <source src={video} type="video/mp4" />
+          <video width="1040" height="480" autoPlay loop muted className="mx-auto" aria-label="An animation demonstrates how DocsKit's appearance can be customized using configurable components.">
+            <source src={video} type="video/mp4" />
+            <track src="../captions/customization.vtt" kind="captions" srclang="en" label="English" />
             <StaticImage src="../images/docskit_customizable.png" alt="Customizations" placeholder='#fff' />
           </video>
         </div>
