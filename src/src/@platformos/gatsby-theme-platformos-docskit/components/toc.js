@@ -94,7 +94,7 @@ const useIntersectionObserver = (setActiveId) => {
       headingElementsRef.current = headings.reduce((map, headingElement) => {
         map[headingElement.target.id] = headingElement;
         return map;
-      }, headingElementsRef.current);
+      }, headingElementsRef.current || {});
 
       // Get all headings that are currently visible on the page
       const visibleHeadings = [];
@@ -144,8 +144,8 @@ const TableOfContents = () => {
     <div className="hidden xl:sticky xl:top-[4.5rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
       <nav className="w-56">
         <h3 className="font-bold text-prominent pb-6">On this page</h3>
-      <Headings headings={nestedHeadings} activeId={activeId} />
-    </nav>
+        <Headings headings={nestedHeadings} activeId={activeId} />
+      </nav>
     </div>
   );
 };

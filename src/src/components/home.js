@@ -196,7 +196,7 @@ export default function HomePage() {
           <div className='text-center'>
             <Heading level={2}>Pre-designed custom components <span className="sub">that you can readily utilize in your MDX documentation pages</span></Heading>
           </div>
-          <video width="1040" height="480" autoPlay loop muted className="mx-auto"> <source src={video} type="video/mp4" />
+          <video width="1040" height="480" autoPlay loop muted className="mx-auto" alt="An animation demonstrates how DocsKit's appearance can be customized using configurable components."> <source src={video} type="video/mp4" />
             <StaticImage src="../images/docskit_customizable.png" alt="Customizations" placeholder='#fff' />
           </video>
         </div>
@@ -218,7 +218,7 @@ export default function HomePage() {
             </div>
 
             <div>
-              <StaticImage src="../images/award.png" alt="Award winning documentation" placeholder='#F7F8FA' />
+              <StaticImage src="../images/award.png" alt="A hand holding a trophy, symbolizing success, with two overlapping screenshots of DocsKit's documentation interface in the foreground." placeholder='#F7F8FA' />
             </div>
           </Grid>
         </div>
@@ -228,7 +228,7 @@ export default function HomePage() {
           <div className='text-center max-w-3xl mx-auto'>
             <Heading level={2}>Begin crafting your documentation <span className="sub">on a codebase fine-tuned for optimal performance, accessibility, sustainability, and SEO.</span></Heading>
           </div>
-          <StaticImage src="../images/performance.png" alt="Optimized for performance, accessibility, sustainability and SEO" placeholder='#fff' />
+          <StaticImage src="../images/performance.png" alt="DocsKit's documentation interface and a performance evaluation report. A highlighted scorecard in the foreground shows perfect scores of 100 for Performance, Accessibility, Best Practices, and SEO, with a PWA (Progressive Web App) badge." placeholder='#fff' />
         </div>
       </section>
       <section className='section section--gray'>
@@ -237,7 +237,7 @@ export default function HomePage() {
             <div style={{ gridColumn: 'span 2 / span 2' }}>
               <Heading level={2}>Uncover the strategies <span className="sub">behind our multi-award-winning platformOS Documentation and learn how to build your own.</span></Heading>
             </div>
-            <StaticImage src="../images/book.png" alt="Crafting Docs for Success: An End-to-End Approach to Developer Documentation" />
+            <StaticImage src="../images/book.png" alt="Stacked books with the title 'Crafting Docs for Succes' on the cover." />
 
           </Grid>
           <Card className='book-banner not-prose' variant='gradient'>
