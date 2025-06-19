@@ -239,7 +239,7 @@ export default function HomePage() {
             <div style={{ gridColumn: 'span 2 / span 2' }}>
               <Heading level={2}>Uncover the strategies <span className="sub">behind our multi-award-winning platformOS Documentation and learn how to build your own.</span></Heading>
             </div>
-            <StaticImage src="../images/book.png" alt="Stacked books with the title 'Crafting Docs for Succes' on the cover." />
+            <StaticImage src="../images/book.png" alt="Stacked books with the title 'Crafting Docs for Success' on the cover." />
 
           </Grid>
           <Card className='book-banner not-prose' variant='gradient'>
