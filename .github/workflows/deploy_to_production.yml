@@ -22,7 +22,7 @@ jobs:
           ref: master
           submodules: true
 
-      - name: Set up Node.js and Yarn
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20.11.1
@@ -43,4 +43,11 @@ jobs:
           set -e
           npm -g install @platformos/pos-cli
           pos-cli deploy
+          pos-cli constants set --name modules/openai/OPENAI_REINDEX_TOKEN --value ${{ secrets.OPENAI_REINDEX_TOKEN }}
+          pos-cli constants set --name modules/openai/OPENAI_SECRET_TOKEN --value ${{ secrets.OPENAI_SECRET_TOKEN }}
 
+      - name: Search reindex
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: '${{ secrets.MPKIT_PROD_URL }}_embeddings/reindex.json?token=${{ secrets.OPENAI_REINDEX_TOKEN }}'
+          method: 'GET'

@@ -1,0 +1,27 @@
+{% liquid
+
+  # assign ignored_slugs = context.constants['modules/openai/OPENAI_PAGE_SLUGS_TO_IGNORE'] | default: '404,manifest.webmanifest,search,/' | split: ','
+  # assign ignored_prefixes = context.constants['modules/openai/OPENAI_PAGE_SLUG_PREFIXES_TO_IGNORE'] | default: '_,framework-,app-,~partytown,api/,user/,admin/,styleguide' | split: ','
+
+  assign ignored_slugs = '404,manifest.webmanifest,search,/' | split: ','
+  assign ignored_prefixes = '_,framework-,app-,~partytown,api,user,admin,styleguide,sessions,session,sitemap' | split: ','
+
+  graphql r = 'modules/openai-docs-kit/pages/search', not_slugs: ignored_slugs, limit: limit
+
+  assign all_pages = r.pages.results
+
+  if ignored_prefixes == empty
+    return r.pages.results
+  else
+    assign pages = '[]' | parse_json
+    for page in all_pages
+      assign contains_invalid_prefix = page.slug | start_with: ignored_prefixes
+      unless contains_invalid_prefix
+        assign pages = pages | add_to_array: page
+      endunless
+    endfor
+    return pages
+  endif
+
+%}
+

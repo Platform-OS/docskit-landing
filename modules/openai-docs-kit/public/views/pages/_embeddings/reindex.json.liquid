@@ -1,0 +1,7 @@
+{%- if context.params.token == context.constants['modules/openai/OPENAI_REINDEX_TOKEN'] and context.params.token != blank -%}
+  {%- function res = 'modules/openai-docs-kit/commands/openai/pages_to_embeddings' -%}
+  {{- res -}}
+{%- else -%}
+  Unauthorized
+ {% response_status 401 %}
+{%- endif -%}

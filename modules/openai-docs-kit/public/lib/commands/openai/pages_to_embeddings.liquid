@@ -1,0 +1,117 @@
+{% liquid
+
+  function all_pages = 'modules/openai-docs-kit/queries/pages/search_for_openai', limit: null
+  function object = 'modules/openai/queries/embeddings/search', limit: null, metadata: null, related_to: null
+  assign existing_embeddings = object.results
+
+  assign report = '{ "created": { "slugs": [], "count": 0 }, "updated": { "slugs": [], "count": 0 }, "skipped": { "slugs": [], "count": 0 }, "deleted": { "slugs": [], "count": 0 }, "errors": { "slugs": [], "count": 0 } }' | parse_json
+
+  assign pages = '[]' | parse_json
+
+  for page in all_pages
+    assign page_content_has_changed = true
+    hash_assign page['title'] = page.html_content | html_to_text: root_element: 'title'
+    hash_assign page['html_content'] = page.html_content | html_to_text: root_element: 'main#content'
+
+    if page.html_content == blank
+      continue
+    endif
+
+    hash_assign page['sha1'] = page['html_content'] | sha1
+
+    for existing_embedding in existing_embeddings
+      if existing_embedding.metadata.slug == page.slug and existing_embedding.metadata.sha1 == page.sha1
+        assign page_content_has_changed = false
+        hash_assign report['skipped']['slugs'] = report['skipped']['slugs'] | add_to_array: page.slug
+        hash_assign report['skipped']['count'] = report['skipped']['count'] | plus: 1
+        break
+      endif
+    endfor
+
+    if page_content_has_changed
+      assign pages = pages | array_add: page
+    endif
+  endfor
+
+  assign existing_slugs = all_pages | map: 'slug'
+  for existing_embedding in existing_embeddings
+    unless existing_slugs contains existing_embedding.metadata.slug
+      hash_assign report['deleted']['slugs'] = report['deleted']['slugs'] | add_to_array: existing_embedding.metadata.slug
+      hash_assign report['deleted']['count'] = report['deleted']['count'] | plus: 1
+      function object = 'modules/openai/commands/embeddings/delete', id: existing_embedding.id
+    endunless
+  endfor
+
+  assign pages_chunks = pages | array_in_groups_of: 50
+
+  for page_chunk in pages_chunks
+    assign i =
+    assign data = page_chunk | map: 'html_content'
+
+    function response = 'modules/openai/commands/openai/fetch_embeddings', object: data
+    if response.data.size > 0
+      assign embeddings = response.data
+
+      for emb in embeddings
+        assign pos_embedding_input = '{}' | parse_json
+        assign metadata = '{}' | parse_json
+
+        hash_assign metadata['slug'] = page_chunk[i].slug
+        hash_assign metadata['page'] = '{}' | parse_json
+        hash_assign metadata['page_metadata'] = page_chunk[i].metadata
+        if metadata['page_metadata'] == blank
+          hash_assign metadata['page_metadata'] = '{}' | parse_json
+        endif
+        hash_assign metadata['page_metadata']['title'] = page_chunk[i].title
+        hash_assign metadata['sha1'] = page_chunk[i].sha1
+
+        hash_assign pos_embedding_input['metadata'] = metadata
+        hash_assign pos_embedding_input['embedding'] = emb.embedding
+        hash_assign pos_embedding_input['content'] = page_chunk[i].html_content
+
+        assign found_embedding = null
+
+        for existing_embedding in existing_embeddings
+          if existing_embedding.metadata.slug == pos_embedding_input.metadata.slug
+            assign found_embedding = existing_embedding
+            break
+          endif
+        endfor
+
+        if found_embedding
+            hash_assign pos_embedding_input['id'] = found_embedding.id
+            function pos_embedding = 'modules/openai/commands/embeddings/update', object: pos_embedding_input, id: null
+
+
+            if pos_embedding.valid
+              hash_assign report['updated']['slugs'] = report['updated']['slugs'] | add_to_array: pos_embedding_input.metadata.slug
+              hash_assign report['updated']['count'] = report['updated']['count'] | plus: 1
+            else
+              assign err = "Failed to update Embedding#" | append: pos_embedding_input.id | append: ": " | append: pos_embedding.errors
+              hash_assign report['errors']['slugs'] = report['errors']['slugs'] | add_to_array: pos_embedding_input.metadata.slug
+              hash_assign report['errors']['count'] = report['errors']['count'] | plus: 1
+              log err, type: 'ERROR'
+            endif
+          else
+            function pos_embedding = 'modules/openai/commands/embeddings/create', object: pos_embedding_input
+            if pos_embedding.valid
+              hash_assign report['created']['slugs'] = report['created']['slugs'] | add_to_array: pos_embedding_input.metadata.slug
+              hash_assign report['created']['count'] = report['created']['count'] | plus: 1
+            else
+              assign err = "Failed to create Embedding: " | append: pos_embedding.errors
+              hash_assign report['errors']['slugs'] = report['errors']['slugs'] | add_to_array: pos_embedding_input.metadata.slug
+              hash_assign report['errors']['count'] = report['errors']['count'] | plus: 1
+              log err, type: 'ERROR'
+            endif
+        endif
+
+
+        assign i = i | plus: 1
+      endfor
+    endif
+  endfor
+
+  return report
+
+%}
+
